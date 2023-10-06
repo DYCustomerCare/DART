@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>D A R T | Digitized Anti-Routine Tool | 1.6.0</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="popup" class="overlay-popup" style="display: none;">
+            <article id="popup-article">
+                <div style="display: flex; justify-content: space-between;">
+                    <h2>What's New?</h2>
+                    <a href="javascript:void(0);" onclick="togglePopup(0)"><i class="bi bi-x-lg" style="font-size: 20px;"></i></a>
+                </div>
+                <hr>
+                <div>
+                    <h3><i class="bi bi-send-fill"> </i>Holiday Tab</h3>
+                    <p>Want help with anything holiday related? Check out the <a href="javascript:void(0);" onclick="showTab('holiday')">Holiday Tab</a> to view content specific to holiday related inquries.</p>
+                </div>
+            </article>
+        </div>
+        <div class="overlay-nav">
+            <nav id="nav" title="Open Navigation Menu"><a href="javascript:void(0);" onclick="toggleMenu()"><i class="bi bi-layout-text-sidebar"></i></a></nav>
+            <nav id="nav" title="See What's New!"><a href="javascript:void(0);" onclick="togglePopup(1)"><i class="bi bi-window"></i></a></nav>
+        </div>
+        <div class="overlay-menu">
+            <div id="menu" class="">
+                <div class="menuIcons">
+                    <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()">
+                        <i title="DART LITE Disabled" class="navlock bi bi-unlock hidden"></i>
+                        <i title="DART LITE Enabled" class="navlock bi bi-lock"></i>
+                    </div>
+                    <div id="navDashboard" title="Dashboard" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addDashboard()"><i class="bi bi-grid-1x2"></i></div>
+                    <div id="navSteps" title="Steps" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addSteps()"><i class="bi bi-check2-square"></i></div>
+                    <div id="navFavorites" title="Favorites" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addFavorites()"><i class="bi bi-star"></i></div>
+                    <div id="navNotice" title="Notifications" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addNotices()"><i class="bi bi-bell"></i></div>
+                    <div title="Settings" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addSettings()"><i class="bi bi-gear"></i></div>
+                    <div title="Changelog" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addChangelogs()"><i class="bi bi-arrow-counterclockwise"></i></div>
+                    <div title="Jump To Search Bar & Tabs" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="jumpToTop()"><i class="bi bi-chevron-double-up"></i></div>
+                    <div title="Close Navigation Menu" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="toggleMenu()"><i class="bi bi-x-lg"></i></div>
+                </div>
+                <div class="dropdown" title="Check the weather and time of the NJ Warehouse, or review times of various world locations.">
+                    <hr> 
+                    <div class="dropdown-title"><span id='timeWeather'>Generating Date & Time...</span>&nbsp;| <span id="weatherWarning"></span></div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-content-body">
+                            <div style="text-align: center;">
+                                <hr>
+                                <h3>
+                                    Lyndhurst Weather
+                                </h3>
+                                <div id="weather" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; box-sizing: border-box; text-align: center;">
+                                    <div>
+                                        <p>-</p>
+                                        <p><i class="bi bi-1-circle"></i></p>
+                                        <p>-</p>
+                                        <p>-</p>
+                                    </div>
+                                    <div>
+                                        <p>-</p>
+                                        <p><i class="bi bi-2-circle"></i></p>
+                                        <p>-</p>
+                                        <p>-</p>
+                                    </div>
+                                    <div>
+                                        <p>-</p>
+                                        <p><i class="bi bi-3-circle"></i></p>
+                                        <p>-</p>
+                                        <p>-</p>
+                                    </div>
+                                    <div>
+                                        <p>-</p>
+                                        <p><i class="bi bi-4-circle"></i></p>
+                                        <p>-</p>
+                                        <p>-</p>
+                                    </div>
+                                    <div>
+                                        <p>-</p>
+                                        <p><i class="bi bi-5-circle"></i></p>
+                                        <p>-</p>
+                                        <p>-</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td class="timeColLeft" id="warehouse">
+                                        <h3>Warehouse</h3>
+                                        <p>-</p>
+                                        <p><i class="bi bi-question-circle"></i></p>
+                                        <p>-</p>
+                                        <p>-</p>
+                                    </td>
+                                    <td class="timeColRight">
+                                        <h3>Delivery Dates</h3>
+                                        <i>New orders are<br>expected to deliver...</i>
+                                        <br><br>
+                                        <h4></h4>
+                                        <table>
+                                            <tr>
+                                                <td>Overnight</td>
+                                                <td id='oneDayShipping'>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Two Day</td>
+                                                <td id='twoDayShipping'>-</td>
+                                            </tr>
+                                        </table>
+                                        <h4></h4>
+                                        <table>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <div id="warehouseNotice">
+                                <b>Note:</b> Warehouse hours & delivery times are estimates based on standard shipping times. Excludes holidays, closures, and unexpected delays (weather, shipping volume, etc.)
+                            </div>
+                            <hr>
+                            <div style="width: 100%; text-align: center;">
+                                <h3><i class="bi bi-calendar-heart"></i> Holidays</h3>
+                                <div id="holidays">
+                                    <div>-</div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div style="text-align: center;">
+                                <h3>Time Zones</h3>
+                                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; box-sizing: border-box; text-align: center;" id="timezones">
+                                    <div>
+                                        <p>EST | <span>Eastern</span></p>
+                                        <div>
+                                            <span id='timeNewYork'>00:00 AM</span>
+                                        </div>
+                                        <p>New York, New York</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div>
+                                        <p>CST | <span>Central</span></p>
+                                        <div>
+                                            <span id='timeTexas'>00:00 AM</span>
+                                        </div>
+                                        <p>Houson, Texas</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div>
+                                        <p>MST | <span>Mountain</span></p>
+                                        <div>
+                                            <span id='timeArizona'>00:00 AM</span>
+                                        </div>
+                                        <p>Scottsdale, Arizona</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div>
+                                        <p>PST | <span>Pacific</span></p>
+                                        <div>
+                                            <span id='timeCalifornia'>00:00 AM</span>
+                                        </div>
+                                        <p>Beverly Hills, California</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div>
+                                        <p>AKST | <span>Alaskan</span></p>
+                                        <div>
+                                            <span id='timeAlaska'>00:00 AM</span>
+                                        </div>
+                                        <p>Juneau, Alaska</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div>
+                                        <p>HST | <span>Hawaii–Aleutian</span></p>
+                                        <div>
+                                            <span id='timeHawaii'>00:00 AM</span>
+                                        </div>
+                                        <p>Honolulu, Hawaii</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div>
+                                        <p>CET | <span>Central European</span></p>
+                                        <div>
+                                            <span id='timeParis'>00:00 AM</span>
+                                        </div>
+                                        <p>Paris</p>
+                                        <p>France</p>
+                                    </div>
+                                    <div>
+                                        <p>GMT | <span>Greenwich</span></p>
+                                        <div>
+                                            <span id='timeLondon'>00:00 AM</span>
+                                        </div>
+                                        <p>London</p>
+                                        <p>England</p>
+                                    </div>
+                                    <div>
+                                        <p>GMT+4 | <span>UAE</span></p>
+                                        <div>
+                                            <span id='timeDubai'>00:00 AM</span>
+                                        </div>
+                                        <p>Dubai</p>
+                                        <p>UAE</p>
+                                    </div>
+                                    <div>
+                                        <p>HKT | <span>Hong Kong</span></p>
+                                        <div>
+                                            <span id='timeHongKong'>00:00 AM</span>
+                                        </div>
+                                        <p>Hong Kong</p>
+                                        <p>China</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <input class="searchBar element" id="searchBar" placeholder="Keyword Search (e.g., &quot;Returns&quot;, &quot;Orders&quot;, etc.)" onkeydown="searchBar(this)"
+                title="Keyword Search makes it easier to search for DARTS content. Try common words, such as &quot;returns&quot; or &quot;orders.&quot; DART will return all results that use these keywords. Please note: using whole sentences or asking questions is not recommended.&#013;&#013;To limit your search to Tools, Templates, Blurbs, Notes, Links, and/or boutiques, try changing the search filters below.">
+                </input>
+                <span class="searchBarIcon">
+                    <a href="javascript:void(0);" onclick="searchBarButton()"><i class="bi bi-search"></i></a></i>
+                </span>
+                <div class="dropdown" title="User Search Filters to limit your DART Search and Tab results.">
+                    
+                    <div class="dropdown-title">
+                        Search Filters
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-content-body">
+                            <p style="font-size:smaller; margin-bottom: 4px;">General</p>
+                            <div class="searchBarSettings">
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingTools" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingTools" title="Creative solutions and systems that make life easier.">Tools</label>
+                                </div>
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingTemplates" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingTemplates" title="Formatted text to steamline communication.">Templates</label>
+                                </div>
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingBlurbs" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingBlurbs" title="Small portions of commonly used text.">Blurbs</label>
+                                </div>
+                            </div>
+                            <br><p style="font-size:smaller; margin-bottom: 4px;">Resources</p>
+                            <div class="searchBarSettings">
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingLinks" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingLinks" title="Helpful links to resources outside of DART.">Links</label>
+                                </div>
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingNotes" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingNotes" title="Reference information to make learning easier.">Notes</label>
+                                </div>
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingBoutiques" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingBoutiques" title="David Yurman stores around the world. Currently limited to the United States and Canada.">Locations</label>
+                                </div>
+                            </div>
+                            <br><p style="font-size:smaller; margin-bottom: 4px;">Materials</p>
+                            <div class="searchBarSettings">
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingStones" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingStones" title="Stones used in David Yurman jewelry.">Stones</label>
+                                </div>
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingMetals" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingMetals" title="Metals used in David Yurman jewelry.">Metals</label>
+                                </div>
+                                <div>
+                                    <input style="height: 16px; width: 16px;" type="checkbox" checked="true" id="searchBarSettingChains" class="searchFilterCheckbox">
+                                    <label for="searchBarSettingChains" title="Chains used in David Yurman jewelry.">Chains</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div style="width: 100%; justify-content: space-between; display: flex;">
+                                <button title="Select All Filters" class="textButton" style="width: 50%" onclick="setFilterCheckboxes()">Select All Filters</button>
+                                <button title="Clear All Filters" class="textButton" style="width: 50%" onclick="clearFilterCheckboxes()">Clear All Filters</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div title="Improve or limit Keyword Search result accuracy when using several keywords at a time. Default accuracy is 75%.&#013;&#013;0% - Show me anything with any of these keywords.&#013;50% - My results must have 50% of these keywords.&#013;100% - My results must have all of these keywords.">
+                            <div style="font-size:smaller; margin-bottom: 4px;">Keyword Search Sensitivity</div>
+                            <div>
+                                <select id="searchBarSettingSensitivity" class="element">
+                                    <option value="25" title="25% Accuracy">Weak</option>
+                                    <option value="50" title="50% Accuracy">Moderate</option>
+                                    <option value="75" title="75% Accuracy" selected>Strong</option>
+                                    <option value="100" title="100% Accuracy">Exact</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div id="tabs">
+                        
+                </div>
+                <hr>
+                <div style="text-align: center;">
+                    <div id="tips" onclick="addTip()" title="Clicking this area will randomly generate a new tip."><b>Tip Of The Day:</b> <span id="tip"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-notice">
+            <div class="notice active" id="notice" style="display: none;">
+                <div>
+                    <h3 id="noticeTitle"></h3>
+                    <a href="javascript:void(0);" id="noticeClose" title="Close Notification"><i class="bi bi-x-lg"></i></a>
+                </div>
+                <p id="noticeBody">
+                    
+                </p>
+            </div>
+        </div>
+        <div class="overlay-snow" id="overlay-snow" style="display: none;">
+            <div class="snowflakes" aria-hidden="true">
+                <div class="snow-intro"></div>
+                <div class="snowflake">❅</div>
+                <div class="snowflake">❅</div>
+                <div class="snowflake">❆</div>
+                <div class="snowflake">❄</div>
+                <div class="snowflake">❅</div>
+                <div class="snowflake">❆</div>
+                <div class="snowflake">❄</div>
+                <div class="snowflake">❅</div>
+                <div class="snowflake">❆</div>
+                <div class="snowflake">❄</div>
+            </div>
+        </div>
+        <div class="overlay-hearts" id="overlay-hearts" style="display: none;">
+            <div class="hearts" aria-hidden="true">
+                <div class="hearts-intro"></div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+                <div class="heart">❤</div>
+            </div>
+        </div>
+        <div class="overlay-confettis" id="overlay-confettis" style="display: none;">
+            <div class="confettis" aria-hidden="true">
+                <div class="confetti-intro"></div>
+                <div class="confetti" style="color: red;">◼</div>
+                <div class="confetti" style="color: green;">●</div>
+                <div class="confetti" style="color: blue;">◼</div>
+                <div class="confetti" style="color: orange;">●</div>
+                <div class="confetti" style="color: purple;">◼</div>
+                <div class="confetti" style="color: red;">▪</div>
+                <div class="confetti" style="color: green;">▪</div>
+                <div class="confetti" style="color: blue;">●</div>
+                <div class="confetti" style="color: orange;">▪</div>
+                <div class="confetti" style="color: purple;">●</div>
+            </div>
+        </div>
+        <div class="overlay-flowers" id="overlay-flowers" style="display: none;">
+            <div class="flowers" aria-hidden="true">
+                <div class="flower-intro"></div>
+                <div class="flower" style="color: pink;">✿</div>
+                <div class="flower" style="color: lightgreen;">❁</div>
+                <div class="flower" style="color: lightblue;">✿</div>
+                <div class="flower" style="color: lightyellow;">❁</div>
+                <div class="flower" style="color: Lavender;">✿</div>
+                <div class="flower" style="color: pink;">❁</div>
+                <div class="flower" style="color: lightgreen;">✿</div>
+                <div class="flower" style="color: lightblue;">❁</div>
+                <div class="flower" style="color: lightyellow;">❁</div>
+                <div class="flower" style="color: Lavender;">❁</div>
+            </div>
+        </div>
+        <div class="overlay-leafs" id="overlay-leafs" style="display: none;">
+            <div class="leafs" aria-hidden="true">
+                <div class="leaf-intro"></div>
+                <div class="leaf" style="color: SandyBrown;">⸙</div>
+                <div class="leaf" style="color: darkorange;">⸙</div>
+                <div class="leaf" style="color: goldenrod;">⸙</div>
+                <div class="leaf" style="color: green;">⸙</div>
+                <div class="leaf" style="color: darkorange;">⸙</div>
+                <div class="leaf" style="color: goldenrod;">⸙</div>
+                <div class="leaf" style="color: SandyBrown;">⸙</div>
+                <div class="leaf" style="color: darkorange;">⸙</div>
+                <div class="leaf" style="color: goldenrod;">⸙</div>
+                <div class="leaf" style="color: green;">⸙</div>
+            </div>
+            </div>
+        <div class="DART">
+            <header>
+                <div style="text-align: center;">
+                    <h1><i class="bi bi-heart-arrow"></i> D A R T <i class="bi bi-bullseye"></i></h1>
+                    <h3 id="lite_title" class="liteTitle">L I T E</h3>
+                    <p><i>Digitized Anti-Routine Tool<br>v.<span id="version"></span></i></p>
+                </div>
+                <article>
+                    
+                    <hr>                  
+                </article>
+            </header>
+            <div id="error" class="warning clearable">
+                <b>ERROR:</b> If you are seeing this message:<br>
+                1. You webpage is still loading or setting up.<br>
+                2. JavaScript may be disabled on your browser or portal.<br>
+                3. A JavaScript error has occured.
+            </div>
+            <h2 id="title" class="clearable"></h2>
+            <p id="titleResults" class="clearable"></p>
+            <hr>
+            <div id="dashboard" class="clearable">
+    
+            </div>
+            <div id="results" class="clearable">
+    
+            </div>
+            <div id="credits" class="clearable">
+    
+            </div>
+            <div id="settings" class="clearable">
+    
+            </div>
+            <div id="notices" class="clearable">
+    
+            </div>
+            <div id="stores" class="clearable">
+    
+            </div>
+            <div id="tools" class="clearable">
+    
+            </div>
+            <div id="links" class="clearable">
+    
+            </div>
+            <div id="notes" class="clearable">
+    
+            </div>
+            <div id="materials" class="clearable">
+    
+            </div>
+            <div id="templates" class="clearable">
+                
+            </div>
+            <div id="blurbs" class="clearable">
+    
+            </div>
+            <div id="favorites" class="clearable">
+    
+            </div>
+            <div id="internaldocument" class="clearable">
+    
+            </div>
+            <h2 id="subtitle" class="clearable"></h2>
+            <div id="changelog" class="clearable">
+    
+            </div>
+        </div>
+        
+    </body>
+</html>
