@@ -30,7 +30,7 @@
     --article-padding: 0px;
     --article-border-radius: 0px;
     --article-margin-bottom: 0px;
-    --article-background-color: transparent;
+    --article-background-color: none;
 
     --body-background: white;
 
@@ -44,7 +44,7 @@
     --style-modern-article-border-radius: 10px;
     --style-modern-article-margin-bottom: 10px;
     --style-modern-article-background-color: var(--color-primary);
-    --style-modern-background: var(--color-background);
+    --style-modern-background: var(--color-accent-lightaRTICLE);
 }
 
 * {
@@ -437,6 +437,17 @@ textarea:focus {
     color: var(--color-accent-dark);
 }
 
+.elementClickableContainer {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.elementClickableContainer .element {
+    width: 48.75%;
+}
+
 .submit {
     color: var(--color-accent-medium);
     background-color: var(--color-secondary);
@@ -512,18 +523,18 @@ textarea:focus {
     display: block;
 }
 
-.overlay-menu #menu .menuIcons {
+.overlay-menu #menu .menuIcons .menuIconsContainer {
     display: flex;
     justify-content: center;
 }
 
-.overlay-menu #menu .menuIcons div {
+.overlay-menu #menu .menuIcons .menuIconsContainer div {
     display: flex;
     color: var(--color-accent-medium);
     transition: var(--data-transition-speed);
 }
 
-.overlay-menu #menu .menuIcons div:hover {
+.overlay-menu #menu .menuIcons .menuIconsContainer div:hover {
     display: flex;
     color: var(--color-accent-dark);
 }
@@ -980,6 +991,10 @@ textarea:focus {
 
 @media print
 {    
+    * {
+        color: black;
+    }
+    
     header {
         display: none;
     }
@@ -1013,14 +1028,18 @@ textarea:focus {
         border: 0px solid transparent;
         padding: 0px;
         margin: 0px;
-        height: 40px;
+        height: 30px;
+        padding-left: 0px;
+		padding-right: 0px;
     }
 
     #internaldocument select {
         border: 0px solid transparent;
         padding: 0px;
         margin: 0px;
-        height: 40px;
+        height: 30px;
+        -moz-appearance: none;
+        -webkit-appearance: none; 
     }
 
     #internaldocument select::-ms-expand {
@@ -1048,5 +1067,9 @@ textarea:focus {
         padding: 0px;
         height: auto;
         overflow-y: hidden;
+    }
+
+    #internaldocument .element {
+        border: 0px none transparent;
     }
 }
