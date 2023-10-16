@@ -143,7 +143,7 @@ const deliveryTwoDayCutOff = [3,4,5,1,2,3,3]; //Wed, Thu, Fri, Mon, Tue, Wed, Th
 const deliveryOneDayCutOff = [2,3,4,5,1,2,2]; //Tue, Wed, Thu, Fri, Mon, Tue, Tue
 
 // Boutique
-const boutiqueTypes = ["Boutique", "Outlet", "Warehouse", "Webstore", "Counter", "Authorized Retailer", "Corporate Office", "Authorized Customer Service Center", "Authorized Corporate Service Center"]
+const boutiqueTypes = ["Boutique", "Outlet", "Warehouse", "Webstore", "Concession", "Authorized Retailer", "Corporate Office", "Authorized Customer Service Center", "Authorized Corporate Service Center"]
 const boutiqueIcons = ["shop", "shop-window", "box-seam", "globe", "building", "building-add", "buildings", "wrench-adjustable-circle", "wrench-adjustable-circle"]
 
 // Warehouse
@@ -287,6 +287,66 @@ var noticesMax = 50;
 var noticesNew = "bell-fill";
 var noticesClear = "bell"
 
+//bingo
+var bingoBoard = "";
+var bingoTiles = [
+    //Sales
+    "Complete An Online Order",
+    "Complete A Personal Shop",
+    "Placed $1,500+ Order",
+    "Placed $2,500+ Order",
+    "Placed $5,000+ Order",
+    "Placed $10,000+ Order",
+    "Complete 1 Sale",
+    "Complete 5 Sales",
+    "Complete 10 Sales",
+    "$1,000 Daily Sales",
+    "$5,000 Daily Sales",
+    "$10,000 Daily Sales",
+    "Sell A Bracelet",
+    "Sell A Necklace",
+    "Sell A Ring",
+    "Sell An Earring or Earrings",
+    "Turn Return Into A Sale",
+    "Turn A Refund Into An Exchange",
+    "Turn Repair Into A Sale",
+    "Turn Escalation Into A Sale",
+
+    // Service
+    "Deescalate a Customer",
+    "Follow Up With A Customer",
+    "Take A Repair Call",
+    "Take A Sales Call",
+    "Take A Product Inquiry Call",
+    "Take A Returns Call",
+
+    // Quality
+    "Compliment A Product",
+    "Upsell A Piece Of Jewelry",
+    "Repeated Caller's Name 3 Times",
+
+    // Retail
+    "Provided Store Address or Phone Number",
+    "Book Cleaning Appointment",
+    "Book Wedding Appointment",
+
+    // Work
+    "Send 20 Emails Today",
+    "Take 20 Phone Calls Today",
+    "Close 20 Cases Today",
+    "Return A Missed Call",
+    "Create 5 Tasks Today",
+    "Referenced The Knowledge Base",
+    
+    // Personal
+    "Receive A Wow",
+    "Gave Someone A Wow",
+    "Made A Customer Laugh",
+    "Arrived On Time",
+    "Reviewed Time Sheet",
+    "Assisted A Team Member"
+]
+
 //----------------------------------------------------------------------------------------------------
 //
 //  DATA: Banners
@@ -305,10 +365,11 @@ class banner {
 
 const banners = [
     //limited To 4
-    new banner (
+    //Removed Steps Temporarily
+    /*new banner (
         title = "Steps", subtitle = "Never Miss<br>Your Mark", description="", action="addSteps",
         image="https://media.istockphoto.com/id/1074983828/photo/sharing-ideas-concepts-with-papernote-writing-strategy-on-wall-glass-office-business-marketing.jpg?s=612x612&w=0&k=20&c=q47Ot4HKOFzfSy5K03o_CuJtezZ_1RMjEID5DGVN2gw="
-    ),
+    ),*/
     new banner (
         title = "Favorites", subtitle = "Target Your Perfect<br>Workflow", description="", action="addFavorites",
         image="https://burst.shopifycdn.com/photos/business-team-meeting-boardroom.jpg?width=1200&format=pjpg&exif=1&iptc=1"
@@ -316,6 +377,10 @@ const banners = [
     new banner (
         title = "QuickTask", subtitle = "Fly Though Tasks With Efficiency", description="", action="addQuickTask",
         image="https://media.istockphoto.com/id/1224089927/photo/close-up-ux-developer-and-ui-designer-brainstorming-about-mobile-app-interface-wireframe.jpg?s=612x612&w=0&k=20&c=cy_ya_R9xPfxR4dqsX7Bhr6oYSJMXHcExo6KXCzMtHs="
+    ),
+    new banner (
+        title = "Internal Document", subtitle = "Ship With Speed", description="", action="addInternalDocument",
+        image="https://media.istockphoto.com/id/845314264/photo/businessman-accepting-business-partners-offer.jpg?s=612x612&w=0&k=20&c=kRPw7z-C0ZYfTUvTDYXWDvHLwmrXoxQKogX_C253Qf4="
     ),
     new banner (
         title = "Changelog", subtitle = "Keep Up To Date", description="", action="addChangelogs",
@@ -465,7 +530,7 @@ const holidays = [
     ),
     new holiday (
         title = "Breast Cancer Awareness Month", monthLong = true, month = 9, day = 1, years={}, ending="All Month Long", colorScheme=8,
-        image="https://defycancer.dana-farber.org/wp-content/uploads/2021/05/dfci-breast-cancer-research-foundation.png"
+        image="https://st2.depositphotos.com/2848797/5415/v/450/depositphotos_54159633-stock-illustration-breast-cancer-awareness-ribbon-background.jpg"
     ),
     new holiday (
         title = "Halloween", monthLong = false, month = 9, day = 31, years={}, ending="Here", colorScheme=29,
@@ -595,63 +660,7 @@ const holidays = [
         title = "New Year's Eve", monthLong = false, month = 11, day = 31, years={},  ending="Here", colorScheme=38,
         image="https://media.istockphoto.com/id/886949708/photo/celebrating-with-closest-people.jpg?s=612x612&w=0&k=20&c=vrcMNUktizUyX6Y9DYYbP3ZRLs6x_HTZv9N85BLWqW0="
     )
-]
-
-//----------------------------------------------------------------------------------------------------
-//
-//  DATA: Timezones
-//
-//----------------------------------------------------------------------------------------------------
-
-/*class region {
-    constructor (location="", tz="") {
-        this.location = location;
-        this.tz = tz;
-    }
-}
-
-const regions = [
-    new region (
-        location = "Favorites",
-        tz = "US/Eastern"
-    ),
-    new region (
-        location = "New York",
-        tz = "US/Eastern"
-    ),
-    new region (
-        location = "Texas",
-        tz = "US/Central"
-    ),
-    new region (
-        location = "Arizona",
-        tz = "US/Mountain"
-    ),
-    new region (
-        location = "California",
-        tz = "US/Pacific"
-    ),
-    new region (
-        location = "Alaska",
-        tz = "US/Alaska"
-    ),
-    new region (
-        location = "Hawaii",
-        tz = "US/Hawaii"
-    ),
-    new region (
-        location = "Paris",
-        tz = "Europe/Paris"
-    ),
-    new region (
-        location = "Dubai",
-        tz = "Asia/Dubai"
-    ),
-    new region (
-        location = "Hong Kong",
-        tz = "Asia/Hong_Kong"
-    )
-]*/
+    ]
 
 //----------------------------------------------------------------------------------------------------
 //
@@ -971,6 +980,21 @@ const templates = [
         contact = "Associated Customer Care Supervisor or Manager",
         tags = "escalation manager help",
         id = "tmpEscGen"
+    ),
+    new template (
+        title = "Repair Escalation Template",
+        type = 0,
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br><br><b>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
+        warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
+        filter = "escalations repairs",
+        assign = "Escalations",
+        assignType = 2,
+        orderNumber = "(If Applicable)",
+        department = "Escalations",
+        task = "Repair",
+        contact = "Jane Kuhne, Diana Medina",
+        tags = "escalations repairs help manager",
+        id = "tmpEscRpr"
     ),
     new template (
         title = "Order Replacement",
@@ -2985,11 +3009,25 @@ const blurbs = [
     ),
     new blurb (
         title = "Ornaments",
-        filter = "orders gifts",
+        filter = "orders gifts holiday",
         text = "We are currently offering a complimentary ornament with all DavidYurman.com orders, while supplies last. Please note that charitable donation items, such as our Cable Pink, Orange, and Blue Rubber Bracelets, and items shipped using FedEx SmartPost are excludedd.",
         tags = "ornament free gift purchase necklace",
-        id=""
+        id="blbGftOrn"
     ),
+    new blurb (
+        title = "Did Not Receive Loyalty Gift Card This Year",
+        filter = "holiday",
+        text = "The loyalty gift card program is issued based on a variety of factors including your combined total spend between our boutiques and DavidYurman.com over the past year. We recommend making sure that all purchases are under the same email address for that reason.",
+        tags = "LGC",
+        id="blbLGCNotRcv"
+    ),
+    new blurb (
+        title = "Style Number Incorrect",
+        filter = "wholesale product orders",
+        text = "David yurman is happy to assist you with your inquiry. Regretfully, your style number appears to be incorrect. Please provide us with an updated style number and your request will be handled at our earliest convenience. We look forward to hearing from you.",
+        tags = "orders product wholesale",
+        id="blbWslStlNumWng"
+    )
 ]
 
 //----------------------------------------------------------------------------------------------------
@@ -3105,7 +3143,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-GA.jpg?cx=23&cy=23&cw=54&ch=54?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Garnet&lang=en_US" target="_blank" style="color: darkred;">Garnet</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Garnet&q=Garnet&start=0&sz=32" target="_blank" style="color: darkred;">Garnet</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3117,7 +3155,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-AM.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Amethyst&lang=en_US" target="_blank" style="color: purple;">Amethyst</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Amethyst&q=Amethyst&start=0&sz=32" target="_blank" style="color: purple;">Amethyst</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3129,7 +3167,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-AQ.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Aquamarine&lang=en_US" target="_blank" style="color: darkcyan;">Aquamarine</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Aquamarine&q=Aquamarine&start=0&sz=32" target="_blank" style="color: darkcyan;">Aquamarine</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3141,7 +3179,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-DI.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Diamond&lang=en_US" target="_blank" style="color: grey;">Diamond</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Diamond&q=Diamond&start=0&sz=32" target="_blank" style="color: grey;">Diamond</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3153,7 +3191,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-EM.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Emerald&lang=en_US" target="_blank" style="color: darkgreen;">Emerald</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Emerald&q=Emerald&start=0&sz=32" target="_blank" style="color: darkgreen;">Emerald</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3165,13 +3203,13 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-PE.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Pearl&lang=en_US" target="_blank" style="color: grey;">Pearl</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Pearl&q=Pearl&start=0&sz=32" target="_blank" style="color: grey;">Pearl</a>
                 </td>
                 <td>
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-IO.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Alexandrite&lang=en_US" target="_blank" style="color: indigo;">Alexandrite</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Alexandrite&q=Alexandrite&start=0&sz=32" target="_blank" style="color: indigo;">Alexandrite</a>
                 </td>
                 <td></td><td></td>
             </tr>
@@ -3183,7 +3221,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-RU.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Ruby&lang=en_US" target="_blank" style="color: darkred;">Ruby</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Ruby&q=Ruby&start=0&sz=32" target="_blank" style="color: darkred;">Ruby</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3195,7 +3233,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-PR.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Peridot&lang=en_US" target="_blank"style="color: darkgreen;">Peridot</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Peridot&q=Peridot&start=0&sz=32" target="_blank"style="color: darkgreen;">Peridot</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3207,7 +3245,7 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-SA.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Sapphire&lang=en_US" target="_blank" style="color: darkblue;">Sapphire</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Sapphire&q=Sapphire&start=0&sz=32" target="_blank" style="color: darkblue;">Sapphire</a>
                 </td>
                 <td></td><td></td><td></td><td></td>
             </tr>
@@ -3219,13 +3257,13 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-PT.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Tourmaline&lang=en_US" target="_blank" style="color: hotpink;">Tourmaline</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Tourmaline&q=Tourmaline&start=0&sz=32" target="_blank" style="color: hotpink;">Tourmaline</a>
                 </td>
                 <td>
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-OP.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Opal&lang=en_US" target="_blank" style="color: darkcyan;">Opal</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Opal&q=Opal&start=0&sz=32" target="_blank" style="color: darkcyan;">Opal</a>
                 </td>
                 <td></td><td></td>
             </tr>
@@ -3237,13 +3275,13 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-BT.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Topaz&lang=en_US" target="_blank" style="color: darkblue;">Topaz</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Topaz&q=Topaz&start=0&sz=32" target="_blank" style="color: darkblue;">Topaz</a>
                 </td>
                 <td>
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-CI.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Citrine&lang=en_US" target="_blank" style="color: darkorange;">Citrine</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Citrine&q=Citrine&start=0&sz=32" target="_blank" style="color: darkorange;">Citrine</a>
                 </td>
                 <td></td><td></td>
             </tr>
@@ -3255,19 +3293,19 @@ const notes = [
                     <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-TZ.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Tanzanite&lang=en_US" target="_blank" style="color: darkblue;">Tanzanite</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Tanzanite&q=Tanzanite&start=0&sz=32" target="_blank" style="color: darkblue;">Tanzanite</a>
                 </td>
                 <td>
                 <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-TO.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Zircon&lang=en_US" target="_blank" style="color: darkcyan;">Zircon</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Zircon&q=Zircon&start=0&sz=32" target="_blank" style="color: darkcyan;">Zircon</a>
                 </td>
                 <td>
                 <div style="height: 30px; width: 30px; border-radius: 100%; background-image: url(https://www.davidyurman.com/dw/image/v2/BGCL_PRD/on/demandware.static/-/Sites-dy-master-catalog/default/dw87b895f3/images/swatch/Stone-TQ.jpg?cx=23&cy=23&cw=54&ch=54); background-size: cover;">
                 </td>
                 <td>
-                    &emsp;<a href="https://www.davidyurman.com/search?q=Turquoise&lang=en_US" target="_blank" style="color: darkcyan;">Turquoise</a>
+                    &emsp;<a href="https://www.davidyurman.com/search?prefn1=gemstone%20type&prefv1=Turquoise&q=Turquoise&start=0&sz=32" target="_blank" style="color: darkcyan;">Turquoise</a>
                 </td>
             </tr>
         </table>`,
@@ -3832,7 +3870,9 @@ const tools = [
         subtitle = "A list of metal codes.",
         warning = "",
         filter ="product",
-        html = `<select class="element" id="metals"></select>`,
+        html = `<select class="element" id="metals"></select><br><br>
+        <div id="metal">
+        </div>`,
         id="tolPrdMtls",
         functions = ["addMetals"],
     ),
@@ -3844,6 +3884,95 @@ const tools = [
         html = `<select class="element" id="chains"></select>`,
         id="tolPrdChns",
         functions = ["addChains"],
+    ),
+    new tool (
+        title = "Wholesale Phrases",
+        subtitle = "A list of commonly used phrases to copy into emails and cases.",
+        warning = "",
+        filter ="wholesale",
+        html = `<h3>Availability</h3>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('Available')">Available</button>
+            <button class="element" onclick="copyToClipboard('Limited Availability')">Limited Availability</button>
+        </div>
+        <br><br>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('Not Available')">Not Available</button>
+            <button class="element" onclick="copyToClipboard('Retired')">Retired</button>
+        </div>
+        <br><br>
+        <div class="elementClickableContainer">
+        <button class="element" onclick="copyToClipboard('DY Exclusive')">DY Exclusive</button>
+        <button class="element" onclick="copyToClipboard('Not Produced')">Not Produced</button>
+        </div><br><br>
+        <h3>Closing Comments</h3>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('Provided Availability')">Provided Availability</button>
+            <button class="element" onclick="copyToClipboard('Booked & Confirmed')">Booked & Confirmed</button>
+        </div><br><br>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('Style Number Invalid')">Style Number Invalid</button>
+        </div><br><br>
+        <h3>Shipping Methods</h3>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('FEDO')">FEDO</button>
+            <button class="element" onclick="copyToClipboard('FED2')">FED2</button>
+        </div><br><br>
+        <h3>Misc</h3>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('US RETAIL')">US RETAIL</button>
+            <button class="element" onclick="copyToClipboard('US WS SP')">US WS SP</button>
+        </div><br><br>
+        <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('ordermanagement@davidyurman.com')">ordermanagement@davidyurman.com</button>
+        </div>`,
+        id="tolWslPhrsShet",
+        functions = [],
+    ),
+    new tool (
+        title = "Bingo!",
+        subtitle = "Achieve goals while having a bit of fun!",
+        warning = "",
+        filter ="customercare",
+        html = `<div id="bingo">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo0" value="0" onclick="toggle('bingo0')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo1" value="0" onclick="toggle('bingo1')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo2" value="0" onclick="toggle('bingo2')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo3" value="0" onclick="toggle('bingo3')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo4" value="0" onclick="toggle('bingo4')">dawdwadaww</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo5" value="0" onclick="toggle('bingo5')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo6" value="0" onclick="toggle('bingo6')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo7" value="0" onclick="toggle('bingo7')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo8" value="0" onclick="toggle('bingo8')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo9" value="0" onclick="toggle('bingo9')">dawdwadaww</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo10" value="0" onclick="toggle('bingo10')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo11" value="0" onclick="toggle('bingo11')">dawdwadaww</button>
+            <button class="lunch-choice-on" style="width: 150px; height: 150px;" id="bingoFree" value="0">Free</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo12" value="0" onclick="toggle('bingo12')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo13" value="0" onclick="toggle('bingo13')">dawdwadaww</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo14" value="0" onclick="toggle('bingo14')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo15" value="0" onclick="toggle('bingo15')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo16" value="0" onclick="toggle('bingo16')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo17" value="0" onclick="toggle('bingo17')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo18" value="0" onclick="toggle('bingo18')">dawdwadaww</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo19" value="0" onclick="toggle('bingo19')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo20" value="0" onclick="toggle('bingo20')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo21" value="0" onclick="toggle('bingo21')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo22" value="0" onclick="toggle('bingo22')">dawdwadaww</button>
+            <button class="lunch-choice-off" style="width: 150px; height: 150px;" id="bingo23" value="0" onclick="toggle('bingo23')">dawdwadaww</button>
+        </div></div><br>
+        <button class="textButton" onclick="generateBingoBoard()">Generate A New Bingo Board</button>`,
+        id="tolCCrBngo",
+        functions = ["addBingo"],
     ),
 ]
 
@@ -4775,6 +4904,24 @@ const schemes = [
         blur = false,
         font = "'Kaisei Decol', serif"
     ),
+    new scheme (
+        title = "Microsoft Teams",
+        icon = "microsoft-teams",
+        color = "#444791",
+        background = "#f5f5f5",
+        primary = "#ebebeb",
+        secondary = "#242424",
+        accentLight = "#8183b5",
+        accentMedium = "#444791",
+        accentDark = "#8183b5",
+        accentWarning = "#cc4a31",
+        filter = "themed",
+        rainbow = 0,
+        effect = 0,
+        description = "For the user that likes seemless design between systems.",
+        blur = false,
+        font = "'Kaisei Decol', serif"
+    )
 ]
 
 //----------------------------------------------------------------------------------------------------
@@ -5364,12 +5511,27 @@ const boutiques = [
         address3 = "Palm Beach, FL 33480",
         country = 0,
         phone = "(561) 933-6402",
-        extension = "",
+        extension = "5800",
         email = "store38ops@davidyurman.com",
         type = 0,
         BOSS = false,
         closed = false,
         image = "https://www.davidyurman.com/on/demandware.static/-/Sites/default/dwa4156271/images/storeImages/StoreLocator_WorthAvenue_Thumbnail_1.jpg"
+    ),
+    new boutique (
+        title = "Legacy West | Plano, TX",
+        number = 39,
+        address1 = "<b>David Yurman</b><br>7801 Windrose Ave",
+        address2 = "Suite H145",
+        address3 = "Plano, TX 75024",
+        country = 0,
+        phone = "(469) 277-2560",
+        extension = "",
+        email = "store39ops@davidyurman.com",
+        type = 0,
+        BOSS = false,
+        closed = false,
+        image = "https://www.davidyurman.com/on/demandware.static/-/Sites/default/dwa4156271/images/storeImages/StoreLocator_LegacyWest_Thumbnail.jpg"
     ),
     new boutique (
         title = "Printemps | Paris, France",
@@ -5472,6 +5634,20 @@ const boutiques = [
         closed = false,
     ),
     new boutique (
+        title = "Desert Hills Premium Outlets | Cabzon, CA Outlet",
+        number = 206,
+        address1 = "<b>David Yurman</b><br>48400 Seminole Drive",
+        address2 = "Space 2131",
+        address3 = "Cabazon, California 92230",
+        country = 0,
+        phone = "(951) 849-1873",
+        extension = 0,
+        email = "store206ops@davidyurman.com",
+        type = 1,
+        BOSS = false,
+        closed = false,
+    ),
+    new boutique (
         title = "Fashion Outlets Of Chicago | Chicago, IL Outlet",
         number = 207,
         address1 = "<b>David Yurman</b><br>5220 North Rose Street",
@@ -5484,6 +5660,20 @@ const boutiques = [
         type = 1,
         BOSS = false,
         closed = true,
+    ),
+    new boutique (
+        title = "Woodbury Commons Premium Outlets | Woodbury, NY Outlet",
+        number = 208,
+        address1 = "<b>David Yurman</b><br>861 Adirondack Way Central Valley",
+        address2 = "Space 2131",
+        address3 = "Central Valley, NY 10917",
+        country = 0,
+        phone = "(845) 378-8800",
+        extension = 0,
+        email = "store208ops@davidyurman.com",
+        type = 1,
+        BOSS = false,
+        closed = false,
     ),
     new boutique (
         title = "Holt Bloor | Toronto, ON",
@@ -5624,9 +5814,79 @@ const boutiques = [
         number = 601,
         address1 = "611 5th Avenue",
         address2 = "",
-        address3 = "New York, NY 10022",
+        address3 = "New York, New York 10022",
         country = 0,
-        phone = "212-940-2075",
+        phone = "212-940-2348",
+        extension = 0,
+        email = "",
+        type = 4,
+        BOSS = false,
+        closed = false
+    ),
+    new boutique (
+        title = "David Yurman At Saks Fifth Avenue | North Naples, FL",
+        number = 602,
+        address1 = "5395 Tamiami Trail ",
+        address2 = "",
+        address3 = "North Naples, Florida 34108",
+        country = 0,
+        phone = "239-571-2255",
+        extension = 0,
+        email = "",
+        type = 4,
+        BOSS = false,
+        closed = false
+    ),
+    new boutique (
+        title = "David Yurman At Saks Fifth Avenue | Miami, FL",
+        number = 603,
+        address1 = "7687 N Kendall Drive",
+        address2 = "",
+        address3 = "Miami, Florida 33156",
+        country = 0,
+        phone = "561-897-1565",
+        extension = 0,
+        email = "",
+        type = 4,
+        BOSS = false,
+        closed = false
+    ),
+    new boutique (
+        title = "David Yurman At Saks Fifth Avenue | Sarasota, FL",
+        number = 604,
+        address1 = "120 University Town Center Drive",
+        address2 = "",
+        address3 = "Sarasota, Florida 34243",
+        country = 0,
+        phone = "941-724-4273",
+        extension = 0,
+        email = "",
+        type = 4,
+        BOSS = false,
+        closed = false
+    ),
+    new boutique (
+        title = "David Yurman At Saks Fifth Avenue | Atlanta, GA",
+        number = 605,
+        address1 = "3440 Peachtree Road",
+        address2 = "",
+        address3 = "Atlanta, Georgia 30326",
+        country = 0,
+        phone = "470-654-4822",
+        extension = 0,
+        email = "",
+        type = 4,
+        BOSS = false,
+        closed = false
+    ),
+    new boutique (
+        title = "David Yurman At Saks Fifth Avenue | Birmingham, AL",
+        number = 606,
+        address1 = "129 Summit Boulevard ",
+        address2 = "",
+        address3 = "Birmingham, Alabama 35243",
+        country = 0,
+        phone = "205-704-1729",
         extension = 0,
         email = "",
         type = 4,
@@ -5696,9 +5956,29 @@ class version {
 const versions = [
     // Unlike other classes, Versions should be added top to bottom as this is how they will appear in the list.
     new version  (
+        number = "1.8.0",
+        title = "Crystal",
+        date = "tbd",
+        additions = [
+            "Developed Wholesale Phrases tool for frequently used Wholesale phrases.",
+            "Implemented a wholesale week counter to limit time counting weeks on wholesale calls. The counter will automatically update-week-over week.",
+            "Integrated the internal document creator into DART for convenience.",
+            "Created Bingo! as a fun way to help agents be mindful of soft goals to complete throughout the day.",
+            "Add Toronto, Canada and Auckland, New Zealand time zones.",
+            "Added additional holiday templates and blurbs.",
+            "Added additional stores to the Location tool.",
+        ],
+        changes = [
+            "Corrected issues related to notes and blurbs not being favorited properly.",
+            "Birthstone chart will generate more accurate results from the website",
+            "Updated missing date from previous update.",
+            "Replaced photo for Breast Cancer Awareness Month."
+        ]
+    ),
+    new version  (
         number = "1.7.0",
         title = "Morganite",
-        date = "tbd",
+        date = "10/6/2023",
         additions = [
             "Implimented <b>What's New</b> window, making new additions easier to find and access.",
             "Added Holiday tab for specialized holiday content for seasonal training."
@@ -5911,14 +6191,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
     setDropDowns();
 
     getTime();
-    getVersion();
     setInterval(getTime, 1000);
+
+    getWholesaleTimes()
+    setInterval(getWholesaleTimes, 30000);
 
     getWeather();
     setInterval(getWeather, 30000);
 
     startNotice();
     addDashboard();
+    getVersion();
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -6659,6 +6942,7 @@ function addSelections () {
     addStones();
     addMetals();
     addChains();
+    addBingo();
 }
 
 function setIcon (title="") {
@@ -6685,6 +6969,12 @@ function HTMLToRichText(input) {
     replacement = input;
     replacement = replacement.replace(/'/g, `\'`);
     replacement = replacement.replace(/"/g, `\"`);
+    replacement = replacement.replace(/<b>/g, ``);
+    replacement = replacement.replace('</b>', ``);
+    replacement = replacement.replace(/<i>/g, ``);
+    replacement = replacement.replace('</i>', ``);
+    replacement = replacement.replace(/<u>/g, ``);
+    replacement = replacement.replace('</u>', ``);
     replacement = replacement.replace(/&emsp;/g, "\t");
     replacement = replacement.replace(/<br\s*\/?>/mg,"\n");
     return replacement;
@@ -6820,6 +7110,8 @@ function setData () {
             getColorSchemeCustom();
         }
     }
+
+    setColorSchemeStyle(0);
 
     firstName = localStorage.getItem("firstName");
     lastName = localStorage.getItem("lastName");
@@ -7586,6 +7878,29 @@ function setColorSchemeCustom () {
     setNotice("Custom Color Scheme Updated", "Your personalized color scheme has been updated. If you clear your browser's storage or change DART's file path, these settings will be removed.");
 }
 
+function setColorSchemeStyle (style) {
+    var schemeStyle;
+    var r = document.querySelector(':root');
+
+    if (style == 1) {
+        schemeStyle = "modern";
+    } else {
+        schemeStyle = "classic";
+    }
+
+    var padding = window.getComputedStyle(document.documentElement).getPropertyValue('--style-'+ schemeStyle + '-article-padding');
+    var radius = window.getComputedStyle(document.documentElement).getPropertyValue('--style-'+ schemeStyle + '-article-border-radius');
+    var margin = window.getComputedStyle(document.documentElement).getPropertyValue('--style-'+ schemeStyle + '-article-margin-bottom');
+    var backgroundColor = window.getComputedStyle(document.documentElement).getPropertyValue('--style-'+ schemeStyle + '-article-background-color');
+    var bodyColor = window.getComputedStyle(document.documentElement).getPropertyValue('--style-'+ schemeStyle + '-background');
+
+    r.style.setProperty('--article-padding', padding);
+    r.style.setProperty('--article-border-radius', radius);
+    r.style.setProperty('--article-margin-bottom', margin);
+    r.style.setProperty('--article-background-color', backgroundColor);
+    r.style.setProperty('--body-background', bodyColor);
+}
+
 function getColorSchemeCustom () {
     var root = document.querySelector(':root');
 
@@ -7802,12 +8117,6 @@ function addTabs () {
 
             button.addEventListener("click", function() {
                 showTab(tabs[t].id, tabs[t].changelog);
-
-                if (tabs[t].id == "favorites") {
-                    addFavorites();
-                } else if (tabs[t].id == "internaldocument") {
-                    addInternalDocument();
-                }
             });
 
             icon.className = "bi bi-" + tabs[t].icon;
@@ -7983,7 +8292,7 @@ function addTemplates (id, delay) {
                 {title: "Department", content: templates[t].department},
                 {title: "Order Number", content: templates[t].orderNumber},
                 {title: "Task Type", content: templates[t].task},
-            ], templates[t].warning, true, templates[t].text, true, findFavorite(templates[t].id), templates[t].id, 0);
+            ], templates[t].warning, true, HTMLToRichText(templates[t].text), true, findFavorite(templates[t].id), templates[t].id, 0);
         }
     }
 }
@@ -7999,7 +8308,7 @@ function addNotes (id) {
 
     for (let n = 0; n < notes.length; n++) {
         if (notes[n].filter == id) {
-            appendArticle(notes[n].id, "notes", "Note", notes[n].title, notes[n].subtitle, "", "", notes[n].html, {}, "", [], "", [], "", false, true, findFavorite(notes[n].id), notes[n].id, 0);
+            appendArticle(notes[n].id, "notes", "Note", notes[n].title, notes[n].subtitle, "", "", notes[n].html, {}, "", [], "", [], "", false, "", true, findFavorite(notes[n].id), notes[n].id, 0);
         }
     }
 }
@@ -9135,7 +9444,14 @@ function showStep (key) {
 //----------------------------------------------------------------------------------------------------
 
 function addInternalDocument () {
+    jumpToTop();
+    clear();
+    showTab("");
+
     const body = document.getElementById("internaldocument");
+    const title = document.getElementById("title");
+
+    title.innerHTML = "DY Internal Document";
     
     // Containers
     const container = document.createElement("div");
@@ -9164,8 +9480,7 @@ function addInternalDocument () {
     const titleShippingAddress = document.createElement("h3");
 
     const shippingName = document.createElement("input");
-    const shippingAddress1 = document.createElement("input");
-    const shippingAddress2 = document.createElement("input");
+    const shippingAddress = document.createElement("input");
     const shippingCityStateZip = document.createElement("input");
     const shippingCountry = document.createElement("input");
     const shippingPhone = document.createElement("input");
@@ -9191,7 +9506,8 @@ function addInternalDocument () {
     const commonTitleStyle = "display: flex; width: 380px; margin-bottom: 10px; letter-spacing: 4px;"
     const commonTitleStyleInLine = "display: flex; width: 380px; letter-spacing: 4px; vertical-align: baseline;"
     const commonTitleFullStyle = "display: flex; width: 100%; margin-bottom: 10px; letter-spacing: 4px;"
-    const commonTitleBreakStyle = "border-bottom: 1px solid lightgrey; padding: 16px 0px; width: 100%; letter-spacing: 4px;"
+    const commonTitleBreakStyle = "border-bottom: 1px solid  " + window.getComputedStyle(document.documentElement).getPropertyValue('--color-accent-light') + "; padding: 16px 0px; width: 100%; letter-spacing: 4px;"
+    const commonTitleStyleInLineBreak = "display: flex; width: 380px; border-bottom: 1px solid " + window.getComputedStyle(document.documentElement).getPropertyValue('--color-accent-light') + "; padding: 16px 0px; letter-spacing: 4px; vertical-align: baseline;"
 
     //Date Container
     dateContainer.style = commonContainerStyle;
@@ -9217,20 +9533,27 @@ function addInternalDocument () {
 
     nameShipper.style = commonInputStyle;
     nameShipper.value = firstName + " " + lastName;
+    nameShipper.placeholder = "Shipper First & Last Name";
 
     nameReceiver.style = commonInputStyle;
     nameReceiver.value = "Javier Hernandez";
+    nameReceiver.placeholder = "Shipper First & Last Name";
 
     departmentShipper.style = commonInputStyle;
     departmentShipper.value = "Customer Care";
+    departmentShipper.placeholder = "Shipper Department";
 
     departmentReceiver.style = commonInputStyle;
     departmentReceiver.value = "Shipping Department";
+    departmentReceiver.placeholder = "Receiver Department";
 
     extensionShipper.style = commonInputStyle;
     extensionShipper.value = phone;
+    extensionShipper.placeholder = "Shipper Work Phone Number";
 
     extensionReceiver.style = commonInputStyle;
+    extensionReceiver.value = "(201) 528-4885";
+    extensionReceiver.placeholder = "Receiver Phone Number";
 
     internalContainer.appendChild(titleShipper);
     internalContainer.appendChild(titleReceiver);
@@ -9250,22 +9573,19 @@ function addInternalDocument () {
     shippingContainer.appendChild(titleShippingAddress);
 
     shippingName.placeholder = "Shipping Recipient Name";
-    shippingAddress1.placeholder = "Address Line 1";
-    shippingAddress2.placeholder = "Address Line 2";
+    shippingAddress.placeholder = "Address Line 1 & 2";
     shippingCityStateZip.placeholder = "City, State/Providence, Zip/Postal Code";
     shippingCountry.placeholder = "Country";
     shippingPhone.placeholder = "Phone Number";
 
     shippingName.style = commonInputLongStyle;
-    shippingAddress1.style = commonInputLongStyle;
-    shippingAddress2.style = commonInputLongStyle;
+    shippingAddress.style = commonInputLongStyle;
     shippingCityStateZip.style = commonInputLongStyle;
     shippingCountry.style = commonInputLongStyle;
     shippingPhone.style = commonInputLongStyle;
 
     shippingContainer.appendChild(shippingName);
-    shippingContainer.appendChild(shippingAddress1);
-    shippingContainer.appendChild(shippingAddress2);
+    shippingContainer.appendChild(shippingAddress);
     shippingContainer.appendChild(shippingCityStateZip);
     shippingContainer.appendChild(shippingCountry);
     shippingContainer.appendChild(shippingPhone);
@@ -9274,22 +9594,24 @@ function addInternalDocument () {
     detailsContainer.style = commonContainerStyle;
 
     shippingMethodTitle.innerHTML = `Delivery Method`;
-    shippingMethodTitle.style = commonTitleStyleInLine;
+    shippingMethodTitle.style = commonTitleStyleInLineBreak;
 
     contentsTitle.innerHTML = `Contents`;
-    contentsTitle.style = commonTitleStyleInLine;
+    contentsTitle.style = commonTitleStyleInLineBreak;
 
     quantityTitle.innerHTML = `Quantity Of Boxes`;
     quantityTitle.style = commonTitleStyleInLine;
 
     quantity.style = commonInputStyle;
     quantity.value = 1;
+    quantity.placeholder = "Quantity"
 
     valueTitle.innerHTML = `Value`;
     valueTitle.style = commonTitleStyleInLine;
 
     value.style = commonInputStyle;
-    value.value = 0;
+    value.value = "$0";
+    value.placeholder = "Value"
 
     shippingMethod.style = commonInputStyle;
     contents1.style = commonInputStyle;
@@ -9306,12 +9628,15 @@ function addInternalDocument () {
     contents4.placeholder = "Contents 4 & Quantity";
     contents5.placeholder = "Contents 5 & Quantity";
 
+    contents1.value = "1 Jewelry Care Kit";
+
     shippingMethod.innerHTML = `<option>FedEx Ground</option>
         <option>FedEx Two Day</option>
         <option>FedEx Overnight</option>
         <option>FedEx Saturday</option>
         <option>FedEx Smart Post</option>
-        <option>USPS Ground</option>`;
+        <option>USPS Ground</option>
+        <option>Other</option>`;
 
     contentsContainer.style = commonContainerStyle;
 
@@ -9338,7 +9663,7 @@ function addInternalDocument () {
     comments.style.height = "90px";
     comments.style.resize = "none";
     comments.maxLength = "200";
-    comments.value = "Please shipping the content(s) above to the address provided with the requested shipping method."
+    comments.value = "Please ship the content(s) above to the address provided with the requested shipping method."
 
     // Done
     container.appendChild(dateContainer);
@@ -9348,6 +9673,18 @@ function addInternalDocument () {
     container.appendChild(detailsContainer);
     container.appendChild(commentsTitle);
     container.appendChild(comments);
+
+    const animationStep = [
+        { opacity: '0' },
+        { opacity: '1' },
+    ];
+
+    const timingStep = {
+        duration: 400,
+        iterations: 1,
+    }
+
+    body.animate(animationStep, timingStep);
 
     body.appendChild(container);
 }
@@ -9424,6 +9761,18 @@ function searchStones (query) {
 //  FUNCTIONS: Metals
 //
 //----------------------------------------------------------------------------------------------------
+
+function showMetal () {
+    const body = document.getElementById("metal");
+    const select = document.getElementById("metals").value;
+    
+    for (const metal of metals) {
+        if (metal.code == select) {
+            console.log(metal.title);
+            break;
+        }
+    }
+}
 
 function addMetals () {
     const select = document.getElementById("metals");
@@ -10341,16 +10690,40 @@ function getTime() {
         timeZoneName: 'short',
     });
 
+    var dateLongToronto = date.toLocaleString('en-US', {
+        timeZone: 'Canada/Eastern',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short',
+    });
+
+    var dateLongAuckland = date.toLocaleString('en-US', {
+        timeZone: 'Pacific/Auckland',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short',
+    });
+
     document.getElementById('timeNewYork').innerHTML = dateLongNewYork.substring(12, 17) + " " + dateLongNewYork.substring(21, 23);
     document.getElementById('timeTexas').innerHTML = dateLongTexas.substring(12, 17) + " " + dateLongTexas.substring(21, 23);
     document.getElementById('timeArizona').innerHTML = dateLongArizona.substring(12, 17) + " " + dateLongArizona.substring(21, 23);
     document.getElementById('timeCalifornia').innerHTML = dateLongCalifornia.substring(12, 17) + " " + dateLongCalifornia.substring(21, 23);
     document.getElementById('timeAlaska').innerHTML = dateLongAlaska.substring(12, 17) + " " + dateLongAlaska.substring(21, 23);
     document.getElementById('timeHawaii').innerHTML = dateLongHawaii.substring(12, 17) + " " + dateLongHawaii.substring(21, 23);
+    document.getElementById('timeToronto').innerHTML = dateLongToronto.substring(12, 17) + " " + dateLongToronto.substring(21, 23);
     document.getElementById('timeParis').innerHTML = dateLongParis.substring(12, 17) + " " + dateLongParis.substring(21, 23);
     document.getElementById('timeLondon').innerHTML = dateLongLondon.substring(12, 17) + " " + dateLongLondon.substring(21, 23);
     document.getElementById('timeDubai').innerHTML = dateLongDubai.substring(12, 17) + " " + dateLongDubai.substring(21, 23);
     document.getElementById('timeHongKong').innerHTML = dateLongHongKong.substring(12, 17) + " " + dateLongHongKong.substring(21, 23);
+    document.getElementById('timeNewZealand').innerHTML = dateLongAuckland.substring(12, 17) + " " + dateLongAuckland.substring(21, 23);
 
     const bodyHolidays = document.getElementById("holidays");
     const holidaysList = document.createElement("div");
@@ -10421,9 +10794,51 @@ function getTime() {
     }
 }
 
+function getWholesaleTimes () {
+    var date = new Date();
+    var element = document.getElementById("wholesaleTimes");
+    element.innerHTML = ``;
+    
+    for (var i = 0; i < 24; i++) {
+        var newDateStart = new Date();
+        var newDateEnd = new Date();
+
+        newDateStart.setDate(date.getDate() + (7 * i))
+        newDateEnd.setDate(date.getDate() + (7 * i) + 6)
+
+        var timeframe = months[(newDateStart.getMonth())].substr(0, 3) + ` ` + newDateStart.getDate() + ` to ` + months[(newDateEnd.getMonth())].substr(0, 3) + ` ` + newDateEnd.getDate();
+        var leadTimeFrame = (i + 2) + ` to ` + (i + 4) + ` Weeks`;
+
+        var button = document.createElement("button");
+        var buttonTime = document.createElement("div");
+        var buttonLeadTime = document.createElement("div");
+
+        button.style.width = "100%";
+        button.style.display = "flex";
+        button.style.justifyContent = "space-between";
+        button.style.border = "none";
+        button.style.height = "24px";
+        
+        buttonTime.style.fontSize = "16px";
+        buttonTime.style.verticalAlign = "middle";
+
+        buttonLeadTime.style.fontSize = "16px";
+        buttonLeadTime.style.verticalAlign = "middle";
+
+        button.addEventListener("click", copyToClipboard.bind(this, leadTimeFrame), false);
+        
+        buttonTime.innerHTML = timeframe;
+        buttonLeadTime.innerHTML = leadTimeFrame;
+
+        button.appendChild(buttonTime);
+        button.appendChild(buttonLeadTime);
+        element.append (button);
+    }
+}
+
 function getVersion() {
     var text = document.getElementById("version");
-    text.innerHTML = versions[0].number;
+    text.innerHTML = "v." + versions[0].number;
 }
 
 function getDayAhead (time=1) {
@@ -10528,4 +10943,56 @@ function codeToIcon (code) {
         case "50n":
             return `<i class="bi bi-cloud-haze2"></i>`;
     }
+}
+
+//----------------------------------------------------------------------------------------------------
+//
+//  FUNCTIONS: TOOL: Bingo!
+//
+//----------------------------------------------------------------------------------------------------
+
+function addBingo () {
+    const element = document.getElementById("bingo");
+
+    if (element) {
+        bingoBoard = localStorage.getItem("bingoBoard");
+
+        if (bingoBoard) {
+            board = bingoBoard.split(";");
+
+            for (var i = 0; i < 24; i++) {
+                document.getElementById("bingo" + i.toString()).innerHTML = bingoTiles[board[i]];
+            }
+        } else {
+            generateBingoBoard();
+        }
+    }
+}
+
+function generateBingoBoard () {
+    remainingBingoTiles = [];
+            
+    for (var c = 0; c < bingoTiles.length; c++) {
+        remainingBingoTiles.push(c);
+    }
+
+    bingoBoard = "";
+    
+    for (var i = 0; i < 24; i++) {
+        // Pull a random tile from a set of remaining tiles to avoid duplicates.
+        var tile = remainingBingoTiles[Math.floor(Math.random() * remainingBingoTiles.length)];
+
+        // Add random tile to string list with semi-colon to be split later.
+        bingoBoard += tile.toString() + ";";
+
+        // Remove random tile from remaining tile list.
+        remainingBingoTiles.splice(remainingBingoTiles.indexOf(tile), 1);
+
+        // Get strings from Bingo Tiles array based on number in array
+        document.getElementById("bingo" + i.toString()).innerHTML = bingoTiles[tile];
+    }
+
+    localStorage.setItem("bingoBoard", bingoBoard);
+
+    setNotice("Bingo!", "A New Bingo board has been generated. Every time a new board is generated, it will be saved for later until a new one is generated.")
 }
