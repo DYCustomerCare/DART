@@ -5977,7 +5977,7 @@ const versions = [
     new version  (
         number = "1.8.0",
         title = "Crystal",
-        date = "tbd",
+        date = "10/19/2023",
         additions = [
             "Developed Wholesale Phrases tool for frequently used Wholesale phrases.",
             "Implemented a wholesale week counter to limit time counting weeks on wholesale calls. The counter will automatically update-week-over week.",
