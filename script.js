@@ -19,6 +19,8 @@ var policy_return_US_holiday_end = "the end of January";
 var policy_shiping_cutoff_weekday = "3PM EST";
 var policy_shiping_cutoff_weekend = "12PM EST";
 
+var policy_LGC_expiration = "December 31st, 2023";
+
 // General
 var lite_mode = true;
 
@@ -81,18 +83,7 @@ const searchRemoval = [
     "customer", "customers", "customer's", "customers'", "customers's",
     "client", "clients", "client's", "clients'", "clients's",
     "guest", "guests", "guest's", "guests'", "guests's",
-    "caller", "callers", "caller's", "callers'", "callers's", 
-    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-    "10", "20", "30", "40", "50", "60", "70", "80", "90", "100",
-    "11", "21", "31", "41", "51", "61", "71", "81", "91",
-    "12", "22", "32", "42", "52", "62", "72", "82", "92",
-    "13", "23", "33", "43", "53", "63", "73", "83", "93",
-    "14", "24", "34", "44", "54", "64", "74", "84", "94",
-    "15", "25", "35", "45", "55", "65", "75", "85", "95",
-    "16", "26", "36", "46", "56", "66", "76", "86", "96",
-    "17", "27", "37", "47", "57", "67", "77", "87", "97",
-    "18", "28", "38", "48", "58", "68", "78", "88", "98",
-    "19", "29", "39", "49", "59", "69", "79", "89", "99",
+    "caller", "callers", "caller's", "callers'", "callers's",
 ]
 
 // Favorites
@@ -3675,6 +3666,33 @@ const notes = [
         id="notRtnNrvrResnCode"
     ),
     new note (
+        title="2023 Loyalty Gift Card",
+        subtitle="",
+        filter = "holiday",
+        html = `
+        <p><b>Launch Dates:</b> 10/15 (Web), 10/18 (Physical)</p>
+        <p><b>Expiration Date:</b> &repl:policyLGCExpiration<p>
+        <br>
+        <table class="hoverTable">
+            <tr>
+                <th style="width: 100px">Tier</th><th style="width: 100px">Digital</th><th style="width: 100px">Physical</th><th style="width: 100px">Value</th>
+            <tr>
+            <tr>
+                <td>Tier 1</td><td>Yes</td><td>Yes</td><td>$750</td>
+            </tr>
+            <tr>
+                <td>Tier 2</td><td>Yes</td><td>Select</td><td>$500</td>
+            </tr>
+            <tr>
+                <td>Tier 3</td><td>Yes</td><td>Select</td><td>$300</td>
+            </tr>
+            <tr>
+                <td>Tier 4</td><td>Yes</td><td>Select</td><td>$200</td>
+            </tr>
+        </table>`,
+        id="notHolLGC"
+    ),
+    new note (
         title="Holiday Return Policies & Times",
         subtitle="",
         filter = "holiday",
@@ -3861,7 +3879,8 @@ const tools = [
         subtitle = "A list of stone codes.",
         warning = "",
         filter ="product",
-        html = `<select class="element" id="stones"></select>`,
+        html = `<select class="element" id="stones" onchange="showStone()"></select><br><br>
+        <img id="stone" class="elementSwatch">`,
         id="tolPrdStns",
         functions = ["addStones"],
     ),
@@ -3870,9 +3889,9 @@ const tools = [
         subtitle = "A list of metal codes.",
         warning = "",
         filter ="product",
-        html = `<select class="element" id="metals"></select><br><br>
-        <div id="metal">
-        </div>`,
+        html = `<select class="element" id="metals" onchange="showMetal()"></select><br><br>
+        <img id="metal" class="elementSwatch">
+        `,
         id="tolPrdMtls",
         functions = ["addMetals"],
     ),
@@ -5969,6 +5988,7 @@ const versions = [
             "Added additional stores to the Location tool.",
         ],
         changes = [
+            "Updated Stone & Metal Codes to show images.",
             "Corrected issues related to notes and blurbs not being favorited properly.",
             "Birthstone chart will generate more accurate results from the website",
             "Updated missing date from previous update.",
@@ -6943,6 +6963,8 @@ function addSelections () {
     addMetals();
     addChains();
     addBingo();
+    showStone();
+    showMetal();
 }
 
 function setIcon (title="") {
@@ -7078,6 +7100,11 @@ function updateText (text) {
     if (replacement.includes("&repl:policyUsReturnHolidayEnd")) {
         replacement = replacement.replace("&repl:policyUsReturnHolidayEnd", policy_return_US_holiday_end);
     }
+
+    if (replacement.includes("&repl:policyLGCExpiration")) {
+        replacement = replacement.replace("&repl:policyLGCExpiration", policy_LGC_expiration);
+    }
+
 
     return replacement;
 }
@@ -9695,6 +9722,23 @@ function addInternalDocument () {
 //
 //----------------------------------------------------------------------------------------------------
 
+function showStone () {
+    const img = document.getElementById("stone");
+    
+    if (img){
+        const select = document.getElementById("stones").value;
+    
+        for (const stone of stones) {
+            if (stone.code == select) {
+                console.log(stone.title);
+                img.src = "images/stones/" + stone.code + ".jpg";
+                break;
+            }
+        }
+    }
+    
+}
+
 function addStones () {
     const select = document.getElementById("stones");
 
@@ -9745,7 +9789,7 @@ function searchStones (query) {
                     matchCount += 1;
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle("", "materials", "Stone", stones[b].title + " (" + stones[b].code + ")", "Gemstone", "gem", "", "", {}, "", [], "", [], "", true, stones[b].title + " (" + stones[b].code + ")", false, false, "", 0);
+                        appendArticle("", "materials", "Stone", stones[b].title + " (" + stones[b].code + ")", "Gemstone", "gem", "", `<img src="images/stones/` + stones[b].code + `.jpg" class="elementSwatch">`, {}, "", [], "", [], "", true, stones[b].title + " (" + stones[b].code + ")", false, false, "", 0);
                         results++;
                     }
                 }
@@ -9763,13 +9807,17 @@ function searchStones (query) {
 //----------------------------------------------------------------------------------------------------
 
 function showMetal () {
-    const body = document.getElementById("metal");
-    const select = document.getElementById("metals").value;
+    const img = document.getElementById("metal");
     
-    for (const metal of metals) {
-        if (metal.code == select) {
-            console.log(metal.title);
-            break;
+    if (img) {
+        const select = document.getElementById("metals").value;
+    
+        for (const metal of metals) {
+            if (metal.code == select) {
+                console.log(metal.title);
+                img.src = "images/metals/" + metal.code + ".jpg";
+                break;
+            }
         }
     }
 }
@@ -9824,7 +9872,7 @@ function searchMetals (query) {
                     matchCount += 1;
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle("", "materials", "Metal", metals[b].title + " (" + metals[b].code + ")", "Metal", "diamond-half", "", "", {}, "", [], "", [], "", true, metals[b].title + " (" + metals[b].code + ")", false, false, "", 0);
+                        appendArticle("", "materials", "Metal", metals[b].title + " (" + metals[b].code + ")", "Metal", "diamond-half", "", `<img src="images/metals/` + metals[b].code + `.jpg" class="elementSwatch">`, {}, "", [], "", [], "", true, metals[b].title + " (" + metals[b].code + ")", false, false, "", 0);
                         results++;
                     }
                 }
