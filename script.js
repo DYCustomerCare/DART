@@ -5655,8 +5655,8 @@ const boutiques = [
     new boutique (
         title = "Desert Hills Premium Outlets | Cabzon, CA Outlet",
         number = 206,
-        address1 = "<b>David Yurman</b><br>48400 Seminole Drive",
-        address2 = "Space 2131",
+        address1 = "<b>David Yurman</b><br>48650 Seminole Drive",
+        address2 = "Space 1128",
         address3 = "Cabazon, California 92230",
         country = 0,
         phone = "(951) 849-1873",
