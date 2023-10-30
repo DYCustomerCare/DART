@@ -13,8 +13,8 @@ var policy_return_US_exchange_days = "30";
 var policy_return_US_merch_credit_days = "30";
 var policy_return_US_outlet_days = "30";
 
-var policy_return_US_holiday_start = "29th of October";
-var policy_return_US_holiday_end = "20th of January";
+var policy_return_US_holiday_start = "on or after Sunday, October 29, 2023";
+var policy_return_US_holiday_end = "through Saturday, January 20, 2024";
 
 var policy_shiping_cutoff_weekday = "3PM EST";
 var policy_shiping_cutoff_weekend = "12PM EST";
@@ -3696,7 +3696,7 @@ const notes = [
         title="Holiday Return Policies & Times",
         subtitle="",
         filter = "holiday",
-        html = `<p>Purchases made at the &repl:policyUsReturnHolidayStart can be returned through &repl:policyUsReturnHolidayEnd<br><br>
+        html = `<p>Purchases made &repl:policyUsReturnHolidayStart can be returned &repl:policyUsReturnHolidayEnd<br><br>
         <h3>Estimated Holiday Return Processing Times</h3>
         <p>Extended holiday processing times begin the first business day after Christmas<p><br>
         <table class="hoverTable">
