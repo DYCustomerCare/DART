@@ -528,11 +528,11 @@ const holidays = [
         image="https://media.istockphoto.com/id/1279635259/photo/happy-multi-ethnic-family-preparing-for-halloween-celebration.jpg?s=612x612&w=0&k=20&c=wQ2hPZuF5mRQ0rlUPbOZHYiwPd3ncK-7K_hwkFGZZdI="
     ),
     new holiday (
-        title = "Dios De Los Muertos (Day 1)", monthLong = false, month = 10, day = 1, years={}, ending="Starting", colorScheme=27,
+        title = "Dias De Los Muertos (Day 1)", monthLong = false, month = 10, day = 1, years={}, ending="Starting", colorScheme=27,
         image="https://media.istockphoto.com/id/1279717325/photo/mom-celebrating-day-of-the-dead-with-her-daughter-at-home.jpg?s=612x612&w=0&k=20&c=o-cocra5XLj54x-DhUCeC8iki9WL66NBaPUDJGnMmK0="
     ),
     new holiday (
-        title = "Dios De Los Muertos (Day 2)", monthLong = false, month = 10, day = 2, years={}, ending="Ending", colorScheme=27,
+        title = "Dias De Los Muertos (Day 2)", monthLong = false, month = 10, day = 2, years={}, ending="Ending", colorScheme=27,
         image="https://media.istockphoto.com/id/1081788796/photo/day-of-the-dead.jpg?s=612x612&w=0&k=20&c=qqed-nKClfIO6RvC7W6URgY8gm77QKKmsijOp-qfEoI="
     ),
     // Thanksgiving
