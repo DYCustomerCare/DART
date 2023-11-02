@@ -3001,7 +3001,7 @@ const blurbs = [
     new blurb (
         title = "Ornaments",
         filter = "orders gifts holiday",
-        text = "We are currently offering a complimentary ornament with all DavidYurman.com orders, while supplies last. Please note that charitable donation items, such as our Cable Pink, Orange, and Blue Rubber Bracelets, and items shipped using FedEx SmartPost are excludedd.",
+        text = "We are currently offering a complimentary ornament with all DavidYurman.com orders, while supplies last. Please note that charitable donation items, such as our Cable Pink, Orange, and Blue Rubber Bracelets, and items shipped using FedEx SmartPost are excluded.",
         tags = "ornament free gift purchase necklace",
         id="blbGftOrn"
     ),
