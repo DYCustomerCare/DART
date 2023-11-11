@@ -1288,7 +1288,7 @@ const templates = [
         id = "tmpSecGen"
     ),
     new template (
-        title = "Gift Request Task",
+        title = "Gift Request",
         type = 0,
         text = "Request(s) & Quantity:<br>Reason:<br>Shipping Address:",
         warning = "Quantities exceeding <b>3 units</b> per request subject to approval.<br>Please submit an <b>accomodation</b> before submitting your task.",
