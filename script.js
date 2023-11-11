@@ -1185,7 +1185,7 @@ const templates = [
     new template (
         title = "General CC Ops Returns Request",
         type = 0,
-        text = "Request:<br>Tracking Number:<br>Style Name:<br>Style Number:<br>Assistance Required:<br>RMA Status:<br>Notes:<br>BOSS/BOPIS/ROPIS?:",
+        text = "Request:<br>Tracking Number:<br>Style Name:<br>Style Number:<br>Assistance Required:<br>RMA Status:<br>Notes:<br>BOSS/BOPIS?:",
         warning = "Please ensure any and all associated documentation is included with your task submission.",
         filter = "quickTask returns fedex",
         assign = "CC Ops",
