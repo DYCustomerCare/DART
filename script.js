@@ -1194,7 +1194,7 @@ const templates = [
         department = "CC OPS",
         task = "...",
         contact = "Keyana Askew, Asmaa Yasin, Michael Clancy, Lateefah Barbee, Jasmine Bouier-McGhee",
-        tags = "returns refunds exchanges orders replacement fedex claims",
+        tags = "returns refunds exchanges orders replacement",
         id = "tmpRtnCCO"
     ),
     new template (
