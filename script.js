@@ -3943,6 +3943,7 @@ const tools = [
             <button class="element" onclick="copyToClipboard('US WS SP')">US WS SP</button>
         </div><br><br>
         <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('mmoore@davidyurman.com')">mmoore@davidyurman.com</button>
             <button class="element" onclick="copyToClipboard('ordermanagement@davidyurman.com')">ordermanagement@davidyurman.com</button>
         </div>`,
         id="tolWslPhrsShet",
