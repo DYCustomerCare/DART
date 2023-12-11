@@ -3930,6 +3930,10 @@ const tools = [
             <button class="element" onclick="copyToClipboard('Booked & Confirmed')">Booked & Confirmed</button>
         </div><br><br>
         <div class="elementClickableContainer">
+            <button class="element" onclick="copyToClipboard('Asked To Ship 2 Day')">Asked To Ship 2 Day</button>
+            <button class="element" onclick="copyToClipboard('Asked To Ship Overnight')">Asked To Ship Overnight</button>
+        </div><br><br>
+        <div class="elementClickableContainer">
             <button class="element" onclick="copyToClipboard('Style Number Invalid')">Style Number Invalid</button>
         </div><br><br>
         <h3>Shipping Methods</h3>
