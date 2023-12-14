@@ -10853,39 +10853,41 @@ function getWholesaleTimes () {
     element.innerHTML = ``;
     
     for (var i = 0; i < 24; i++) {
-        var newDateStart = new Date();
-        var newDateEnd = new Date();
-
-        newDateStart.setDate(date.getDate() + (7 * i))
-        newDateEnd.setDate(date.getDate() + (7 * i) + 6)
-
-        var timeframe = months[(newDateStart.getMonth())].substr(0, 3) + ` ` + newDateStart.getDate() + ` to ` + months[(newDateEnd.getMonth())].substr(0, 3) + ` ` + newDateEnd.getDate();
-        var leadTimeFrame = (i + 2) + ` to ` + (i + 4) + ` Weeks`;
-
-        var button = document.createElement("button");
-        var buttonTime = document.createElement("div");
-        var buttonLeadTime = document.createElement("div");
-
-        button.style.width = "100%";
-        button.style.display = "flex";
-        button.style.justifyContent = "space-between";
-        button.style.border = "none";
-        button.style.height = "24px";
-        
-        buttonTime.style.fontSize = "16px";
-        buttonTime.style.verticalAlign = "middle";
-
-        buttonLeadTime.style.fontSize = "16px";
-        buttonLeadTime.style.verticalAlign = "middle";
-
-        button.addEventListener("click", copyToClipboard.bind(this, leadTimeFrame), false);
-        
-        buttonTime.innerHTML = timeframe;
-        buttonLeadTime.innerHTML = leadTimeFrame;
-
-        button.appendChild(buttonTime);
-        button.appendChild(buttonLeadTime);
-        element.append (button);
+        if (i > 0) {
+            var newDateStart = new Date();
+            var newDateEnd = new Date();
+    
+            newDateStart.setDate(date.getDate() + (7 * i))
+            newDateEnd.setDate(date.getDate() + (7 * i) + 6)
+    
+            var timeframe = months[(newDateStart.getMonth())].substr(0, 3) + ` ` + newDateStart.getDate() + ` to ` + months[(newDateEnd.getMonth())].substr(0, 3) + ` ` + newDateEnd.getDate();
+            var leadTimeFrame = (i + 2) + ` to ` + (i + 4) + ` Weeks`;
+    
+            var button = document.createElement("button");
+            var buttonTime = document.createElement("div");
+            var buttonLeadTime = document.createElement("div");
+    
+            button.style.width = "100%";
+            button.style.display = "flex";
+            button.style.justifyContent = "space-between";
+            button.style.border = "none";
+            button.style.height = "24px";
+            
+            buttonTime.style.fontSize = "16px";
+            buttonTime.style.verticalAlign = "middle";
+    
+            buttonLeadTime.style.fontSize = "16px";
+            buttonLeadTime.style.verticalAlign = "middle";
+    
+            button.addEventListener("click", copyToClipboard.bind(this, leadTimeFrame), false);
+            
+            buttonTime.innerHTML = timeframe;
+            buttonLeadTime.innerHTML = leadTimeFrame;
+    
+            button.appendChild(buttonTime);
+            button.appendChild(buttonLeadTime);
+            element.append (button);
+        }
     }
 }
 
