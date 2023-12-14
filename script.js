@@ -6218,8 +6218,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     getTime();
     setInterval(getTime, 1000);
 
-    getWholesaleTimes()
-    setInterval(getWholesaleTimes, 30000);
+    //getWholesaleTimes()
+    //setInterval(getWholesaleTimes, 30000);
 
     getWeather();
     setInterval(getWeather, 30000);
