@@ -1163,7 +1163,7 @@ const templates = [
         orderNumber = "(If Applicabble)",
         department = "Shipping",
         task = "Fedex - Lost Order - File Claim",
-        contact = "Sean O'Shea, Christopher Yeates",
+        contact = "Sean O'Shea",
         tags = "YDI logistics FedEx missing orders",
         id = "tmpFdxLfc"
     ),
