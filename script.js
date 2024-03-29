@@ -5655,7 +5655,7 @@ const boutiques = [
         email = "store205ops@davidyurman.com",
         type = 1,
         BOSS = false,
-        closed = false,
+        closed = true,
     ),
     new boutique (
         title = "Desert Hills Premium Outlets | Cabzaon, CA Outlet",
