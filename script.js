@@ -1298,7 +1298,7 @@ const templates = [
         orderNumber = "(If Applicable)",
         department = "Shipping",
         task = "Coddling...",
-        contact = "Samantha DeForge, Michael Clancy",
+        contact = "Samantha DeForge, Marlene Delgado",
         tags = "gifts escalations",
         id = "tmpGftGen"
     ),
