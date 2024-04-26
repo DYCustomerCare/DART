@@ -5847,8 +5847,7 @@ const boutiques = [
         email = "",
         type = 0,
         BOSS = false,
-        closed = false,
-        image="https://davidyurman.brickworksoftware.com/assets?format=webp&source=https://cdn.filepicker.io/api/file/sqbCRv7ZSmOXh9M77XHO"
+        closed = false
     ),
     new boutique (
         title = "Americana Manhasset | Manhasset, NY",
