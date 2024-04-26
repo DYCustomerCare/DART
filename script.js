@@ -5628,12 +5628,13 @@ const boutiques = [
         email = "",
         type = 0,
         BOSS = false,
-        closed = false
+        closed = false,
+        image = "https://www.davidyurman.com/on/demandware.static/-/Sites/default/dw4b935c26/images/storeImages/StoreLocator_Printemps_Thumbnail.jpg"
     ),
     new boutique (
         title = "Rue Saint Honoré | Paris, France",
         number = 85,
-        address1 = "<b>David Yurman</b><br>245, Rue Saint Honoré",
+        address1 = "<b>David Yurman</b><br>245 Rue Saint Honoré",
         address2 = "",
         address3 = "Paris 75001",
         country = 2,
@@ -5642,7 +5643,8 @@ const boutiques = [
         email = "",
         type = 0,
         BOSS = false,
-        closed = false
+        closed = false,
+        image = "https://www.davidyurman.com/on/demandware.static/-/Sites/default/dw0001aa2a/images/storeImages/StoreLocator_Paris_Thumbnail.jpg"
     ),
     new boutique (
         title = "Distribution Center | DYE",
