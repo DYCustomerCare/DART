@@ -3090,13 +3090,14 @@ const notes = [
         <i>*Details pending overall product design</i><br><br>
         <table class="hoverTable">
             <tr><th style="width: 100px;">Material</th> <th style="width: 100px;">Resize</th> <th style="width: 100px;">Refurbish</th> <th style="width: 200px;"></th></tr>
-            <tr><td title="Information provided is not related to Cable Rubber Bracelets.">Rubber <i class="bi bi-info-circle-fill"></i></td>     <td>No</td>     <td>Yes</td>     <td></td></tr>
+            <tr><td title="Information provided is for rubber jewelry & not related to Cable Rubber Bracelets, which should never be sent to DRS.">Rubber <i class="bi bi-info-circle-fill"></i></td>     <td>No</td>     <td>Yes</td>     <td></td></tr>
             <tr><td>Leather</td>    <td>Yes</td>    <td>Yes</td>     <td></td></tr>
             <tr><td>Nylon</td>      <td>Yes</td>    <td>Yes</td>     <td></td></tr>
         </table><br>
         <table class="hoverTable">
             <tr><th style="width: 100px;">Metal</th> <th style="width: 100px;">Resize</th> <th style="width: 100px;">Refurbish</th> <th style="width: 100px;">Engrave</th> <th style="width: 200px;">Rhodium Plating</th></tr>
             <tr><td title="Aluminum bracelets should not be sent out for repairs as they cannot be serviced.">Aluminum <i class="bi bi-info-circle-fill"></i></td>   <td>No</td>     <td>No</td>     <td>No</td>     <td>No</td></tr>
+            <tr><td>Steel</i></td>   <td title="Necklaces and bracelets are replaced, not lengthened. Alterations may be costly.">Yes <i class="bi bi-info-circle-fill"></td>     <td title="Necklaces and bracelets coated PVD or acrylic cannot be restored. Chain will need to be replaced. Refurbishment will be costly.">No <i class="bi bi-info-circle-fill"></td>     <td>No</td>     <td>No</td></tr>
             <tr><td>Copper</td>     <td>No</td>     <td>Yes</td>     <td>Yes</td>     <td>No</td></tr>
             <tr><td>Titanium</td>   <td>No</td>     <td title="Due to the durability of Titanium, refurbishment is superficial. Not recommended.">No <i class="bi bi-info-circle-fill"></i></td>     <td title="Due to the durability of Titanium, engraving are possible, but not recommended due to being shallow. As engravings are darkened, this will make them hard to see on Black Titanium.">Yes <i class="bi bi-info-circle-fill"></i></td>     <td>No</td></tr>
             <tr><td>Silver</td>     <td>Yes</td>    <td>Yes</td>     <td>Yes</td>     <td title="Silver should not be oxidized or tarnished.">Yes <i class="bi bi-info-circle-fill"></i></td></tr>
@@ -3107,7 +3108,7 @@ const notes = [
         <b>Resizable Products</b><br>
         <i>*Details pending overall product design</i><br>
         <ul>
-            <li>Chain Necklaces & Bracelet (Box Chains, Oval Link, Madison, etc.)</li>
+            <li>Chain Necklaces & Bracelets (Box Chains, Oval Link, Madison, etc.)</li>
             <li>Beaded Necklaces & Bracelets (Bijoux, Spiritual Beads, etc.)</li>
             <li>Most Albion Rings</li>
             <li>Most Chatelaine Rings</li>
