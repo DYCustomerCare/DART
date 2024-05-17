@@ -3620,7 +3620,7 @@ const notes = [
                 <td>1C</td>
             </tr>
             <tr>
-                <td>Wrong Size</td>
+                <td>Wrong Color</td>
                 <td>2A</td>
                 <td>2B</td>
                 <td>2C</td>
@@ -3662,7 +3662,7 @@ const notes = [
                 <td>8C</td>
             </tr>
             <tr>
-                <td>Wrong Color</td>
+                <td>Wrong Size</td>
                 <td>9A</td>
                 <td>9B</td>
                 <td>9C</td>
