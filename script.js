@@ -5709,7 +5709,7 @@ const boutiques = [
         email = "store204ops@davidyurman.com",
         type = 1,
         BOSS = false,
-        closed = false,
+        closed = true,
     ),
     new boutique (
         title = "Houston Premium Outlets | Houston, TX",
