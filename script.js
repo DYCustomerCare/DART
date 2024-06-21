@@ -1178,7 +1178,7 @@ const templates = [
         orderNumber = "(If Applicable)",
         department = "Returns",
         task = "Return Received",
-        contact = "Xiomara Garcia, Christiel Toribio", 
+        contact = "Christiel Toribio, Roxana Rodriguez", 
         tags = "returns refunds exchanges orders",
         id = "tmpRtnGen"
     ),
