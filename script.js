@@ -1118,7 +1118,7 @@ const templates = [
         orderNumber = "(If Applicable)",
         department = "Finance",
         task = "(Required Task)",
-        contact = "Carolina Otiniano",
+        contact = "Carolina Otiniano, Giselle Rivera",
         tags = "finance",
         id = "tmpFinGen"
     ),
@@ -1163,7 +1163,7 @@ const templates = [
         orderNumber = "(If Applicabble)",
         department = "Shipping",
         task = "Fedex - Lost Order - File Claim",
-        contact = "Sean O'Shea",
+        contact = "Andrew Lifton, Furukh Khan, Sean O'Shea",
         tags = "YDI logistics FedEx missing orders",
         id = "tmpFdxLfc"
     ),
