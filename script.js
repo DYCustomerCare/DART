@@ -983,7 +983,7 @@ const templates = [
         orderNumber = "(If Applicable)",
         department = "Escalations",
         task = "Repair",
-        contact = "Jane Kuhne, Diana Medina",
+        contact = "Diana Medina, Brenda Santiago, Jane Kuhne",
         tags = "escalations repairs help manager",
         id = "tmpEscRpr"
     ),
@@ -1268,7 +1268,7 @@ const templates = [
         orderNumber = "",
         department = "",
         task = "",
-        contact = "Patrick Robinson, ",
+        contact = "Patrick Robinson",
         tags = "support repairs help",
         id = "tmpSupGen"
     ),
