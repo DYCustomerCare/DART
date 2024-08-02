@@ -1268,7 +1268,7 @@ const templates = [
         orderNumber = "",
         department = "",
         task = "",
-        contact = "Calvin Best, Patrick Robinson, Tony Tso",
+        contact = "Patrick Robinson, ",
         tags = "support repairs help",
         id = "tmpSupGen"
     ),
@@ -1283,7 +1283,7 @@ const templates = [
         orderNumber = "(Required)",
         department = "Shipping",
         task = "FedEx - Missing/Wrong Item In Order",
-        contact = "Julio Bryam, Christopher Valiante, Richard Roman",
+        contact = "Christopher Valiante, Julio Bryam",
         tags = "security orders",
         id = "tmpSecGen"
     ),
@@ -1293,7 +1293,7 @@ const templates = [
         text = "Request(s) & Quantity:<br>Reason:<br>Shipping Address:",
         warning = "Quantities exceeding <b>3 units</b> per request subject to approval.<br>Please submit an <b>accomodation</b> before submitting your task.",
         filter = "gifts",
-        assign = "Samantha DeForge",
+        assign = "Samantha DeForge, Marlene Delgado",
         assignType = 0,
         orderNumber = "(If Applicable)",
         department = "Shipping",
