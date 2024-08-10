@@ -990,7 +990,7 @@ const templates = [
     new template (
         title = "Order Replacement",
         type = 0,
-        text = "Order Number:<br>Style Number:<br>Reason For Replacement:<br>Tracking Number:<br>Original Shipping Address:<br>New/Alternate Address:",
+        text = "Style Number:<br>Reason For Replacement:<br>Tracking Number:<br>Original Shipping Address:<br>New/Alternate Address:",
         warning = "If this is a replacement for a lost/missing FedEx package (excluding FedEx Smart Post),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup at either a FedEx Ship Center or FedEx Office, Print, and Ship Center.",
         filter = "escalations orders",
         assign = "Cc Ops",
@@ -1125,7 +1125,7 @@ const templates = [
     new template (
         title = "General Shipping Request",
         type = 0,
-        text = "Order Number:<br>Inquiry/Request:<br>Tracking Number:<br>Current Address:<br>New/FedEx Address:",
+        text = "Inquiry/Request:<br>Tracking Number:<br>Current Address:<br>New/FedEx Address:",
         warning = "",
         filter = "quickTask shipping",
         assign = "Shipping",
@@ -1170,7 +1170,7 @@ const templates = [
     new template (
         title = "General Returns Request",
         type = 0,
-        text = "Request:<br>Tracking Number:<br>Order Number:",
+        text = "Request:<br>Tracking Number:<br>Notes:",
         warning = "",
         filter = "quickTask returns",
         assign = "Returns",
@@ -1275,7 +1275,7 @@ const templates = [
     new template (
         title = "Missing/Wrong Jewelry Item In Order",
         type = 0,
-        text = "Order Number:<br>Item(s) Missing:<br>Item(s) Received:<br>Request:<br>Tracking:",
+        text = "Item(s) Missing:<br>Item(s) Received:<br>Request:<br>Tracking:",
         warning = "Before Submitting: Security footage may be unable to determine if an incorrect length/size was sent to a customer and will be unable to differentiate between similar colors.",
         filter = "security",
         assign = "Security",
@@ -6714,7 +6714,7 @@ const stones = [
     new stone (title="Sapphire", code="SA"),
     new stone (title="Top Blue Sapphire", code="SB"),
     new stone (title="Red Sponge Coral", code="SC"),
-    new stone (title="Seed Bead", code="SD"),
+    new stone (title="Rudraksha Seed Bead", code="SD"),
     new stone (title="Serpentine", code="SE"),
     new stone (title="Blue Star Sapphire", code="SF"),
     new stone (title="Synthetic Green", code="SG"),
