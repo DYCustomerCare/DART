@@ -1005,8 +1005,8 @@ const templates = [
     new template (
         title = "BOSS or BOPIS Order Inquiry",
         type = 0,
-        text = "Recipient Name:<br>Salesforce Case(s):<br>BOSS Order:<br>Style Number(s):<br>Request:",
-        warning = "",
+        text = "KWI Order Number:<br>Request:",
+        warning = "The KWI Order Number can be found in the Details tab viewing an order.",
         filter = "boutique orders",
         assign = "(Required Boutique)",
         assignType = 2,
