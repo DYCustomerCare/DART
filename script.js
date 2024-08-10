@@ -127,8 +127,8 @@ var iconWeatherWarningToday = "exclamation-triangle-fill";
 var iconWeatherWarningOther = "exclamation-triangle";
 
 // Shipping Times
-const deliveryTwoDay = [3,3,4,5,1,2,3] //Wed, Wed, Thu, Fri, Mon, Tue, Wed
-const deliveryOneDay = [2,2,3,4,5,1,2] //Tue, Tue, Wed, Thu, Fri, Mon, Tue
+const deliveryTwoDay = [3,3,4,5,1,2,2] //Wed, Wed, Thu, Fri, Mon, Tue, Wed
+const deliveryOneDay = [2,2,3,4,5,1,1] //Tue, Tue, Wed, Thu, Fri, Mon, Tue
 
 const deliveryTwoDayCutOff = [3,4,5,1,2,3,3]; //Wed, Thu, Fri, Mon, Tue, Wed, Thu 
 const deliveryOneDayCutOff = [2,3,4,5,1,2,2]; //Tue, Wed, Thu, Fri, Mon, Tue, Tue
@@ -965,9 +965,9 @@ const templates = [
         filter = "escalations",
         assign = "Escalations",
         assignType = 2,
-        orderNumber = "If Applicable",
+        orderNumber = "<i>If Applicable</i>",
         department = "Escalations",
-        task = "(Required Task)",
+        task = "<i>Applicable Task</i>",
         contact = "Associated Customer Care Supervisor or Manager",
         tags = "escalation manager help",
         id = "tmpEscGen"
