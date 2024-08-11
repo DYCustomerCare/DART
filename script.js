@@ -7892,7 +7892,7 @@ function addSettings () {
 
         button.style.margin = "10px";
         button.style.marginLeft = "0";
-        button.title = screeneffects[i].title + "\n\n" + schemes[i].description;
+        button.title = screeneffects[i].title + "\n\n" + screeneffects[i].description;
 
         button.innerHTML = `<i class="bi bi-` + screeneffects[i].icon + `" style="color: ` + screeneffects[i].color + `"></i>`;
         
