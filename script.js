@@ -4052,7 +4052,7 @@ const screeneffects = [
         color = "pink",
         effect = "4"
     ),
-    new setColor (
+    new screeneffect (
         title = "Leaves",
         description = "A gentle cascade of autumn leaves.",
         icon = "tree-fill",
@@ -7699,7 +7699,7 @@ function addSettings () {
     titleColorSchemeSortCollections.innerHTML = `Collection Inspired Presets`;
     titleColorSchemeSortThemed.innerHTML = `Themed Presets`;
     titleColorSchemeSortSeasonal.innerHTML = `Seasonal Presets`;
-    titleColorSchemeSortEffects.innerHTML = `Effects`;
+    titleColorSchemeSortEffects.innerHTML = `Screen Effects`;
     titleColorSchemeSortCustom.innerHTML = `Custom HTML/RGB/Hex Colors`;
 
     containerColorSchemeSortLight.style.display = "flex";
@@ -7799,6 +7799,7 @@ function addSettings () {
     containerColorSchemes.appendChild(titleColorSchemeSortThemed);
     containerColorSchemes.appendChild(containerColorSchemeSortThemed);
     containerColorSchemes.appendChild(titleColorSchemeSortSeasonal);
+    containerColorSchemes.appendChild(titleColorSchemeSortEffect);
     containerColorSchemes.appendChild(containerColorSchemeSortSeasonal);
     
     containerColorSchemes.appendChild(titleColorSchemeSortCustom);
@@ -7882,6 +7883,8 @@ function addSettings () {
             containerColorSchemeSortSeasonal.appendChild(button);
         }
     }
+
+    container.appendChild (titleColorSchemes);
 
     for (let i = 0; i < screeneffects.length; i++) {
         const button = document.createElement("button");
