@@ -7853,7 +7853,7 @@ function addSettings () {
 
     container.appendChild(containerGeneral);
 
-    titleColorSchemes.innerHTML = `Color Schemes- & Effects`;
+    titleColorSchemes.innerHTML = `Color Schemes & Effects`;
 
     container.appendChild (titleColorSchemes);
 
