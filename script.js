@@ -1185,7 +1185,7 @@ const templates = [
     new template (
         title = "General CC Ops Returns Request",
         type = 0,
-        text = "Request:<br>Tracking Number:<br>Style Name:<br>Style Number:<br>Assistance Required:<br>RMA Status:<br>Notes:<br>BOSS/BOPIS?:",
+        text = "Request:<br>Tracking Number:<br>Style Name:<br>Style Number:<br>RMA Status:",
         warning = "Please ensure any and all associated documentation is included with your task submission.",
         filter = "quickTask returns fedex",
         assign = "CC Ops",
@@ -10204,7 +10204,7 @@ function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubti
         const contact = document.createElement("p");
         contact.style.marginBottom = "20px";
     
-        contact.innerHTML = "<b>Suggested Contact(s):</b> " + aContact;
+        contact.innerHTML = "<b>Suggested Follow-Up Contact(s):</b> " + aContact;
     
         article.appendChild(contact);
     }
