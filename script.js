@@ -4013,6 +4013,61 @@ const tools = [
 //
 //----------------------------------------------------------------------------------------------------
 
+class screeneffect {
+    constructor (title="effect", description="", icon="circle", color="lightgrey", effect=0) {
+        this.title = title;
+        this.description = description;
+        this.icon = icon;
+        this.color = color;
+        this.effect = effect;
+    }
+}
+
+const screeneffects = [
+    new screeneffect (
+        title = "No Effect",
+        description = "Remove all screen effects.",
+        icon = "x-circle",
+        color = "#ddd",
+        effect = "0"
+    ),
+    new screeneffect (
+        title = "Confetti",
+        description = "Perfect for celebrations.",
+        icon = "diamond-fill",
+        color = "darkblue",
+        effect = "3"
+    ),
+    new screeneffect (
+        title = "Heart",
+        description = "A lovely sprinkle of cute hearts.",
+        icon = "heart-fill",
+        color = "darkred",
+        effect = "2"
+    ),
+    new screeneffect (
+        title = "Flowers",
+        description = "A bouquet of florals for any occassion.",
+        icon = "flower1",
+        color = "pink",
+        effect = "4"
+    ),
+    new setColor (
+        title = "Leaves",
+        description = "A gentle cascade of autumn leaves.",
+        icon = "tree-fill",
+        color = "darkgreen",
+        effect = "5"
+    ),
+    new screeneffect (
+        title = "Snow",
+        description = "A light blizzard of snow puffs.",
+        icon = "snow2",
+        color = "lightgrey",
+        effect = "1"
+    ),
+]
+
 class scheme {
     constructor (title="Light Mode", icon="circle-fill", color="lightgrey", background="white", primary="white", secondary="black", accentLight="lightgrey", accentMedium="darkgrey", accentDark="grey", accentWarning="red", filter="", rainbow=0, effect=0, description="", blur=false, font="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif") {
         this.title = title;
@@ -7203,6 +7258,7 @@ function appendChildren (element, children=[]) {
 
 function setData () {
     var scheme = parseInt(localStorage.getItem('colorScheme'));
+    var effect = parseInt(localStorage.getItem('screenEffect'));
 
     if (scheme) {
         if (scheme > 0 && scheme < schemes.length) {
@@ -7210,6 +7266,10 @@ function setData () {
         } else if (scheme < 0) {
             getColorSchemeCustom();
         }
+    }
+
+    if (effect) {
+        setScreenEffect(effect);
     }
 
     setColorSchemeStyle(0);
@@ -7620,6 +7680,7 @@ function addSettings () {
     const titleColorSchemeSortGemstones = document.createElement("h4");
     const titleColorSchemeSortThemed = document.createElement("h4");
     const titleColorSchemeSortSeasonal = document.createElement("h4");
+    const titleColorSchemeSortEffects = document.createElement("h4");
     const titleColorSchemeSortCustom = document.createElement("h4");
     const titleColorSchemeSortCollections = document.createElement("h4");
 
@@ -7628,6 +7689,7 @@ function addSettings () {
     const containerColorSchemeSortGemstones = document.createElement("div");
     const containerColorSchemeSortThemed = document.createElement("div");
     const containerColorSchemeSortSeasonal = document.createElement("div");
+    const containerColorSchemeSortEffects = document.createElement("div");
     const containerColorSchemeCustom = document.createElement("div");
     const containerColorSchemeSortCollections = document.createElement("div");
 
@@ -7637,6 +7699,7 @@ function addSettings () {
     titleColorSchemeSortCollections.innerHTML = `Collection Inspired Presets`;
     titleColorSchemeSortThemed.innerHTML = `Themed Presets`;
     titleColorSchemeSortSeasonal.innerHTML = `Seasonal Presets`;
+    titleColorSchemeSortEffects.innerHTML = `Effects`;
     titleColorSchemeSortCustom.innerHTML = `Custom HTML/RGB/Hex Colors`;
 
     containerColorSchemeSortLight.style.display = "flex";
@@ -7658,6 +7721,10 @@ function addSettings () {
     containerColorSchemeSortSeasonal.style.display = "flex";
     containerColorSchemeSortSeasonal.style.flexWrap = "wrap";
     containerColorSchemeSortSeasonal.style.display.justifyContent = "center";
+
+    containerColorSchemeSortEffects.style.display = "flex";
+    containerColorSchemeSortEffects.style.flexWrap = "wrap";
+    containerColorSchemeSortEffects.style.display.justifyContent = "center";
 
     containerColorSchemeSortCollections.style.display = "flex";
     containerColorSchemeSortCollections.style.flexWrap = "wrap";
@@ -7816,6 +7883,22 @@ function addSettings () {
         }
     }
 
+    for (let i = 0; i < screeneffects.length; i++) {
+        const button = document.createElement("button");
+
+        button.style.margin = "10px";
+        button.style.marginLeft = "0";
+        button.title = screeneffects[i].title + "\n\n" + schemes[i].description;
+
+        button.innerHTML = `<i class="bi bi-` + screeneffects[i].icon + `" style="color: ` + screeneffects[i].color + `"></i>`;
+        
+        button.addEventListener("click", function() {
+            setScreenEffect(screeneffects[id].effect);
+        });
+
+        containerColorSchemeSortEffect.appendChild(button);
+    }
+
     const animationSettings = [
         { opacity: '0' },
         { opacity: '1' },
@@ -7883,44 +7966,6 @@ function setColorScheme (id) {
 
     rainbow = schemes[parseInt(id)].rainbow;
 
-    if (schemes[id].effect == 1) {
-        document.getElementById("overlay-snow").style.display = "block";
-        document.getElementById("overlay-hearts").style.display = "none";
-        document.getElementById("overlay-confettis").style.display = "none";
-        document.getElementById("overlay-flowers").style.display = "none";
-        document.getElementById("overlay-leafs").style.display = "none";
-    } else if (schemes[id].effect == 2) {
-        document.getElementById("overlay-snow").style.display = "none";
-        document.getElementById("overlay-hearts").style.display = "block";
-        document.getElementById("overlay-confettis").style.display = "none";
-        document.getElementById("overlay-flowers").style.display = "none";
-        document.getElementById("overlay-leafs").style.display = "none";
-    } else if (schemes[id].effect == 3) {
-        document.getElementById("overlay-snow").style.display = "none";
-        document.getElementById("overlay-hearts").style.display = "none";
-        document.getElementById("overlay-confettis").style.display = "block";
-        document.getElementById("overlay-flowers").style.display = "none";
-        document.getElementById("overlay-leafs").style.display = "none";
-    } else if (schemes[id].effect == 4) {
-        document.getElementById("overlay-snow").style.display = "none";
-        document.getElementById("overlay-hearts").style.display = "none";
-        document.getElementById("overlay-confettis").style.display = "none";
-        document.getElementById("overlay-flowers").style.display = "block";
-        document.getElementById("overlay-leafs").style.display = "none";
-    } else if (schemes[id].effect == 5) {
-        document.getElementById("overlay-snow").style.display = "none";
-        document.getElementById("overlay-hearts").style.display = "none";
-        document.getElementById("overlay-confettis").style.display = "none";
-        document.getElementById("overlay-flowers").style.display = "none";
-        document.getElementById("overlay-leafs").style.display = "block";
-    } else {
-        document.getElementById("overlay-snow").style.display = "none";
-        document.getElementById("overlay-hearts").style.display = "none";
-        document.getElementById("overlay-confettis").style.display = "none";
-        document.getElementById("overlay-flowers").style.display = "none";
-        document.getElementById("overlay-leafs").style.display = "none";
-    }
-
     var elementMenu = document.getElementById("menu");
     var elementNav = document.getElementById("nav");
     var elementNotice = document.getElementById("notice");
@@ -7943,7 +7988,51 @@ function setColorScheme (id) {
         elementNotice.style.backdropFilter = "none";
     }
 
+    setScreenEffect(schemes[id].effect);
+
     setNotice("Color Scheme Updated", "Your color scheme has been updated and changed to <b>" + schemes[parseInt(id)].title + "</b>. If you clear your browser's storage or change DART's file path, these settings will be removed.");
+}
+
+function setScreenEffect (id) {
+    if (id == 1) {
+        document.getElementById("overlay-snow").style.display = "block";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "none";
+    } else if (id == 2) {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "block";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "none";
+    } else if (id == 3) {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "block";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "none";
+    } else if (id == 4) {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "block";
+        document.getElementById("overlay-leafs").style.display = "none";
+    } else if (id == 5) {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "block";
+    } else {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "none";
+    }
+
+    localStorage.setItem('screenEffect', id);
 }
 
 function setColorSchemeCustom () {
