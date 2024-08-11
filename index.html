@@ -46,7 +46,7 @@
             <div id="menu" class="">
                 <div class="menuIcons">
                     <div class="menuIconsContainer">
-                        <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()">
+                        <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()" aria-hidden="true">
                             <i title="DART LITE Disabled" class="navlock bi bi-unlock hidden"></i>
                             <i title="DART LITE Enabled" class="navlock bi bi-lock"></i>
                         </div>
@@ -442,7 +442,7 @@
             <header>
                 <div style="text-align: center;">
                     <h1><i class="bi bi-heart-arrow"></i> D A R T <i class="bi bi-bullseye"></i></h1>
-                    <h3 id="lite_title" class="liteTitle">L I T E</h3>
+                    <h3 id="lite_title" class="liteTitle" aria-hidden="true">L I T E</h3>
                     <p><i>Digitized Anti-Routine Tool<br><span id="version"></span></i></p>
                 </div>
                 <hr>
