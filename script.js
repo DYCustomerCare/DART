@@ -4032,11 +4032,11 @@ const screeneffects = [
         effect = 0
     ),
     new screeneffect (
-        title = "Confetti",
-        description = "Perfect for celebrations.",
-        icon = "diamond-fill",
-        color = "darkblue",
-        effect = 3
+        title = "Snow",
+        description = "A light blizzard of snow puffs.",
+        icon = "snow2",
+        color = "lightgrey",
+        effect = 1
     ),
     new screeneffect (
         title = "Hearts",
@@ -4044,6 +4044,13 @@ const screeneffects = [
         icon = "heart-fill",
         color = "darkred",
         effect = 2
+    ),
+    new screeneffect (
+        title = "Confetti",
+        description = "Perfect for celebrations.",
+        icon = "diamond-fill",
+        color = "darkblue",
+        effect = 3
     ),
     new screeneffect (
         title = "Flowers",
@@ -4058,13 +4065,6 @@ const screeneffects = [
         icon = "tree-fill",
         color = "darkgreen",
         effect = 5
-    ),
-    new screeneffect (
-        title = "Snow",
-        description = "A light blizzard of snow puffs.",
-        icon = "snow2",
-        color = "lightgrey",
-        effect = 1
     ),
 ]
 
@@ -7262,9 +7262,9 @@ function setData () {
 
     if (scheme) {
         if (scheme > 0 && scheme < schemes.length) {
-            setColorScheme(scheme);
+            setColorScheme(scheme, false);
         } else if (scheme < 0) {
-            getColorSchemeCustom();
+            getColorSchemeCustom(false);
         }
     }
 
@@ -7867,7 +7867,7 @@ function addSettings () {
         button.innerHTML = `<i class="bi bi-` + schemes[i].icon + `" style="color: ` + schemes[i].color + `"></i>`;
         
         button.addEventListener("click", function() {
-            setColorScheme(i);
+            setColorScheme(i, true);
         });
 
         if (schemes[i].filter == "light") {
@@ -7897,7 +7897,7 @@ function addSettings () {
         button.innerHTML = `<i class="bi bi-` + screeneffects[i].icon + `" style="color: ` + screeneffects[i].color + `"></i>`;
         
         button.addEventListener("click", function() {
-            setScreenEffect(screeneffects[i].effect);
+            setScreenEffect(screeneffects[i].effect, true);
         });
 
         containerColorSchemeSortEffects.appendChild(button);
@@ -7950,7 +7950,7 @@ function addQuickTask () {
 //
 //----------------------------------------------------------------------------------------------------
 
-function setColorScheme (id) {
+function setColorScheme (id, useNotice) {
     
     var root = document.querySelector(':root');
 
@@ -7965,8 +7965,6 @@ function setColorScheme (id) {
     root.style.setProperty('--color-accent-warning', schemes[parseInt(id)].accentWarning);
 
     root.style.setProperty('--font-secondary', schemes[parseInt(id)].font);
-
-    localStorage.setItem('colorScheme', id);
 
     rainbow = schemes[parseInt(id)].rainbow;
 
@@ -7991,13 +7989,16 @@ function setColorScheme (id) {
         elementNav.style.backdropFilter = "none";
         elementNotice.style.backdropFilter = "none";
     }
+    
+    localStorage.setItem('colorScheme', id);
 
-    setScreenEffect(schemes[id].effect);
-
-    setNotice("Color Scheme Updated", "Your color scheme has been updated and changed to <b>" + schemes[parseInt(id)].title + "</b>. If you clear your browser's storage or change DART's file path, these settings will be removed.");
+    if (useNotice == true)
+    {
+        setNotice("Color Scheme Updated", "Your color scheme has been updated and changed to <b>" + schemes[parseInt(id)].title + "</b>. If you clear your browser's storage or change DART's file path, these settings will be removed.");
+    }
 }
 
-function setScreenEffect (id) {
+function setScreenEffect (id, useNotice) {
     if (id == 1) {
         document.getElementById("overlay-snow").style.display = "block";
         document.getElementById("overlay-hearts").style.display = "none";
@@ -8037,9 +8038,14 @@ function setScreenEffect (id) {
     }
 
     localStorage.setItem('screenEffect', id);
+
+    if (useNotice == true)
+    {
+        setNotice("Screen Effect Updated", "Your screen effect has been updated and changed to <b>" + screeneffects[parseInt(id)].title + "</b>. If you clear your browser's storage or change DART's file path, these settings will be removed.");
+    }
 }
 
-function setColorSchemeCustom () {
+function setColorSchemeCustom (useNotice) {
     rainbow = 0;
     localStorage.setItem('colorScheme', -1);
 
@@ -8069,7 +8075,10 @@ function setColorSchemeCustom () {
     root.style.setProperty('--color-accent-dark', accentC.value);
     root.style.setProperty('--color-accent-warning', warning.value);
 
-    setNotice("Custom Color Scheme Updated", "Your personalized color scheme has been updated. If you clear your browser's storage or change DART's file path, these settings will be removed.");
+    if (useNotice)
+    {
+        setNotice("Custom Color Scheme Updated", "Your personalized color scheme has been updated. If you clear your browser's storage or change DART's file path, these settings will be removed.");
+    }
 }
 
 function setColorSchemeStyle (style) {
