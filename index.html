@@ -46,9 +46,9 @@
             <div id="menu" class="">
                 <div class="menuIcons">
                     <div class="menuIconsContainer">
-                        <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()" aria-hidden="true">
-                            <i title="DART LITE Disabled" class="navlock bi bi-unlock hidden"></i>
-                            <i title="DART LITE Enabled" class="navlock bi bi-lock"></i>
+                        <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()">
+                            <i title="DART LITE Disabled" class="navlock bi bi-unlock hidden" aria-hidden="true"></i>
+                            <i title="DART LITE Enabled" class="navlock bi bi-lock" aria-hidden="true"></i>
                         </div>
                         <div id="navDashboard" title="Dashboard" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addDashboard()"><i class="bi bi-house"></i></div>
                         <div id="navFavorites" title="Favorites" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addFavorites()"><i class="bi bi-star"></i></div>
@@ -442,7 +442,7 @@
             <header>
                 <div style="text-align: center;">
                     <h1><i class="bi bi-heart-arrow"></i> D A R T <i class="bi bi-bullseye"></i></h1>
-                    <h3 id="lite_title" class="liteTitle" aria-hidden="true">L I T E</h3>
+                    <h3 id="lite_title" class="liteTitle"></h3>
                     <p><i>Digitized Anti-Routine Tool<br><span id="version"></span></i></p>
                 </div>
                 <hr>
