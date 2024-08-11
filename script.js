@@ -4025,46 +4025,46 @@ class screeneffect {
 
 const screeneffects = [
     new screeneffect (
-        title = "No Effect",
-        description = "Remove all screen effects.",
+        title = "Remove Effects",
+        description = "Simple. Clean. Professional.",
         icon = "x-circle",
         color = "#ddd",
-        effect = "0"
+        effect = 0
     ),
     new screeneffect (
         title = "Confetti",
         description = "Perfect for celebrations.",
         icon = "diamond-fill",
         color = "darkblue",
-        effect = "3"
+        effect = 3
     ),
     new screeneffect (
-        title = "Heart",
+        title = "Hearts",
         description = "A lovely sprinkle of cute hearts.",
         icon = "heart-fill",
         color = "darkred",
-        effect = "2"
+        effect = 2
     ),
     new screeneffect (
         title = "Flowers",
         description = "A bouquet of florals for any occassion.",
         icon = "flower1",
         color = "pink",
-        effect = "4"
+        effect = 4
     ),
     new screeneffect (
         title = "Leaves",
         description = "A gentle cascade of autumn leaves.",
         icon = "tree-fill",
         color = "darkgreen",
-        effect = "5"
+        effect = 5
     ),
     new screeneffect (
         title = "Snow",
         description = "A light blizzard of snow puffs.",
         icon = "snow2",
         color = "lightgrey",
-        effect = "1"
+        effect = 1
     ),
 ]
 
@@ -4355,7 +4355,7 @@ const schemes = [
         accentWarning = "red",
         filter = "themed",
         rainbow = 1,
-        effect = 3,
+        effect = 0,
         description = "The classic light DART theme with soft rainbow accents.",
         blur = true,
         font = "'Kaisei Decol', serif"
@@ -4373,7 +4373,7 @@ const schemes = [
         accentWarning = "darkred",
         filter = "themed",
         rainbow = 2,
-        effect = 3,
+        effect = 0,
         description = "The classic dark DART theme with rich rainbow accents.",
         blur = true,
         font = "'Kaisei Decol', serif"
@@ -4391,7 +4391,7 @@ const schemes = [
         accentWarning = "cornsilk",
         filter = "seasonal",
         rainbow = 0,
-        effect = 1,
+        effect = 0,
         description = "A winter theme inspired by a snow covered Central Park at night.",
         blur = false,
         font = "'Kaisei Decol', serif"
@@ -4409,7 +4409,7 @@ const schemes = [
         accentWarning = "brown",
         filter = "seasonal",
         rainbow = 0,
-        effect = 1,
+        effect = 0,
         description = "The winter theme inspired by a paper crafts and drawings with warm tones.",
         blur = false,
         font = "'Kaisei Decol', serif"
@@ -4823,7 +4823,7 @@ const schemes = [
         accentWarning = "darkred",
         filter = "seasonal",
         rainbow = 0,
-        effect = 2,
+        effect = 0,
         description = "A delicate blend of romance and luxury.",
         blur = false,
         font = "'Kaisei Decol', serif"
@@ -4877,7 +4877,7 @@ const schemes = [
         accentWarning = "DodgerBlue",
         filter = "themed",
         rainbow = 1,
-        effect = 3,
+        effect = 0,
         description = "Revel in the colors of victory with confetti in celebration of Hispanic Heritage.",
         blur = false,
         font = "'Kaisei Decol', serif"
@@ -4913,7 +4913,7 @@ const schemes = [
         accentWarning = "DarkGreen",
         filter = "seasonal",
         rainbow = 1,
-        effect = 4,
+        effect = 0,
         description = "Bloom and take in the sum with spring colors and florals.",
         blur = false,
         font = "'Kaisei Decol', serif"
@@ -4949,7 +4949,7 @@ const schemes = [
         accentWarning = "orange",
         filter = "seasonal",
         rainbow = 0,
-        effect = 5,
+        effect = 0,
         description = "Ground yourself in warm fall colors.",
         blur = false,
         font = "'Kaisei Decol', serif"
@@ -4967,7 +4967,7 @@ const schemes = [
         accentWarning = "#9b887d",
         filter = "seasonal",
         rainbow = 0,
-        effect = 1,
+        effect = 0,
         description = "Look cool with muted winter tones.",
         blur = false,
         font = "'Kaisei Decol', serif"
