@@ -4074,9 +4074,9 @@ const screeneffects = [
         effect = 6
     ),
     new screeneffect (
-        title = "Gems",
-        description = "Adorned with rubies, emeralds, and sapphires.",
-        icon = "diamond-fill",
+        title = "Celestial",
+        description = "Out of this world...",
+        icon = "moon-fill",
         color = "darkblue",
         effect = 7
     ),
