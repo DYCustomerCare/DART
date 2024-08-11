@@ -4025,7 +4025,7 @@ class screeneffect {
 
 const screeneffects = [
     new screeneffect (
-        title = "Remove Effects",
+        title = "None",
         description = "Simple. Clean. Professional.",
         icon = "x-circle",
         color = "#ddd",
@@ -4048,7 +4048,7 @@ const screeneffects = [
     new screeneffect (
         title = "Confetti",
         description = "Perfect for celebrations.",
-        icon = "diamond-fill",
+        icon = "circle-fill",
         color = "darkblue",
         effect = 3
     ),
@@ -4065,6 +4065,20 @@ const screeneffects = [
         icon = "tree-fill",
         color = "darkgreen",
         effect = 5
+    ),
+    new screeneffect (
+        title = "Diamonds",
+        description = "Diamonds are forever.",
+        icon = "diamond",
+        color = "lightgrey",
+        effect = 6
+    ),
+    new screeneffect (
+        title = "Gems",
+        description = "Adorned with rubies, emeralds, and sapphires.",
+        icon = "diamond-fill",
+        color = "darkblue",
+        effect = 7
     ),
 ]
 
@@ -8005,36 +8019,63 @@ function setScreenEffect (id, useNotice) {
         document.getElementById("overlay-confettis").style.display = "none";
         document.getElementById("overlay-flowers").style.display = "none";
         document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-diamonds").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "none";
     } else if (id == 2) {
         document.getElementById("overlay-snow").style.display = "none";
         document.getElementById("overlay-hearts").style.display = "block";
         document.getElementById("overlay-confettis").style.display = "none";
         document.getElementById("overlay-flowers").style.display = "none";
         document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "none";
     } else if (id == 3) {
         document.getElementById("overlay-snow").style.display = "none";
         document.getElementById("overlay-hearts").style.display = "none";
         document.getElementById("overlay-confettis").style.display = "block";
         document.getElementById("overlay-flowers").style.display = "none";
         document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-diamonds").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "none";
     } else if (id == 4) {
         document.getElementById("overlay-snow").style.display = "none";
         document.getElementById("overlay-hearts").style.display = "none";
         document.getElementById("overlay-confettis").style.display = "none";
         document.getElementById("overlay-flowers").style.display = "block";
         document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-diamonds").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "none";
     } else if (id == 5) {
         document.getElementById("overlay-snow").style.display = "none";
         document.getElementById("overlay-hearts").style.display = "none";
         document.getElementById("overlay-confettis").style.display = "none";
         document.getElementById("overlay-flowers").style.display = "none";
         document.getElementById("overlay-leafs").style.display = "block";
+        document.getElementById("overlay-diamonds").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "none";
+    } else if (id == 6) {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-diamonds").style.display = "block";
+        document.getElementById("overlay-gems").style.display = "none";
+    } else if (id == 7) {
+        document.getElementById("overlay-snow").style.display = "none";
+        document.getElementById("overlay-hearts").style.display = "none";
+        document.getElementById("overlay-confettis").style.display = "none";
+        document.getElementById("overlay-flowers").style.display = "none";
+        document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-diamonds").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "block";
     } else {
         document.getElementById("overlay-snow").style.display = "none";
         document.getElementById("overlay-hearts").style.display = "none";
         document.getElementById("overlay-confettis").style.display = "none";
         document.getElementById("overlay-flowers").style.display = "none";
         document.getElementById("overlay-leafs").style.display = "none";
+        document.getElementById("overlay-diamonds").style.display = "none";
+        document.getElementById("overlay-gems").style.display = "none";
     }
 
     localStorage.setItem('screenEffect', id);
