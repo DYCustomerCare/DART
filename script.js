@@ -7799,8 +7799,9 @@ function addSettings () {
     containerColorSchemes.appendChild(titleColorSchemeSortThemed);
     containerColorSchemes.appendChild(containerColorSchemeSortThemed);
     containerColorSchemes.appendChild(titleColorSchemeSortSeasonal);
-    containerColorSchemes.appendChild(titleColorSchemeSortEffect);
-    containerColorSchemes.appendChild(containerColorSchemeSortSeasonal);
+    containerColorSchemes.appendChild(containerColorSchemeSortSeasonal)
+    containerColorSchemes.appendChild(titleColorSchemeSortEffects);
+    containerColorSchemes.appendChild(containerColorSchemeSortEffects);
     
     containerColorSchemes.appendChild(titleColorSchemeSortCustom);
     containerColorSchemes.appendChild(containerColorSchemeCustom);
@@ -7899,7 +7900,7 @@ function addSettings () {
             setScreenEffect(screeneffects[id].effect);
         });
 
-        containerColorSchemeSortEffect.appendChild(button);
+        containerColorSchemeSortEffects.appendChild(button);
     }
 
     const animationSettings = [
