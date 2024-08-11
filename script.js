@@ -7853,7 +7853,7 @@ function addSettings () {
 
     container.appendChild(containerGeneral);
 
-    titleColorSchemes.innerHTML = `Color Schemes`;
+    titleColorSchemes.innerHTML = `Color Schemes- & Effects`;
 
     container.appendChild (titleColorSchemes);
 
@@ -7897,7 +7897,7 @@ function addSettings () {
         button.innerHTML = `<i class="bi bi-` + screeneffects[i].icon + `" style="color: ` + screeneffects[i].color + `"></i>`;
         
         button.addEventListener("click", function() {
-            setScreenEffect(screeneffects[id].effect);
+            setScreenEffect(screeneffects[i].effect);
         });
 
         containerColorSchemeSortEffects.appendChild(button);
@@ -7946,7 +7946,7 @@ function addQuickTask () {
 
 //----------------------------------------------------------------------------------------------------
 //
-//  Functions: Color Schemes
+//  Functions: Color Schemes & Effects
 //
 //----------------------------------------------------------------------------------------------------
 
