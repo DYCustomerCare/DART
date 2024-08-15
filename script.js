@@ -512,7 +512,7 @@ const holidays = [
     ),
     new holiday (
         title = "Labor Day", monthLong = false, month = 8, day = 0,
-        years = {2023: 4, 2024: 4, 2025: 1, 2026: 7, 2027: 6, 2028: 4, 2029: 3, 2030: 2, 2031: 1, 2032: 6, 2033: 5}, ending="Here", colorScheme=41,
+        years = {2023: 4, 2024: 2, 2025: 1, 2026: 7, 2027: 6, 2028: 4, 2029: 3, 2030: 2, 2031: 1, 2032: 6, 2033: 5}, ending="Here", colorScheme=41,
         image="https://media.istockphoto.com/id/1253934109/vector/usa-labor-day-greeting-card-with-brush-wood-background-in-united-states-national-flag-colors.jpg?s=612x612&w=0&k=20&c=xzWAfo1xIAPKeCATOwJUo0q82ZsHcLdQCn1q8ce-OPI="
     ),
     new holiday (
@@ -6901,6 +6901,7 @@ const stones = [
     new stone (title="Hypersthene Moonstone", code="YN"),
     new stone (title="Yellow Onyx", code="YO"),
     new stone (title="Yellow Pietersite", code="YP"),
+    new stone (title="Lagoon Orchid", code="YQ"),
     new stone (title="Red Honeycomb", code="YR"),
     new stone (title="Yellow Sapphire", code="YS"),
     new stone (title="Yellow-Green Tourmaline", code="YT"),
