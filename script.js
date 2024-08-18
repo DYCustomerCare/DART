@@ -7627,7 +7627,7 @@ function drawDashboard() {
     var date = new Date();
 
     if (date.getDay() == 5) {
-        appendArticle("dashboardTimeSheet", "dashboard", "", "It's Friday!", "Productivity", "clock", "", "Ease into your weekend with a clear mind. Enjoy your day and weekend!<br><br><a href='https://workforcenow.adp.com/theme/index.html' target='_blank'>Review Your Time Sheet</a>", {}, "", [], "", [], "Please Review Your Timesheet Below", false, "", false, false, false, 0);
+        appendArticle("dashboardTimeSheet", "dashboard", "", "It's Friday!", "Productivity", "clock", "", "Ease into your weekend with a clear mind. Enjoy your day and weekend!<br><br><a href='https://www.myworkday.com/davidyurman/login.htmld' target='_blank'>Review Your Time Sheet</a>", {}, "", [], "", [], "Please Review Your Timesheet Below", false, "", false, false, false, 0);
     }
 
     if (!firstName || !lastName || !phone || !position) {
@@ -7654,7 +7654,7 @@ function drawDashboard() {
         appendArticle("dashboardGreeting", "dashboard", "", "Featured Content", greetings[Math.floor(Math.random() * greetings.length)] + ", " + firstName + ". Welcome Back!", "emoji-smile", "", "Working on something time sensitive? Feeling overwhelmed? Want to keep things simple?<br>Try out some of DART's featured content.<br><br><div id='banners'></div>", {}, "", [], "", [], "", false, "", false, false, false, 0);
     }
 
-    appendArticle("dashboardTimeSheet", "dashboard", "", "Review Your Time Sheet", "Productivity", "clock", "", "Give yourself the pay you deserve this pay period by reviewing your time sheet now and reporting any inaccuracies.<br><br><a href='https://workforcenow.adp.com/theme/index.html' target='_blank'>Review Your Time Sheet</a>", {}, "https://media.istockphoto.com/id/961742336/photo/businesswoman-checking-the-time-on-watch.jpg?s=612x612&w=0&k=20&c=ALcjYVpDVKroYdVv2WWBC7C8pzgIaDOZ5AhWZn9KDq4=", [], "", [], "", false, "", false, false, false, 0);
+    appendArticle("dashboardTimeSheet", "dashboard", "", "Review Your Time Sheet", "Productivity", "clock", "", "Give yourself the pay you deserve this pay period by reviewing your time sheet now and reporting any inaccuracies.<br><br><a href='https://www.myworkday.com/davidyurman/login.htmld' target='_blank'>Review Your Time Sheet</a>", {}, "https://media.istockphoto.com/id/961742336/photo/businesswoman-checking-the-time-on-watch.jpg?s=612x612&w=0&k=20&c=ALcjYVpDVKroYdVv2WWBC7C8pzgIaDOZ5AhWZn9KDq4=", [], "", [], "", false, "", false, false, false, 0);
 
     appendArticle("dashboardFavorites", "dashboard", "", "You've Saved " + favoriteCount() + " Favorite(s)", "Favorites", "star", "", "Saving content for later makes your work day much easier. Click <i>View Favorites</i> to view or manage your favorites.<br><br><a onclick='addFavorites()' href='javascript:void(0);'>View Favorites</a>", {}, "https://www.corporatevision-news.com/wp-content/uploads/2022/03/Work-Tools.jpg", [], "", [], "", false, "", false, false, false, 0);
 
