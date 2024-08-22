@@ -5694,14 +5694,14 @@ const boutiques = [
     ),
     new boutique (
         title = "Easton | Columbus, OH",
-        number = 44,
+        number = 45,
         address1 = "<b>David Yurman</b><br>4080 The Strand East",
         address2 = "Space #506",
         address3 = "Columbus, Ohio 43219",
         country = 0,
         phone = "(614) 635-9700",
         extension = "",
-        email = "store44ops@davidyurman.com",
+        email = "store45ops@davidyurman.com",
         type = 0,
         BOSS = false,
         closed = false
