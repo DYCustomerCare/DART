@@ -1703,7 +1703,7 @@ const links = [
         subtitleDesc = "Firefox",
         filter="repairs",
         html=`<ul>
-            <li><a target="_blank" href="https://drsnyrepairs.com/#start-jewelry-repair">DRS - Website</a></li>
+            <li><a target="_blank" href="https://drsnyrepairs.com/">DRS - Website</a></li>
             <li><a target="_blank" href="https://domanionline.com/jrepair/dysupport.aspx">DRS - Jewelry</a></li>
             <li><a target="_blank" href="https://domanionline.com/repairs/dysupport.aspx">DRS - Watches</a></li>
         </ul>
