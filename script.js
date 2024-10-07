@@ -1707,6 +1707,7 @@ const links = [
             <li><a target="_blank" href="https://domanionline.com/jrepair/dysupport.aspx">DRS - Jewelry</a></li>
             <li><a target="_blank" href="https://domanionline.com/repairs/dysupport.aspx">DRS - Watches</a></li>
         </ul>
+        <br>
         <p><strong>Warning:</strong> Shipping labels provided by DRS are not recommend and <strong>prohibited</strong> without management approval.</p>`,
         id="lnkRprDRSRsrs"
     ),
