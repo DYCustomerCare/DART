@@ -1703,10 +1703,11 @@ const links = [
         subtitleDesc = "Firefox",
         filter="repairs",
         html=`<ul>
-            <li><a target="_blank" href="https://drsnyrepairs.com/#start-jewelry-repair">DRS - Shipping Labels</a></li>
+            <li><a target="_blank" href="https://drsnyrepairs.com/#start-jewelry-repair">DRS - Website</a></li>
             <li><a target="_blank" href="https://domanionline.com/jrepair/dysupport.aspx">DRS - Jewelry</a></li>
             <li><a target="_blank" href="https://domanionline.com/repairs/dysupport.aspx">DRS - Watches</a></li>
-        </ul>`,
+        </ul>
+        <p><strong>Warning:</strong> Shipping labels provided by DRS are not recommend and <strong>prohibited</strong> without management approval.</p>`,
         id="lnkRprDRSRsrs"
     ),
     new link (
