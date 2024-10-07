@@ -1706,7 +1706,7 @@ const links = [
             <li><a target="_blank" href="https://drsnyrepairs.com/#start-jewelry-repair">DRS - Shipping Labels</a></li>
             <li><a target="_blank" href="https://domanionline.com/jrepair/dysupport.aspx">DRS - Jewelry</a></li>
             <li><a target="_blank" href="https://domanionline.com/repairs/dysupport.aspx">DRS - Watches</a></li>
-        <ul>`,
+        </ul>`,
         id="lnkRprDRSRsrs"
     ),
     new link (
