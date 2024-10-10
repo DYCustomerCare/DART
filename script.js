@@ -767,7 +767,7 @@ const tabs = [
     ),
     new tab (
         title = "Operations",
-        icon = "bi-box",
+        icon = "box",
         id = "ops",
         lite = true
     ),
@@ -1313,15 +1313,15 @@ const templates = [
         orderNumber = "",
         department = "",
         task = "",
-        contact = "Marketing Dept",
+        contact = "Marketing Department",
         tags = "marketing social",
         id = "tmpMktGen"
     ),
     new template (
-        title = "Failed QC (Operations Only)",
+        title = "Failed QC",
         type = 2,
-        text = "Order:<br>Case:<br>Style:<br>Damage:<br>Request:<br>Subtotal:<br>Lifetime Spend:<br>Time Owned:<br>Origin:<br><br>Response:<br><br>Photos:",
-        warning = "Do not submit requests for approval without customer response and photos.",
+        text = "Order:<br>Case:<br>Style:<br>Damage:<br>Request:<br>Reason:<br>Subtotal:<br>Lifetime Spend:<br>Time Owned:<br>Origin:<br><br>Response:<br><br>Photos:",
+        warning = "<b>For Use By Operations Team Only.</b> Do not submit requests for approval without customer response and photos from QC.",
         filter = "ops",
         assign = "",
         assignType = 0,
@@ -1329,7 +1329,7 @@ const templates = [
         department = "",
         task = "",
         contact = "Jasmine Bouier-McGhee",
-        tags = "returns ops",
+        tags = "ops",
         id = "tmpOpsFldQtyAsr"
     )
     
