@@ -19,7 +19,7 @@ var policy_return_US_holiday_end = "through Saturday, January 20, 2024";
 var policy_shiping_cutoff_weekday = "3PM EST";
 var policy_shiping_cutoff_weekend = "12PM EST";
 
-var policy_LGC_expiration = "December 31st, 2023";
+var policy_LGC_expiration = "January 13th, 2025 11:59 PM PST";
 
 // General
 var lite_mode = true;
@@ -3675,28 +3675,28 @@ const notes = [
         id="notRtnNrvrResnCode"
     ),
     new note (
-        title="2023 Loyalty Gift Card",
-        subtitle="",
+        title="2024 Loyalty Gift Card",
+        subtitle="Pricing in USD",
         filter = "holiday",
         html = `
-        <p><b>Launch Dates:</b> 10/15 (Web), 10/18 (Physical)</p>
+        <p><b>Drop Dates:</b> Virtual: 10/13, Physical: 10/20 (In-House For Distribution Later)</p>
         <p><b>Expiration Date:</b> &repl:policyLGCExpiration<p>
         <br>
         <table class="hoverTable">
             <tr>
-                <th style="width: 100px">Tier</th><th style="width: 100px">Digital</th><th style="width: 100px">Physical</th><th style="width: 100px">Value</th>
+                <th style="width: 100px">Tier</th><th style="width: 100px">Value</th>
             <tr>
             <tr>
-                <td>Tier 1</td><td>Yes</td><td>Yes</td><td>$750</td>
+                <td>Tier 1</td><td>$750</td>
             </tr>
             <tr>
-                <td>Tier 2</td><td>Yes</td><td>Select</td><td>$500</td>
+                <td>Tier 2</td><td>$500</td>
             </tr>
             <tr>
-                <td>Tier 3</td><td>Yes</td><td>Select</td><td>$300</td>
+                <td>Tier 3</td><td>$300</td>
             </tr>
             <tr>
-                <td>Tier 4</td><td>Yes</td><td>Select</td><td>$200</td>
+                <td>Tier 4</td><td>$200</td>
             </tr>
         </table>`,
         id="notHolLGC"
@@ -3727,6 +3727,14 @@ const notes = [
             </tr>
         </table>`,
         id="notRtnPlcyHldy"
+    ),
+    new note (
+        title="2024 Gift With Purchase",
+        subtitle="",
+        filter = "holiday",
+        html = `<p><b>Gift(s):</b> TBD</p>
+        <p><b>Ornament:</b> TBD</p>`,
+        id="notHldyGWP"
     )
 ]
 
