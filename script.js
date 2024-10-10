@@ -712,12 +712,6 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "Wholesale",
-        icon = "diagram-3",
-        id = "wholesale",
-        lite = true
-    ),
-    new tab (
         title = "Orders",
         icon = "bag",
         id = "orders",
@@ -766,15 +760,21 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "Social Media",
-        icon = "twitter",
+        title = "Social & Marketing",
+        icon = "instagram",
         id = "social",
         lite = true
     ),
     new tab (
-        title = "Marketing",
-        icon = "globe",
-        id = "marketing",
+        title = "Operations",
+        icon = "bi-box",
+        id = "ops",
+        lite = true
+    ),
+    new tab (
+        title = "Wholesale",
+        icon = "diagram-3",
+        id = "wholesale",
         lite = true
     ),
     new tab (
@@ -1307,7 +1307,7 @@ const templates = [
         type = 2,
         text = "Contact Name:<br>Contact Email:<br>Contact Phone Number:<br>Social Media Links:<br>Request:",
         warning = "",
-        filter = "marketing",
+        filter = "social",
         assign = "",
         assignType = 0,
         orderNumber = "",
@@ -1316,7 +1316,23 @@ const templates = [
         contact = "Marketing Dept",
         tags = "marketing social",
         id = "tmpMktGen"
+    ),
+    new template (
+        title = "Failed QC (Operations Only)",
+        type = 2,
+        text = "Order:<br>Case:<br>Style:<br>Damage:<br>Request:<br>Subtotal:<br>Lifetime Spend:<br>Time Owned:<br>Origin:<br><br>Response:<br><br>Photos:",
+        warning = "Do not submit requests for approval without customer response and photos.",
+        filter = "ops",
+        assign = "",
+        assignType = 0,
+        orderNumber = "",
+        department = "",
+        task = "",
+        contact = "Jasmine Bouier-McGhee",
+        tags = "returns ops",
+        id = "tmpOpsFldQtyAsr"
     )
+    
 ]
 
 //----------------------------------------------------------------------------------------------------
