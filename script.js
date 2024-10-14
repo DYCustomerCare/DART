@@ -1273,7 +1273,7 @@ const templates = [
         id = "tmpSupGen"
     ),
     new template (
-        title = "Missing/Wrong Jewelry Item In Order",
+        title = "Missing/Wrong Jewelry Item In Order (Warehouse)",
         type = 0,
         text = "Item(s) Missing:<br>Item(s) Received:<br>Request:<br>Tracking:",
         warning = "Before Submitting: Security footage may be unable to determine if an incorrect length/size was sent to a customer and will be unable to differentiate between similar colors.",
@@ -1286,6 +1286,21 @@ const templates = [
         contact = "Christopher Valiante, Julio Bryam",
         tags = "security orders",
         id = "tmpSecGen"
+    ),
+    new template (
+        title = "Missing/Wrong Jewelry Item In Order (BOSS)",
+        type = 0,
+        text = "Item(s) Missing:<br>Item(s) Received:<br>Request:<br>Tracking:",
+        warning = "Before Submitting: Security footage may be unable to determine if an incorrect length/size was sent to a customer and will be unable to differentiate between similar colors.",
+        filter = "boutique",
+        assign = "<i>Required Boutique</i>",
+        assignType = 2,
+        orderNumber = "<b><i>Required</i></b>",
+        department = "Shipping",
+        task = "BOSS - Missing Item In Order",
+        contact = "Required Boutique Ops Manager",
+        tags = "boutiques orders BOSS",
+        id = "tmpRtlBSSWrgItm"
     ),
     new template (
         title = "Gift Request",
