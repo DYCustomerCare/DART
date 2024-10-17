@@ -9643,6 +9643,7 @@ function randomizedPieceDescription (gender=0) {
     }
 }
 
+/*
 //----------------------------------------------------------------------------------------------------
 //
 //  FUNCTIONS: TOOL: Sales Tax Calculator
@@ -9670,6 +9671,7 @@ function calculateGiftCardAppeasement () {
 
     cst.innerHTML = "$" + (gca / 1 + (str * 0.01)).toString();
 }
+*/
 
 //----------------------------------------------------------------------------------------------------
 //
