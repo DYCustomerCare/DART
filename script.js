@@ -4052,7 +4052,7 @@ const tools = [
         warning = "",
         filter ="ops",
         html = `<p>Original Price:</p>
-        <input type="text" id="stc_st_op" placeholder="Original Price"><br><br>
+        <input type="number" id="stc_st_op" placeholder="Original Price"><br><br>
         <p>Sales Tax:</p>
         <input type="number" id="stc_st_st" placeholder="Sales Tax"><br><br>
         <button class="textButton" onclick="calculateSalesTax()" title="Calculate Sales Tax."><i class="bi bi-gear"></i> Calculate Sales Tax</button><br><br>
@@ -4066,7 +4066,7 @@ const tools = [
         warning = "",
         filter ="ops",
         html = `<p>Gift Card Amount:</p>
-        <input type="text" id="gcac_gca_gca" placeholder="Gift Card Amount"><br><br>
+        <input type="number" id="gcac_gca_gca" placeholder="Gift Card Amount"><br><br>
         <p>Sales Tax Rate:</p>
         <input type="number" id="gcac_gca_str" placeholder="Sales Tax Rate"><br><br>
         <button class="textButton" onclick="calculateGiftCardAppeasement()" title="Calculate Appeasement Amount."><i class="bi bi-gear"></i> Calculate Appeasement Amount</button><br><br>
