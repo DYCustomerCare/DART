@@ -4048,11 +4048,11 @@ const tools = [
     ),
     new tool (
         title = "Sales Tax Rate Calculator",
-        subtitle = "Determine sale tax.",
+        subtitle = "Determine the sale tax rate percentage with Subtotal and Sales Tax.",
         warning = "",
         filter ="ops",
-        html = `<p>Original Price:</p>
-        <input type="number" id="stc_st_op" placeholder="Original Price"><br><br>
+        html = `<p>Subtotal:</p>
+        <input type="number" id="stc_st_op" placeholder="Subtotal"><br><br>
         <p>Sales Tax:</p>
         <input type="number" id="stc_st_st" placeholder="Sales Tax"><br><br>
         <button class="textButton" onclick="calculateSalesTax()" title="Calculate Sales Tax."><i class="bi bi-gear"></i> Calculate Sales Tax</button><br><br>
@@ -4062,13 +4062,13 @@ const tools = [
     ),
     new tool (
         title = "Gift Card Appeasement Calculator",
-        subtitle = "Determine appeasement ammount with the Sales Tax Rate.",
-        warning = "",
+        subtitle = "Determine appeasement amount with a Gift Card and Sales Tax.",
+        warning = "Dollar amounts may need to be adjusted by a penny or fraction of a penny due to currency calculations on decimal places.",
         filter ="ops",
         html = `<p>Gift Card Amount:</p>
         <input type="number" id="gcac_gca_gca" placeholder="Gift Card Amount"><br><br>
-        <p>Sales Tax Rate:</p>
-        <input type="number" id="gcac_gca_str" placeholder="Sales Tax Rate"><br><br>
+        <p>Sales Tax Rate (Percentage):</p>
+        <input type="number" id="gcac_gca_str" placeholder="Sales Tax Rate (Percentage)"><br><br>
         <button class="textButton" onclick="calculateGiftCardAppeasement()" title="Calculate Appeasement Amount."><i class="bi bi-gear"></i> Calculate Appeasement Amount</button><br><br>
         <p id="calculatedGiftCardAppeasement"></p>`,
         id="tolOpsGftCrdApm",
@@ -9641,6 +9641,36 @@ function randomizedPieceDescription (gender=0) {
     } else {
         output.innerHTML = `<b>Error:</b> Please enter the name of the product.`;
     }
+}
+
+//----------------------------------------------------------------------------------------------------
+//
+//  FUNCTIONS: TOOL: Sales Tax Calculator
+//
+//----------------------------------------------------------------------------------------------------
+
+function calculateSalesTax () {
+    const op = document.getElementById("stc_st_op");
+    const st = document.getElementById("stc_st_st");
+    const cst = document.getElementById("calculatedSalesTax");
+
+    const tmp = (parseFloat(st.value)/parseFloat(op.value));
+
+    cst.innerHTML = (tmp * 100).toString() + "%;
+}
+
+//----------------------------------------------------------------------------------------------------
+//
+//  FUNCTIONS: TOOL: Gift Card Appeasement Calculator
+//
+//----------------------------------------------------------------------------------------------------
+
+function calculateGiftCardAppeasement () {
+    const gca = document.getElementById("gcac_gca_gca");
+    const str = document.getElementById("gcac_gca_str");
+    const cgca = document.getElementById("calculatedGiftCardAppeasement");
+
+    cgca.innerHTML = "$" + (parseFloat(gca.value) / (1 + (parseFloat(str.value).toFixed(2) * 0.01))).toFixed(2).toString();
 }
 
 //----------------------------------------------------------------------------------------------------
