@@ -9654,7 +9654,7 @@ function calculateSalesTax () {
     const st = document.getElementById("stc_st_st");
     const cst = document.getElementById("calculatedSalesTax");
 
-    const tmp = (parseFloat(st.value)/parseFloat(op.value));
+    const tmp = (parseFloat(st.value)/parseFloat(op.value)).toFixed(3);
 
     cst.innerHTML = (tmp * 100).toString() + "%";
 }
@@ -9670,7 +9670,7 @@ function calculateGiftCardAppeasement () {
     const str = document.getElementById("gcac_gca_str");
     const cgca = document.getElementById("calculatedGiftCardAppeasement");
 
-    cgca.innerHTML = "$" + (parseFloat(gca.value) / (1 + (parseFloat(str.value).toFixed(2) * 0.01))).toFixed(2).toString();
+    cgca.innerHTML = "$" + (parseFloat(gca.value) / (1 + (parseFloat(str.value).toFixed(3) * 0.01))).toFixed(3).toString();
 }
 
 //----------------------------------------------------------------------------------------------------
