@@ -9645,35 +9645,6 @@ function randomizedPieceDescription (gender=0) {
 
 //----------------------------------------------------------------------------------------------------
 //
-//  FUNCTIONS: TOOL: Sales Tax Calculator
-//
-//----------------------------------------------------------------------------------------------------
-
-function calculateSalesTax () {
-    const op = document.getElementById("stc_st_op");
-    const st = document.getElementById("stc_st_st"));
-    const cst = document.getElementById("calcualtedSalesTax");
-
-    cst.innerHTML = ((parseInt(st.value)/parseInt(op.value) x 100).toString() + "%";
-}
-
-//----------------------------------------------------------------------------------------------------
-//
-//  FUNCTIONS: TOOL: Gift Card Appeasement Calculator
-//
-//----------------------------------------------------------------------------------------------------
-
-function calculateGiftCardAppeasement () {
-    const gca = document.getElementById("gcac_gca_gca");
-    const str = document.getElementById("gcac_gca_str");
-    const cgca = document.getElementById("calcualtedGiftCardAppeasement");
-
-    cst.innerHTML = "$" + (parseInt(gca.value) / 1 + (parseInt(str.value) * 0.01)).toString();
-}
-
-
-//----------------------------------------------------------------------------------------------------
-//
 //  FUNCTIONS: Steps
 //
 //----------------------------------------------------------------------------------------------------
