@@ -9643,7 +9643,6 @@ function randomizedPieceDescription (gender=0) {
     }
 }
 
-/*
 //----------------------------------------------------------------------------------------------------
 //
 //  FUNCTIONS: TOOL: Sales Tax Calculator
@@ -9651,11 +9650,11 @@ function randomizedPieceDescription (gender=0) {
 //----------------------------------------------------------------------------------------------------
 
 function calculateSalesTax () {
-    const op = parseInt(document.getElementById("stc_st_op").value);
-    const st = parseInt(document.getElementById("stc_st_st").value);
+    const op = document.getElementById("stc_st_op");
+    const st = document.getElementById("stc_st_st"));
     const cst = document.getElementById("calcualtedSalesTax");
 
-    cst.innerHTML = ((st/op) x 100).toString() + "%";
+    cst.innerHTML = ((parseInt(st.value)/parseInt(op.value) x 100).toString() + "%";
 }
 
 //----------------------------------------------------------------------------------------------------
@@ -9665,12 +9664,12 @@ function calculateSalesTax () {
 //----------------------------------------------------------------------------------------------------
 
 function calculateGiftCardAppeasement () {
-    const gca = parseInt(document.getElementById("gcac_gca_gca").value);
-    const str = parseInt(document.getElementById("gcac_gca_str").value);
+    const gca = document.getElementById("gcac_gca_gca");
+    const str = document.getElementById("gcac_gca_str");
     const cgca = document.getElementById("calcualtedGiftCardAppeasement");
 
-    cst.innerHTML = "$" + (gca / 1 + (str * 0.01)).toString();
-}*/
+    cst.innerHTML = "$" + (parseInt(gca.value) / 1 + (parseInt(str.value) * 0.01)).toString();
+}
 
 
 //----------------------------------------------------------------------------------------------------
