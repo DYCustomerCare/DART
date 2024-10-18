@@ -9656,7 +9656,7 @@ function calculateSalesTax () {
 
     const tmp = (parseFloat(st.value)/parseFloat(op.value));
 
-    cst.innerHTML = (tmp * 100).toString() + "%;
+    cst.innerHTML = (tmp * 100).toString() + "%";
 }
 
 //----------------------------------------------------------------------------------------------------
