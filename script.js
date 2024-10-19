@@ -1766,7 +1766,18 @@ const links = [
         <li><a target="_blank" href="https://helpdesk.davidyurman.com/support/home">DY IT Support Portal</a></li>
         <ul>`,
         id="lnkSupRsrs"
-    ) 
+    ),
+    new link (
+        title="FedEx Support Hub",
+        subtitle = "Support link to make FedEx changes.",
+        subtitleIcon = "",
+        subtitleDesc = "",
+        filter="fedex",
+        html=`<ul>
+        <li><a target="_blank" href="https://fedex-ced.my.site.com/fedexsupporthub/">FedEx Support Hub Portal</a></li>
+        <ul>`,
+        id="lnkSupRsrs"
+    )
 ]
 
 //----------------------------------------------------------------------------------------------------
