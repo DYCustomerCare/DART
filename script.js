@@ -13,8 +13,8 @@ var policy_return_US_exchange_days = "30";
 var policy_return_US_merch_credit_days = "30";
 var policy_return_US_outlet_days = "30";
 
-var policy_return_US_holiday_start = "on or after Sunday, October 29, 2023";
-var policy_return_US_holiday_end = "through Saturday, January 20, 2024";
+var policy_return_US_holiday_start = "on or after Sunday, October 27, 2024";
+var policy_return_US_holiday_end = "through Saturday, January 18, 2025";
 
 var policy_shiping_cutoff_weekday = "3PM EST";
 var policy_shiping_cutoff_weekend = "12PM EST";
