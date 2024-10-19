@@ -30,7 +30,7 @@
     --article-padding: 0px;
     --article-border-radius: 0px;
     --article-margin-bottom: 0px;
-    --article-background-color: transparent;
+    --article-background-color: none;
 
     --body-background: white;
 
@@ -44,7 +44,7 @@
     --style-modern-article-border-radius: 10px;
     --style-modern-article-margin-bottom: 10px;
     --style-modern-article-background-color: var(--color-primary);
-    --style-modern-background: var(--color-background);
+    --style-modern-background: var(--color-accent-lightaRTICLE);
 }
 
 * {
@@ -437,6 +437,24 @@ textarea:focus {
     color: var(--color-accent-dark);
 }
 
+.elementClickableContainer {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.elementClickableContainer .element {
+    width: 48.75%;
+}
+
+.elementSwatch {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 1px solid var(--color-accent-medium);
+}
+
 .submit {
     color: var(--color-accent-medium);
     background-color: var(--color-secondary);
@@ -512,18 +530,18 @@ textarea:focus {
     display: block;
 }
 
-.overlay-menu #menu .menuIcons {
+.overlay-menu #menu .menuIcons .menuIconsContainer {
     display: flex;
     justify-content: center;
 }
 
-.overlay-menu #menu .menuIcons div {
+.overlay-menu #menu .menuIcons .menuIconsContainer div {
     display: flex;
     color: var(--color-accent-medium);
     transition: var(--data-transition-speed);
 }
 
-.overlay-menu #menu .menuIcons div:hover {
+.overlay-menu #menu .menuIcons .menuIconsContainer div:hover {
     display: flex;
     color: var(--color-accent-dark);
 }
@@ -828,6 +846,38 @@ textarea:focus {
 @-webkit-keyframes leafs-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes leafs-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes leafs-fall{0%{top:-10%}100%{top:100%}}@keyframes leafs-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.leaf{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:leafs-fall,leafs-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:leafs-fall,leafs-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.leaf:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.leaf:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.leaf:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.leaf:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.leaf:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.leaf:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.leaf:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.leaf:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.leaf:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.leaf:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
 
 /* leafs End */
+/* diamonds Start */
+
+.diamond-intro {
+    color:white;
+}
+
+.diamond {
+    color: white;
+    font-size: 1em;
+    font-family: Arial;
+    text-shadow: 0 0 1px #000;
+}
+
+@-webkit-keyframes diamonds-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes diamonds-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes diamonds-fall{0%{top:-10%}100%{top:100%}}@keyframes diamonds-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.diamond{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:diamonds-fall,diamonds-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:diamonds-fall,diamonds-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.diamond:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.diamond:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.diamond:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.diamond:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.diamond:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.diamond:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.diamond:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.diamond:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.diamond:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.diamond:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+
+/* diamonds End */
+/* gems Start */
+
+.gem-intro {
+    color:white;
+}
+
+.gem {
+    color: white;
+    font-size: 1em;
+    font-family: Arial;
+    text-shadow: 0 0 1px #000;
+}
+
+@-webkit-keyframes gems-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes gems-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes gems-fall{0%{top:-10%}100%{top:100%}}@keyframes gems-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.gem{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:gems-fall,gems-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:gems-fall,gems-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.gem:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.gem:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.gem:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.gem:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.gem:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.gem:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.gem:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.gem:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.gem:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.gem:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+
+/* gems End */
 
 /*----------------------------------------------------------------------------------------------------
 
@@ -980,6 +1030,10 @@ textarea:focus {
 
 @media print
 {    
+    * {
+        color: black;
+    }
+    
     header {
         display: none;
     }
@@ -1013,14 +1067,18 @@ textarea:focus {
         border: 0px solid transparent;
         padding: 0px;
         margin: 0px;
-        height: 40px;
+        height: 30px;
+        padding-left: 0px;
+		padding-right: 0px;
     }
 
     #internaldocument select {
         border: 0px solid transparent;
         padding: 0px;
         margin: 0px;
-        height: 40px;
+        height: 30px;
+        -moz-appearance: none;
+        -webkit-appearance: none; 
     }
 
     #internaldocument select::-ms-expand {
@@ -1048,5 +1106,9 @@ textarea:focus {
         padding: 0px;
         height: auto;
         overflow-y: hidden;
+    }
+
+    #internaldocument .element {
+        border: 0px none transparent;
     }
 }

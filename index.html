@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>D A R T | Digitized Anti-Routine Tool | 1.6.0</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <title>D A R T | Digitized Anti-Routine Tool</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
@@ -23,8 +23,18 @@
                 </div>
                 <hr>
                 <div>
-                    <h3><i class="bi bi-send-fill"> </i>Holiday Tab</h3>
-                    <p>Want help with anything holiday related? Check out the <a href="javascript:void(0);" onclick="showTab('holiday')">Holiday Tab</a> to view content specific to holiday related inquries.</p>
+                    <h3><i class="bi bi-send-fill"> </i>Internal Document Creator</h3>
+                    <p>Limit writing time with the <a href="javascript:void(0);" onclick="addInternalDocument()">Internal Document Creator</a> - type and print directly from DART!</p>
+                </div>
+                <br>
+                <!--div>
+                    <h3><i class="bi bi-send-fill"> </i>Quotable Wholesale Times</h3>
+                    <p>Quickly view and copy wholesale times easily from the time & weather menu up to 24 weeks from today.</p>
+                </div>
+                <br-->
+                <div>
+                    <h3><i class="bi bi-send-fill"> </i>Bingo!</h3>
+                    <p>Our days are full of wins and exceptional moments! Share them with the team and have a laugh.</p>
                 </div>
             </article>
         </div>
@@ -35,18 +45,23 @@
         <div class="overlay-menu">
             <div id="menu" class="">
                 <div class="menuIcons">
-                    <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()">
-                        <i title="DART LITE Disabled" class="navlock bi bi-unlock hidden"></i>
-                        <i title="DART LITE Enabled" class="navlock bi bi-lock"></i>
+                    <div class="menuIconsContainer">
+                        <div style="display: flex; font-size: 30px; margin: 10px; cursor: pointer; display: block;" onclick="toggleLite()">
+                            <i title="DART LITE Disabled" class="navlock bi bi-unlock hidden" aria-hidden="true"></i>
+                            <i title="DART LITE Enabled" class="navlock bi bi-lock" aria-hidden="true"></i>
+                        </div>
+                        <div id="navDashboard" title="Dashboard" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addDashboard()"><i class="bi bi-house"></i></div>
+                        <div id="navFavorites" title="Favorites" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addFavorites()"><i class="bi bi-star"></i></div>
+                        <div id="navNotice" title="Notifications" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addNotices()"><i class="bi bi-bell"></i></div>
+                        <div title="Settings" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addSettings()"><i class="bi bi-gear"></i></div>
+                        <div title="Changelog" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addChangelogs()"><i class="bi bi-arrow-counterclockwise"></i></div>
+                        <div title="Jump To Top" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="jumpToTop()"><i class="bi bi-chevron-double-up"></i></div>
+                        <div title="Close Navigation Menu" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="toggleMenu()"><i class="bi bi-x-lg"></i></div>
                     </div>
-                    <div id="navDashboard" title="Dashboard" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addDashboard()"><i class="bi bi-grid-1x2"></i></div>
-                    <div id="navSteps" title="Steps" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addSteps()"><i class="bi bi-check2-square"></i></div>
-                    <div id="navFavorites" title="Favorites" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addFavorites()"><i class="bi bi-star"></i></div>
-                    <div id="navNotice" title="Notifications" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addNotices()"><i class="bi bi-bell"></i></div>
-                    <div title="Settings" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addSettings()"><i class="bi bi-gear"></i></div>
-                    <div title="Changelog" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addChangelogs()"><i class="bi bi-arrow-counterclockwise"></i></div>
-                    <div title="Jump To Search Bar & Tabs" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="jumpToTop()"><i class="bi bi-chevron-double-up"></i></div>
-                    <div title="Close Navigation Menu" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="toggleMenu()"><i class="bi bi-x-lg"></i></div>
+                    <div class="menuIconsContainer">
+                        <div id="navSteps" title="Steps" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addSteps()"><i class="bi bi-check2-square"></i></div>
+                        <div id="navInternaldocument" title="Internal Document Creator" style="display: flex; font-size: 30px; margin: 10px; cursor: pointer;" onclick="addInternalDocument()"><i class="bi bi-file-earmark"></i></div>
+                    </div>
                 </div>
                 <div class="dropdown" title="Check the weather and time of the NJ Warehouse, or review times of various world locations.">
                     <hr> 
@@ -190,6 +205,14 @@
                                         <p>United States</p>
                                     </div>
                                     <div>
+                                        <p>EST | <span>Eastern</span></p>
+                                        <div>
+                                            <span id='timeToronto'>00:00 AM</span>
+                                        </div>
+                                        <p>Toronto</p>
+                                        <p>Canada</p>
+                                    </div>
+                                    <div>
                                         <p>CET | <span>Central European</span></p>
                                         <div>
                                             <span id='timeParis'>00:00 AM</span>
@@ -221,14 +244,28 @@
                                         <p>Hong Kong</p>
                                         <p>China</p>
                                     </div>
+                                    <div>
+                                        <p>GMT+13 | <span>New Zealand</span></p>
+                                        <div>
+                                            <span id='timeNewZealand'>00:00 AM</span>
+                                        </div>
+                                        <p>Auckland</p>
+                                        <p>New Zealand</p>
+                                    </div>
                                 </div>
                             </div>
+                            <!--hr>
+                            <div style="text-align: center;">
+                                <h3>Quotable Wholesale Times</h3>
+                                <div id="wholesaleTimes"></div>
+                                </table>
+                            </div-->
                         </div>
                     </div>
                 </div>
                 <hr>
                 <input class="searchBar element" id="searchBar" placeholder="Keyword Search (e.g., &quot;Returns&quot;, &quot;Orders&quot;, etc.)" onkeydown="searchBar(this)"
-                title="Keyword Search makes it easier to search for DARTS content. Try common words, such as &quot;returns&quot; or &quot;orders.&quot; DART will return all results that use these keywords. Please note: using whole sentences or asking questions is not recommended.&#013;&#013;To limit your search to Tools, Templates, Blurbs, Notes, Links, and/or boutiques, try changing the search filters below.">
+                title="Keyword Search makes it easier to search for DARTS content. Try common words, such as &quot;returns&quot; or &quot;orders.&quot; DART will return all results that use these keywords. Please note: using whole sentences or asking questions is not recommended.&#013;&#013;To limit your search to Tools, Templates, Blurbs, Notes, Links, and/or boutiques, try changing the search filters below.&#013;&#013;Search using only an asterisk (*) to see all search results for a filter or category.">
                 </input>
                 <span class="searchBarIcon">
                     <a href="javascript:void(0);" onclick="searchBarButton()"><i class="bi bi-search"></i></a></i>
@@ -374,44 +411,71 @@
         <div class="overlay-flowers" id="overlay-flowers" style="display: none;">
             <div class="flowers" aria-hidden="true">
                 <div class="flower-intro"></div>
-                <div class="flower" style="color: pink;">✿</div>
-                <div class="flower" style="color: lightgreen;">❁</div>
-                <div class="flower" style="color: lightblue;">✿</div>
-                <div class="flower" style="color: lightyellow;">❁</div>
-                <div class="flower" style="color: Lavender;">✿</div>
-                <div class="flower" style="color: pink;">❁</div>
-                <div class="flower" style="color: lightgreen;">✿</div>
-                <div class="flower" style="color: lightblue;">❁</div>
-                <div class="flower" style="color: lightyellow;">❁</div>
-                <div class="flower" style="color: Lavender;">❁</div>
+                <div class="flower">🌸</div>
+                <div class="flower">🌸</div>
+                <div class="flower">🌺</div>
+                <div class="flower">🌺</div>
+                <div class="flower">🏵️</div>
+                <div class="flower">🏵️</div>
+                <div class="flower">💮</div>
+                <div class="flower">💮</div>
+                <div class="flower">🌹</div>
+                <div class="flower">🌹</div>
             </div>
         </div>
         <div class="overlay-leafs" id="overlay-leafs" style="display: none;">
             <div class="leafs" aria-hidden="true">
                 <div class="leaf-intro"></div>
-                <div class="leaf" style="color: SandyBrown;">⸙</div>
-                <div class="leaf" style="color: darkorange;">⸙</div>
-                <div class="leaf" style="color: goldenrod;">⸙</div>
-                <div class="leaf" style="color: green;">⸙</div>
-                <div class="leaf" style="color: darkorange;">⸙</div>
-                <div class="leaf" style="color: goldenrod;">⸙</div>
-                <div class="leaf" style="color: SandyBrown;">⸙</div>
-                <div class="leaf" style="color: darkorange;">⸙</div>
-                <div class="leaf" style="color: goldenrod;">⸙</div>
-                <div class="leaf" style="color: green;">⸙</div>
+                <div class="leaf" style="color: SandyBrown;">🍂</div>
+                <div class="leaf" style="color: darkorange;">🍂</div>
+                <div class="leaf" style="color: goldenrod;">🍂</div>
+                <div class="leaf" style="color: green;">🍁</div>
+                <div class="leaf" style="color: darkorange;">🍁</div>
+                <div class="leaf" style="color: goldenrod;">🍁</div>
+                <div class="leaf" style="color: SandyBrown;">🍁</div>
+                <div class="leaf" style="color: darkorange;">🍃</div>
+                <div class="leaf" style="color: goldenrod;">🍃</div>
+                <div class="leaf" style="color: green;">🍃</div>
             </div>
+        </div>
+        <div class="overlay-diamonds" id="overlay-diamonds" style="display: none;">
+            <div class="diamonds" aria-hidden="true">
+                <div class="diamond-intro"></div>
+                <div class="diamond">💎</div>
+                <div class="diamond">💎</div>
+                <div class="diamond">💎</div>
+                <div class="diamond">💎</div>
+                <div class="diamond">✨</div>
+                <div class="diamond">✨</div>
+                <div class="diamond">✨</div>
+                <div class="diamond">💍</div>
+                <div class="diamond">💍</div>
+                <div class="diamond">💍</div>
             </div>
+        </div>
+        <div class="overlay-gems" id="overlay-gems" style="display: none;">
+            <div class="gems" aria-hidden="true">
+                <div class="gem-intro"></div>
+                <div class="gem">🌙</div>
+                <div class="gem">🌙</div>
+                <div class="gem">🪐</div>
+                <div class="gem">🪐</div>
+                <div class="gem">⭐</div>
+                <div class="gem">⭐</div>
+                <div class="gem">☀️</div>
+                <div class="gem">☀️</div>
+                <div class="gem">☄️</div>
+                <div class="gem">☄️</div>
+            </div>
+        </div>
         <div class="DART">
             <header>
                 <div style="text-align: center;">
                     <h1><i class="bi bi-heart-arrow"></i> D A R T <i class="bi bi-bullseye"></i></h1>
                     <h3 id="lite_title" class="liteTitle">L I T E</h3>
-                    <p><i>Digitized Anti-Routine Tool<br>v.<span id="version"></span></i></p>
+                    <p><i>Digitized Anti-Routine Tool<br><span id="version"></span></i></p>
                 </div>
-                <article>
-                    
-                    <hr>                  
-                </article>
+                <hr>
             </header>
             <div id="error" class="warning clearable">
                 <b>ERROR:</b> If you are seeing this message:<br>
