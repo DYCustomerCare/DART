@@ -784,7 +784,7 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "IT Support",
+        title = "Salesforce & IT Support",
         icon = "pc-display",
         id = "support",
         lite = true
@@ -1160,7 +1160,7 @@ const templates = [
         filter = "fedex",
         assign = "Logistics",
         assignType = 2,
-        orderNumber = "If Applicabble",
+        orderNumber = "<i>If Applicabble</i>",
         department = "Shipping",
         task = "Fedex - Lost Order - File Claim",
         contact = "Andrew Lifton, Furukh Khan, Sean O'Shea",
@@ -1346,6 +1346,21 @@ const templates = [
         contact = "Jasmine Bouier-McGhee",
         tags = "ops",
         id = "tmpOpsFldQtyAsr"
+    ),
+    new template (
+        title = "Salesforce Account Merger",
+        type = 0,
+        text = "Unify or Merge?:<br>Preferred Email:<br>Other Email Addresses:<br>Phone Number:",
+        warning = "",
+        filter = "general",
+        assign = "Salesforce Support",
+        assignType = 2,
+        orderNumber = "<i>Not Applicable</i>",
+        department = "Salesforce Support",
+        task = "--None--",
+        contact = "Ray Li",
+        tags = "Salesforce support help",
+        id = "tmpSupSfcActMrg"
     )
     
 ]
