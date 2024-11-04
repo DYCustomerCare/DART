@@ -3488,7 +3488,7 @@ const notes = [
             <tr><td>4.29 cm</td>    <td>2.5</td>      <td>42.75</td>          <td>E</td>          <td><i class="bi bi-check2"></i></td>           <td></td>            <td></td></tr>
             <tr><td>4.41 cm</td>    <td>3</td>      <td>44</td>          <td>F</td>          <td><i class="bi bi-check2"></i></td>           <td></td>            <td></td></tr>
             <tr><td>4.54 cm</td>    <td>3.5</td>      <td>45.5</td>          <td>G 1/2</td>          <td><i class="bi bi-check2"></i></td>           <td></td>            <td></td></tr>
-            <tr><td>4.07 cm</td>    <td>4</td>      <td>47</td>          <td>H 1/2</td>          <td><i class="bi bi-check2"></i></td>           <td><i class="bi bi-check2"></i></td>            <td></td></tr>
+            <tr><td>4.70 cm</td>    <td>4</td>      <td>47</td>          <td>H 1/2</td>          <td><i class="bi bi-check2"></i></td>           <td><i class="bi bi-check2"></i></td>            <td></td></tr>
             <tr><td>4.80 cm</td>    <td>4.5</td>      <td>48</td>          <td>I 1/2</td>          <td></td>           <td><i class="bi bi-check2"></i></td>            <td></td></tr>
             <tr><td>4.90 cm</td>    <td>5</td>      <td>49.5</td>          <td>J 1/2</td>          <td></td>           <td><i class="bi bi-check2"></i></td>            <td></td></tr>
             <tr><td>5.05 cm</td>    <td>5.5</td>      <td>50.5</td>          <td>L</td>          <td></td>           <td><i class="bi bi-check2"></i></td>            <td></td></tr>
