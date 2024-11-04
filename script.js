@@ -784,7 +784,7 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "Salesforce & IT Support",
+        title = "Salesforce & Support",
         icon = "pc-display",
         id = "support",
         lite = true
