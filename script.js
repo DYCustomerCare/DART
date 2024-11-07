@@ -846,7 +846,7 @@ const tips = [
     // Returns
     new tip (text = "All returns must be returned unworn and in resale condition."),
     new tip (text = "Purchases may returned within &repl:policyUsReturnRefundDays days, or through &repl:policyUsReturnHolidayEnd during the holidays."),
-    new tip (text = "Estimated returns processing time is between between 7-10 business days."),
+    new tip (text = "Estimated returns processing time is between 7-10 business days."),
 
     // Product Info
     // Metals
