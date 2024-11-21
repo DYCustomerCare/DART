@@ -561,48 +561,48 @@ const holidays = [
     ),
     // Hanukkah
     new holiday (
-        title = "Hanukkah (Day 1)", monthLong = false, month = 11, day = 0,
-        years = {2023: 7, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Starting At Sundown", colorScheme=44, 
+        title = "Hanukkah (Day 1)", monthLong = false, month = 12, day = 0,
+        years = {2023: 7, 2024: 25, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Starting At Sundown", colorScheme=44, 
         image="https://media.istockphoto.com/id/1343861889/photo/happy-father-and-daughter-reading-tanakh-while-relaxing-on-hanukkah-at-home.jpg?s=612x612&w=0&k=20&c=-mWSqAW89Y2Bvzt5j2qMQFEshq0DCWUgIqRkIjfuaDk="
     ),
     new holiday (
-        title = "Hanukkah (Day 2)", monthLong = false, month = 11, day = 0,
-        years = {2023: 8, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
+        title = "Hanukkah (Day 2)", monthLong = false, month = 12, day = 0,
+        years = {2023: 8, 2024: 26, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://t3.ftcdn.net/jpg/05/39/32/30/360_F_539323081_kDdRRikXQ4zWUl83yZSzVrWfRhCLB7PX.jpg"
     ),
     new holiday (
-        title = "Hanukkah (Day 3)", monthLong = false, month = 11, day = 0,
-        years = {2023: 9, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
+        title = "Hanukkah (Day 3)", monthLong = false, month = 12, day = 0,
+        years = {2023: 9, 2024: 27, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://img.freepik.com/free-photo/front-view-hanukkah-concept_23-2148704585.jpg"
     ),
     new holiday (
-        title = "Hanukkah (Day 4)", monthLong = false, month = 11, day = 0,
-        years = {2023: 10, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
+        title = "Hanukkah (Day 4)", monthLong = false, month = 12, day = 0,
+        years = {2023: 10, 2024: 28, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://media.istockphoto.com/id/1337099562/photo/close-up-of-jewish-couple-passing-food-at-dining-table-on-hanukkah.jpg?s=612x612&w=0&k=20&c=HckmTd2A92kOFDfzU-j5S0EWajgsHWTX2thDGsufc_4="
     ),
     new holiday (
-        title = "Hanukkah (Day 5)", monthLong = false, month = 11, day = 0,
-        years = {2023: 11, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
+        title = "Hanukkah (Day 5)", monthLong = false, month = 12, day = 0,
+        years = {2023: 11, 2024: 29, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://media.istockphoto.com/id/1434820327/photo/cute-girl-looking-at-menorah-candle.jpg?s=612x612&w=0&k=20&c=6dflZFgusv7hOFuGgDhDWsj5U87sW4Hq8P5kwqYf1Lk="
     ),
     new holiday (
-        title = "Hanukkah (Day 6)", monthLong = false, month = 11, day = 0,
-        years = {2023: 12, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
+        title = "Hanukkah (Day 6)", monthLong = false, month = 12, day = 0,
+        years = {2023: 12, 2024: 30, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://media.istockphoto.com/id/1343863451/photo/happy-jewish-extended-family-having-lunch-at-dining-table-on-hanukkah.jpg?s=612x612&w=0&k=20&c=X7Rx_huWxzvvw4KFGGOScXJJ5Ow24jQ72WG_FrMpjg0="
     ),
     new holiday (
-        title = "Hanukkah (Day 7)", monthLong = false, month = 11, day = 0,
-        years = {2023: 13, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
+        title = "Hanukkah (Day 7)", monthLong = false, month = 12, day = 0,
+        years = {2023: 13, 2024: 31, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://media.istockphoto.com/id/157502603/photo/child-watching-father-lighting-the-menorah.jpg?s=612x612&w=0&k=20&c=K3NM8xd5jvJnUR1Eqwf6E4REieObkWAq73VHUEi7hmI="
     ),
     new holiday (
-        title = "Hanukkah (Day 8)", monthLong = false, month = 11, day = 0,
+        title = "Hanukkah (Day 8)", monthLong = false, month = 1, day = 0,
         years = {2023: 14, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Continuing", colorScheme=44, 
         image="https://media.istockphoto.com/id/1436772744/photo/close-up-of-jewish-girl-receiving-present-from-her-father-on-hanukkah.jpg?s=612x612&w=0&k=20&c=8Txj-U7F4bsYKxQPXqP_unUnVYX8Z3qSF7ZmVWaUZuk="
     ),
     new holiday (
-        title = "Hanukkah (Day 9)", monthLong = false, month = 11, day = 0,
-        years = {2023: 15, 2024: 1, 2025: 1, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Ending At Sundown", colorScheme=44, 
+        title = "Hanukkah (Day 9)", monthLong = false, month = 1, day = 0,
+        years = {2023: 15, 2024: 1, 2025: 2, 2026: 1, 2027: 1, 2028: 1, 2029: 1, 2030: 1, 2031: 1, 2032: 1, 2033: 1}, ending="Ending At Sundown", colorScheme=44, 
         image="https://media.istockphoto.com/id/1434551840/photo/close-up-of-senior-man-lighting-menorah-during-family-dinner-on-hanukkah.jpg?s=612x612&w=0&k=20&c=PHCcz2a2rJsUCRWKaNzm0BQAatGl9Bpfb_eVifTRnrE="
     ),
     new holiday (
