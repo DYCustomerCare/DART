@@ -983,7 +983,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Escalations",
         task = "Repair",
-        contact = "Diana Medina, Brenda Santiago, Jane Kuhne",
+        contact = "Diana Medina, Brenda Santiago, Samantha DeForge, Jane Kuhne",
         tags = "escalations repairs help manager",
         id = "tmpEscRpr"
     ),
@@ -1148,7 +1148,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "Fedex...",
-        contact = "Samantha DeForge, Michael Clancy",
+        contact = "Karla Medina, Michael Clancy",
         tags = "FedEx update status",
         id = "tmpFdxGen"
     ),
@@ -1313,7 +1313,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "Coddling...",
-        contact = "Samantha DeForge, Karla Medina",
+        contact = "Karla Medina, Andrew DellaRatta",
         tags = "gifts escalations",
         id = "tmpGftGen"
     ),
