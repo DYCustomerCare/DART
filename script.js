@@ -6615,6 +6615,7 @@ const stones = [
     new stone (title="Champagne Diamond", code="DC"),
     new stone (title="Dyed Sea Bamboo", code="DD"),
     new stone (title="Grey Agatized Dinosaur Bone", code="DE"),
+    new stone (title="Grandidierite", code="DF"),
     new stone (title="Demantoid Garnet", code="DG"),
     new stone (title="Deep Rhodonite", code="DH"),
     new stone (title="Diamond", code="DI"),
