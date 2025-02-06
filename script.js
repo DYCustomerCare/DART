@@ -829,7 +829,7 @@ const tips = [
     new tip (text = "Shipping changes on orders $2,000 or more require finance approval."),
     new tip (text = "The knowledge base is a great resource and hub of all important information!"),
 
-    // Policy0
+    // Policy
     new tip (text = "Don't forget to review our policies online at DavidYurman.com."),
     
     // Orders
@@ -1133,7 +1133,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "Ecomm...",
-        contact = "Javier Hernandez, Nuria Suazo, Carlos Palacios",
+        contact = "Ariel De Jesus, Jason Sanchez | <br>If Urgent:</br> Carlos Palacios, Nuria Suazo, Javier Hernandez",
         tags = "shipping update status",
         id = "tmpShpGen"
     ),
