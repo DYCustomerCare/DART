@@ -1133,7 +1133,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "Ecomm...",
-        contact = "Ariel De Jesus, Jason Sanchez | <br>If Urgent:</br> Carlos Palacios, Nuria Suazo, Javier Hernandez",
+        contact = "Ariel De Jesus, Jason Sanchez | <b>If Urgent:</b> Carlos Palacios, Nuria Suazo, Javier Hernandez",
         tags = "shipping update status",
         id = "tmpShpGen"
     ),
