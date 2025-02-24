@@ -4100,6 +4100,17 @@ const tools = [
         id="tolOpsGftCrdApm",
         functions = [],
     ),
+    new tool (
+        title = "FedEx Hold Location Finder",
+        subtitle = "Locate approved Hold For Pickup locations via the FedEx website.",
+        warning = "If a location is too far or unavailable, please check in with a supervisor for further assistance.",
+        filter ="fedex",
+        html = `<p>Enter Zip or Postal Code:</p>
+        <input type="text" id="FedExHoldLocationFinderZipPostalCode" placeholder="Zip or Postal Code"><br><br>
+        <button class="textButton" onclick="FedExHoldLocationFinder()" title="Locate approved Hold For Pickup locations via the FedEx website."><i class="bi bi-gear"></i> Find A Location</button><br><br>`,
+        id="tolFdxLctnFndr",
+        functions = [],
+    ),
 ]
 
 //----------------------------------------------------------------------------------------------------
@@ -11417,4 +11428,28 @@ function generateBingoBoard () {
     localStorage.setItem("bingoBoard", bingoBoard);
 
     setNotice("Bingo!", "A New Bingo board has been generated. Every time a new board is generated, it will be saved for later until a new one is generated.")
+}
+
+//----------------------------------------------------------------------------------------------------
+//
+//  FUNCTIONS: TOOL: FedEx Hold Location Finder
+//
+//----------------------------------------------------------------------------------------------------
+
+function FedExHoldLocationFinder ()
+{
+	zippostal = "";
+
+	input = document.getElementById("FedExHoldLocationFinderZipPostalCode");
+
+	if (input == null) { return; }
+	
+	zippostal = input.value;
+
+	if (zippostal == "") { return; }
+		
+	var link = document.createElement("a");
+	link.href = "https://local.fedex.com/en/search?q=" + zippostal + "&qp=" + zippostal + "&r=50&per=50&holdPackage=on&staffed=on&pickup=true&fdxType=5644121&fdxType=5644112&fdxType=5644117&fdxType=5644122&fdxType=5644123&fdxType=5644127&services=5637373&l=en";
+	link.target = "_blank";
+	link.click();
 }
