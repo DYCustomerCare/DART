@@ -5785,11 +5785,11 @@ const boutiques = [
         image = "https://www.davidyurman.com/on/demandware.static/-/Sites/default/dwb5cb8075/images/storeImages/StoreLocator_PaloAlto_Thumbnail@2x.jpg"
     ),
     new boutique (
-        title = "The Grove | Plano, TX",
+        title = "The Grove | Los Angeles, CA",
         number = 43,
         address1 = "<b>David Yurman</b><br>189 The Grove Drive",
         address2 = "Suite #G80",
-        address3 = "Los Angeles, CA 90036",
+        address3 = "Los Angeles, California 90036",
         country = 0,
         phone = "(323) 487-6400",
         extension = "5300",
