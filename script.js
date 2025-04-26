@@ -7184,6 +7184,52 @@ const metals = [
     new metal (title="Bronze with Sterling Silver", code="ZS"),
 ]
 
+//----------------------------------------------------------------------------------------------------
+//
+//  DATA: Collections
+//
+//----------------------------------------------------------------------------------------------------
+
+class DYCollectionGroup {
+    constructor (title="", subtitle="", image="", description="") {
+        this.title = title;
+    }
+}
+
+const collectionGroups = [
+    new DYCollectionGroup (
+        title = "Albion"
+    ),
+]
+
+class DYCollection {
+    constructor (title="", subtitle="", root="", image="", description="", history="", metalsUsed=[], stonesUsed=[], cutsUsed=[], details=[]) {
+        this.title = title;
+        this.subtitle = subtitle;
+        this.root = root;
+        this.image = image;
+        this.description = description;
+        this.metalsUsed = metalsUsed;
+        this.stonesUsed = stonesUsed;
+        this.cutsUsed = cutsUsed;
+        this.details = details;
+    }
+}
+
+const collections = [
+    new DYCollection (
+        title = "Albion",
+        subtitle = "Classic",
+        root = "Albion",
+        image = "",
+        description = "Albion",
+        history="The Albion® Collection’s unique cushion-cut center stone was David Yurman’s innovative solution to use an oversize gemstone in a refined modern setting with classical proportions.",
+        metalsUsed = ["Sterling Silver", "18k Yellow Gold"],
+        stonesUsed = ["Black Onyx"],
+        cutsUsed = ["Cushion"],
+        details = [""],
+    ),
+]
 
 //----------------------------------------------------------------------------------------------------
 //
@@ -8329,6 +8375,7 @@ function search (query) {
     const searchBarSettingStones = document.getElementById("searchBarSettingStones").checked;
     const searchBarSettingMetals = document.getElementById("searchBarSettingMetals").checked;
     const searchBarSettingChains = document.getElementById("searchBarSettingChains").checked;
+    const searchBarSettingCollections = document.getElementById("searchBarSettingCollections").checked;
 
     var newQuery = query.replace(/[\p{P}$+<=>^`|~]/gu, '');
 
@@ -8366,6 +8413,10 @@ function search (query) {
 
     if (searchBarSettingChains) {
         totalResults += searchChains(newQuery);
+    }
+	
+    if (searchBarSettingCollections) {
+        totalResults += searchCollections (newQuery);
     }
 
     const title = document.getElementById("title");
@@ -10323,6 +10374,69 @@ function searchChains (query) {
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
                         appendArticle("", "materials", "Chain", chains[c].title + " (" + chains[c].code + ")", "Chain", "circle", "", "", {}, "", [], "", [], "", true, chains[c].title + " (" + chains[c].code + ")", false, false, "", 0);
+                        results++;
+                    }
+                }
+            }
+        }
+    }
+
+    return results;
+}
+
+//----------------------------------------------------------------------------------------------------
+//
+//  FUNCTIONS: Collections
+//
+//----------------------------------------------------------------------------------------------------
+
+function addCollections () {
+    const select = document.getElementById("collections");
+
+    if (select) {
+        for (let c = 0; c < collections.length; c++) {
+            const option = document.createElement("option");
+            
+            option.innerHTML = `(` + collections[c].code + `) ` + collections[c].title;
+            option.value = collections[c].code;
+            select.append(option);
+        }
+    }
+}
+
+function findTagInCollections (tag, collection) {
+    if (collection.title.toLowerCase().includes(tag.toLowerCase())) {
+        return true;
+    }
+
+    return false;
+}
+
+function searchCollections (query) {
+    var splitQueries = splitText(query.toLowerCase());
+    
+    var queries = [];
+    var results = 0;
+    
+    for (const q of splitQueries) {
+        if (!searchRemoval.includes(q)) {
+            queries.push(q);
+        }
+    }
+
+    var queryCount = queries.length;
+    var matchCount = 0;
+
+    if (queries.length > 0) {
+        for (let c = 0; c < collections.length; c++) {
+            matchCount = 0;
+
+            for (const tag of queries) {
+                if (findTagInCollections(tag, collections[c])) {
+                    matchCount += 1;
+
+                    if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
+                        appendArticle("", "dycollections", "Collection", collections[c].title, collections[c].root, "collection", "", "", {}, "", [], "", [], "", true, collections[c].title + " (" + collections[c].subtitle + ")", false, false, "", 0);
                         results++;
                     }
                 }
