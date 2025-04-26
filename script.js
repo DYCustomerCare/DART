@@ -41,7 +41,7 @@ var phone = "";
 var position = "";
 
 // Color Scheme
-var schemeStyle = 0;
+var schemeStyle = 1;
 var rainbow = 0;
 
 const searchRemoval = [
