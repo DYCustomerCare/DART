@@ -3949,6 +3949,16 @@ const tools = [
         functions = [],
     ),
     new tool (
+        title = "Collections",
+        subtitle = "A list of David Yurman Collections.",
+        warning = "",
+        filter ="product",
+        html = `<select class="element" id="collections" onchange="showCollection()"></select><br><br>
+        <img id="collections" class="elementSwatch">`,
+        id="tolPrdClns",
+        functions = ["addCollections"],
+    ),
+    new tool (
         title = "Stone Codes",
         subtitle = "A list of stone codes.",
         warning = "",
@@ -7284,10 +7294,12 @@ function start () {
 
 function addSelections () {
     addBoutiques();
+    addCollections();
     addStones();
     addMetals();
     addChains();
     addBingo();
+    showCollection();
     showStone();
     showMetal();
 }
@@ -10390,15 +10402,31 @@ function searchChains (query) {
 //
 //----------------------------------------------------------------------------------------------------
 
+function showCollection () {
+    const img = document.getElementById("collection");
+    
+    /*if (img) {
+        const select = document.getElementById("collections").value;
+    
+        for (const metal of metals) {
+            if (metal.code == select) {
+                console.log(metal.title);
+                img.src = "images/metals/" + metal.code + ".jpg";
+                break;
+            }
+        }
+    }*/
+}
+
 function addCollections () {
     const select = document.getElementById("collections");
 
     if (select) {
-        for (let c = 0; c < collections.length; c++) {
+        for (let c = 0; c < collectionGroups.length; c++) {
             const option = document.createElement("option");
             
-            option.innerHTML = `(` + collections[c].code + `) ` + collections[c].title;
-            option.value = collections[c].code;
+            option.innerHTML = collectionGroups[c].title;
+            option.value = collectionGroups[c].code;
             select.append(option);
         }
     }
