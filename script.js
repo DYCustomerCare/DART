@@ -2752,35 +2752,35 @@ const blurbs = [
     new blurb (
         title="Recommended Chain - 1.7mm Baby Box Chain (Women's, Silver & 14k Gold)",
         filter="product styling",
-        text="Our PENDANT is a wonderful selection, and a 1.7mm Box Chain Necklace with an Accent of 14K Gold would be a great option to pair with this pendant.<br><br>Price: $175 - $185<br>Style Number: CH0251 S4<br><br>https://www.davidyurman.com/womens/necklaces/box-chain-necklace-with-14k-yellow-gold-accent-CH0251+S4.html",
+        text="Our PENDANT is a wonderful selection, and a 1.7mm Box Chain Necklace with an Accent of 14K Gold would be a great option to pair with this pendant.<br><br>Price:<br>Style Number: CH0251 S4<br><br>https://www.davidyurman.com/womens/necklaces/box-chain-necklace-with-14k-yellow-gold-accent-CH0251+S4.html",
         tags="necklaces box chains pendants amulets tags enhancers 1.7mm baby",
         id="blbPrdStylWmnsBChnS4"
     ),
     new blurb (
         title="Recommended Chain - 1.7mm Baby Box Chain (Men's, Silver)",
         filter="product styling",
-        text="Our PENDANT is a wonderful selection, and a 1.7mm Box Chain would be a great option to pair with this pendant.<br><br>Price: $180 - $190<br>Style Number: CH0126MSS<br><br>https://www.davidyurman.com/mens/necklaces-and-chains/box-chain-necklace-CH0126MSS.html",
+        text="Our PENDANT is a wonderful selection, and a 1.7mm Box Chain would be a great option to pair with this pendant.<br><br>Price:<br>Style Number: CH0126MSS<br><br>https://www.davidyurman.com/mens/necklaces-and-chains/box-chain-necklace-CH0126MSS.html",
         tags="necklaces box chains pendants amulets tags enhancers 1.7mm baby",
         id="blbPrdStylMensBChnSS"
     ),
     new blurb (
         title="Recommended Chain - 2.7mm Small Box Chain (Women's, Silver & 14k Gold)",
         filter="product styling",
-        text="Our PENDANT is a wonderful selection, and a 2.7mm Box Chain Necklace with an Accent of 14K Gold would be a great option to pair with this pendant.<br><br>Price: $260 - $625<br>Style Number: CH0104 S4<br><br>https://www.davidyurman.com/womens/necklaces/box-chain-necklace-with-14k-yellow-gold-accent-CH0104+S4.html",
+        text="Our PENDANT is a wonderful selection, and a 2.7mm Box Chain Necklace with an Accent of 14K Gold would be a great option to pair with this pendant.<br><br>Price:<br>Style Number: CH0104 S4<br><br>https://www.davidyurman.com/womens/necklaces/box-chain-necklace-with-14k-yellow-gold-accent-CH0104+S4.html",
         tags="necklaces box chains pendants amulets tags enhancers 2.7mm small",
         id="blbPrdStylWmnsSChnS4"
     ),
     new blurb (
         title="Recommended Chain - 2.7mm Small Box Chain (Men's, Silver)",
         filter="product styling",
-        text="Our PENDANT is a wonderful selection, and a 2.7mm Box Chain would be a great option to pair with this pendant.<br><br>Price: $245 - $315<br>Style Number: CH0104MSS<br><br>https://www.davidyurman.com/mens/necklaces-and-chains/box-chain-necklace-CH0104MSS.html",
+        text="Our PENDANT is a wonderful selection, and a 2.7mm Box Chain would be a great option to pair with this pendant.<br><br>Price:<br>Style Number: CH0104MSS<br><br>https://www.davidyurman.com/mens/necklaces-and-chains/box-chain-necklace-CH0104MSS.html",
         tags="necklaces box chains pendants amulets tags enhancers 2.7mm small",
         id="blbPrdStylMensSsChnSS"
     ),
     new blurb (
         title="Recommended Chain - 3.6mm Medium Box Chain (Men's, Silver)",
         filter="product styling",
-        text="Our PENDANT is a wonderful selection, and a 3.6mm Box Chain would be a great option to pair with this pendant.<br><br>Price: $315 - $420<br>Style Number: CH0100MSS<br><br>https://www.davidyurman.com/mens/necklaces-and-chains/box-chain-necklace-CH0100MSS.html",
+        text="Our PENDANT is a wonderful selection, and a 3.6mm Box Chain would be a great option to pair with this pendant.<br><br>Price:<br>Style Number: CH0100MSS<br><br>https://www.davidyurman.com/mens/necklaces-and-chains/box-chain-necklace-CH0100MSS.html",
         tags="necklaces box chains pendants amulets tags enhancers 3.6mm medium",
         id="blbPrdStylWmnsMChnSS"
     ),
