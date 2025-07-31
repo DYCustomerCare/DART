@@ -1208,7 +1208,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Care & Service",
         task = "<i>Applicable Task</i>",
-        contact = "Nicole Silletti, Jessica Walker, Samantha DeForge, Brenda Santiago, Diana Medina, Laura Brigley, Jane Kuhne",
+        contact = "Nicole Silletti, Jessica Walker, Samantha DeForge, Brenda Santiago, Diana Medina, Laura Lawson, Jane Kuhne",
         tags = "care service repairs",
         id = "tmpRprGen"
     ),
@@ -7276,7 +7276,7 @@ const credits = [
         role ="Developement, Writing"
     ),
     new credit (
-        member = "Laura Brigley",
+        member = "Laura Lawson",
         role ="Writing, Testing"
     ),
     new credit (
