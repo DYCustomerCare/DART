@@ -1200,7 +1200,7 @@ const templates = [
     new template (
         title = "General Care & Service Template",
         type = 0,
-        text = "Current Repair Numbers:<br>Previous Repair Numbers:<br>Order Number & POP:<br>Assistance Needed:,
+        text = "Current Repair Numbers:<br>Previous Repair Numbers:<br>Order Number & POP:<br>Assistance Needed:",
         warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
         filter = "repairs",
         assign = "Care & Service - CC Team",
