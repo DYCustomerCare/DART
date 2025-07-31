@@ -748,7 +748,7 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "Repairs",
+        title = "Care & Service",
         icon = "wrench",
         id = "repairs",
         lite = true
@@ -958,7 +958,7 @@ const templates = [
         id = "tmpTemPrd"
     ),
     new template (
-        title = "General Escalation",
+        title = "General Escalation Template",
         type = 0,
         text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Issue(s):<br>Assistance Required:<br>Solution(s) Offered:",
         warning = "",
@@ -973,7 +973,7 @@ const templates = [
         id = "tmpEscGen"
     ),
     new template (
-        title = "Repair Escalation Template",
+        title = "Care & Service Escalation Template",
         type = 0,
         text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br><br><b>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
         warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
@@ -983,7 +983,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Escalations",
         task = "Repair",
-        contact = "Diana Medina, Brenda Santiago, Samantha DeForge, Jane Kuhne",
+        contact = "Jane Kuhne, Diana Medina",
         tags = "escalations repairs help manager",
         id = "tmpEscRpr"
     ),
@@ -1196,6 +1196,21 @@ const templates = [
         contact = "Keyana Askew, Asmaa Yasin, Michael Clancy, Lateefah Barbee, Jasmine Bouier-McGhee",
         tags = "returns refunds exchanges orders replacement",
         id = "tmpRtnCCO"
+    ),
+    new template (
+        title = "General Care & Service Template",
+        type = 0,
+        text = "Current Repair Numbers:<br>Previous Repair Numbers:<br>Order Number & POP:<br>Assistance Needed:,
+        warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
+        filter = "repairs",
+        assign = "Care & Service - CC Team",
+        assignType = 2,
+        orderNumber = "<i>If Applicable</i>",
+        department = "Care & Service",
+        task = "<i>Applicable Task</i>",
+        contact = "Nicole Silletti, Jessica Walker, Samantha DeForge, Brenda Santiago, Diana Medina, Laura Brigley, Jane Kuhne",
+        tags = "care service repairs",
+        id = "tmpRprGen"
     ),
     new template (
         title = "DRS Repair Inquiry",
