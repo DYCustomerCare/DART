@@ -1328,7 +1328,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "Coddling...",
-        contact = "Karla Medina, Andrew DellaRatta",
+        contact = "Karla Medina",
         tags = "gifts escalations",
         id = "tmpGftGen"
     ),
@@ -11610,3 +11610,4 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
