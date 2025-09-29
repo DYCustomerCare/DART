@@ -975,7 +975,7 @@ const templates = [
     new template (
         title = "Care & Service Escalation Template",
         type = 0,
-        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br><br><b>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Request:<br>Current Repair Number(s):<br><br><b>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
         warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
         filter = "escalations repairs",
         assign = "Escalations",
@@ -983,8 +983,8 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Escalations",
         task = "Repair",
-        contact = "Jane Kuhne, Diana Medina",
-        tags = "escalations repairs help manager",
+        contact = "Jane Kuhne, Diana Medina, Laura Lawson",
+        tags = "escalations repairs help manager care service",
         id = "tmpEscRpr"
     ),
     new template (
@@ -1209,7 +1209,7 @@ const templates = [
         department = "Care & Service",
         task = "<i>Applicable Task</i>",
         contact = "Nicole Silletti, Jessica Walker, Samantha DeForge, Brenda Santiago, Diana Medina, Laura Lawson, Jane Kuhne",
-        tags = "care service repairs",
+        tags = "care service repairs care service",
         id = "tmpRprGen"
     ),
     new template (
@@ -11610,4 +11610,5 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
