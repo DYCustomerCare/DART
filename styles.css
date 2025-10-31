@@ -480,6 +480,11 @@ textarea:focus {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    pointer-events: none;
+}
+
+.overlay-nav * {
+    pointer-events: auto;
 }
 
 .overlay-nav nav {
