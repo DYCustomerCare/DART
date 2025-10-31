@@ -13,13 +13,13 @@ var policy_return_US_exchange_days = "30";
 var policy_return_US_merch_credit_days = "30";
 var policy_return_US_outlet_days = "30";
 
-var policy_return_US_holiday_start = "on or after Sunday, October 27, 2024";
-var policy_return_US_holiday_end = "through Saturday, January 18, 2025";
+var policy_return_US_holiday_start = "on or after Monday, November 3rd, 2025";
+var policy_return_US_holiday_end = "through Friday, January 23rd, 2026";
 
 var policy_shiping_cutoff_weekday = "3PM EST";
 var policy_shiping_cutoff_weekend = "12PM EST";
 
-var policy_LGC_expiration = "January 13th, 2025 11:59 PM PST";
+var policy_LGC_expiration = "January 27th, 2026 11:59 PM PST";
 
 // General
 var lite_mode = true;
@@ -718,7 +718,7 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "Finance",
+        title = "Merchant Services",
         icon = "currency-dollar",
         id = "finance",
         lite = true
@@ -730,7 +730,7 @@ const tabs = [
         lite = true
     ),
     new tab (
-        title = "Fedex & Claims",
+        title = "Deliveries & Claims",
         icon = "truck",
         id = "fedex",
         lite = true
@@ -841,7 +841,7 @@ const tips = [
     new tip (text = "Our shipping cut off time is 3PM EST Monday - Friday & 12 PM EST on Saturday."),
 
     // Shipping Issues
-    new tip (text = "Rubber Bracelets can be replaced without filing a claim with FedEx."),
+    new tip (text = "Rubber Bracelets can be replaced without filing a claim for a lost order."),
 
     // Returns
     new tip (text = "All returns must be returned unworn and in resale condition."),
@@ -991,7 +991,7 @@ const templates = [
         title = "Order Replacement",
         type = 0,
         text = "Style Number:<br>Reason For Replacement:<br>Tracking Number:<br>Original Shipping Address:<br>New/Alternate Address:",
-        warning = "If this is a replacement for a lost/missing FedEx package (excluding FedEx Smart Post),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup at either a <b>FedEx Ship Center</b> or <b>FedEx Office, Print, and Ship Center</b>.",
+        warning = "If this is a replacement for a lost/missing package (excluding USPS & FedEx Smart Post),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup at either a <b>FedEx Ship Center</b> or <b>FedEx Office, Print, and Ship Center</b>.",
         filter = "escalations orders",
         assign = "Cc Ops",
         assignType = 2,
@@ -1108,7 +1108,7 @@ const templates = [
         id = "tmpOrdCtn"
     ),
     new template (
-        title = "General Finance Inquiry",
+        title = "General Merchant Services Inquiry",
         type = 0,
         text = "Request:<br>Notes:",
         warning = "",
@@ -1183,7 +1183,7 @@ const templates = [
         id = "tmpRtnGen"
     ),
     new template (
-        title = "General CC Ops Returns Request",
+        title = "General CC Ops Request",
         type = 0,
         text = "Request:<br>Tracking Number:<br>Style Name:<br>Style Number:<br>RMA Status:",
         warning = "Please ensure any and all associated documentation is included with your task submission.",
@@ -1298,7 +1298,7 @@ const templates = [
         orderNumber = "<b><i>Required</i></b>",
         department = "Shipping",
         task = "FedEx - Missing/Wrong Item In Order",
-        contact = "Christopher Valiante, Julio Bryam",
+        contact = "Michael Lamanowicz, Julio Bryam",
         tags = "security orders",
         id = "tmpSecGen"
     ),
@@ -1758,6 +1758,18 @@ class link {
 
 const links = [
     new link (
+        title="Care & Service Resources",
+        subtitle = "Links to the various Care & Service resouces.",
+        subtitleIcon = "",
+        subtitleDesc = "",
+        filter="repairs",
+        html=`<ul>
+            <li><a target="_blank" href="https://careandservice.davidyurman.com/login">Care & Service Portal</a></li>
+            <li><a target="_blank" href="https://www.davidyurman.com/assistance/customer-care/product-care-repairs.html">DY.com - Product Care & Repairs</a></li>
+        </ul>`,
+        id="lnkRprCsvRsrs"
+    ),
+    new link (
         title="DRS Resources",
         subtitle = "Links to the various DRS websites. Recommend for use in firefox.",
         subtitleIcon = "browser-firefox",
@@ -1798,13 +1810,14 @@ const links = [
         id="lnkSupRsrs"
     ),
     new link (
-        title="FedEx Support Hub",
-        subtitle = "Support link to make FedEx changes.",
+        title="FedEx & UPS Support Hubs",
+        subtitle = "Support links to make UPS & FedEx changes.",
         subtitleIcon = "",
         subtitleDesc = "",
         filter="fedex",
         html=`<ul>
-        <li><a target="_blank" href="https://fedex-ced.my.site.com/fedexsupporthub/">FedEx Support Hub Portal</a></li>
+        <li><a target="_blank" href="https://www.campusship.ups.com">UPS Campus Ship</a></li>
+        <li><a target="_blank" href="https://fedex-ced.my.site.com/fedexsupporthub/">FedEx Support Hub</a></li>
         <ul>`,
         id="lnkSupRsrs"
     )
@@ -3080,10 +3093,10 @@ const blurbs = [
         id="blbGftOrn"
     ),
     new blurb (
-        title = "Did Not Receive Loyalty Gift Card This Year",
+        title = "Did Not Receive Loyalty Card This Year",
         filter = "holiday",
-        text = "The loyalty gift card program is issued based on a variety of factors including your combined total spend between our boutiques and DavidYurman.com over the past year. We recommend making sure that all purchases are under the same email address for that reason.",
-        tags = "LGC",
+        text = "The loyalty card program is issued based on a variety of factors including your combined total spend between our boutiques and DavidYurman.com over the past year. We recommend making sure that all purchases are under the same email address for that reason.",
+        tags = "LC",
         id="blbLGCNotRcv"
     ),
     new blurb (
@@ -3113,7 +3126,7 @@ class note {
 
 const notes = [
     new note (
-        title="Estimated Repair Times & Charges",
+        title="Estimated Repair Times",
         subtitle="",
         filter = "repairs",
         html = `
@@ -3121,20 +3134,12 @@ const notes = [
             <tr>
                 <th colspan="2">Service Times</th>
             </tr>
-            <tr><td style="width: 200px;">Standard</td><td style="width: 100px;"> 4-5 Weeks</td></tr>
+            <tr><td style="width: 200px;">Standard</td><td style="width: 100px;"> 4-6 Weeks</td></tr>
             <tr><td>Engraving/Ring Resizing</td><td>2-3 Weeks</td></tr>
+            <br><br>
+            <tr><td style="width: 200px;">Overseas Repairs</td><td style="width: 100px;">14-18 Weeks</td></tr>
         </table>
-        <br>
-        <h3>Quotable Repair Charges</h3>
-        <b>Ring Resizing:</b><br>Complimentary within 90 days<br><br>
-        <table class="hoverTable">
-            <tr>
-                <th colspan="2">Engravings</th>
-            </tr>
-            <tr><td style="width: 100px;">Initials</td><td style="width: 50px;">$50</td></tr>
-            <tr><td style="width: 100px;">Name</td><td style="width: 50px;">$60</td></tr>
-            <tr><td style="width: 100px;">Two lines</td><td style="width: 50px;">$100</td></tr>
-        </table>`,
+        `,
         id="notRprPlcy"
     ),
     new note (
@@ -3188,7 +3193,10 @@ const notes = [
             <li>Most Chatelaine Rings</li>
             <li>Most Crossover Rings</li>
             <li>Most Wheaton Rings</li>
-        </ul>`,
+        </ul>
+        <br>
+        <h3>Quotable Repair Charges</h3>
+        <b>Ring Resizing:</b><br>Complimentary within 90 days<br><br>`,
         id="notRprSvGd"
     ),
     new note (
@@ -3391,10 +3399,31 @@ const notes = [
         title="Shipping Methods & Delivery Times",
         subtitle="",
         filter = "shipping",
-        html = `<p>Please see the shipping times, costs, and their estimated delivery times below.<br>Note: some delivery methods are limited to select areas.</p><br>
+        html = `<p>Please see the shipping times, costs, and their estimated delivery times below.<br>Note: Some delivery methods are limited to select areas.<br>
         <table class="hoverTable">
             <tr>
-                <th style="width: 250px;">Shipping Method</th> <th style="width: 200px;">Time Frame</th> <th style="width: 100px;">Cost</th> <th style="width: 200px;">Availability</th>
+                <th style="width: 250px;">UPS</th> <th style="width: 200px;">Time Frame</th> <th style="width: 100px;">Cost</th> <th style="width: 200px;">Availability</th>
+            </tr>
+            <tr>
+                <td>UPS Overnight</td> <td>1-2 Business Days</td> <td>$0</td> <td>United States</td>
+            </tr>
+            <tr>
+                <td>UPS International</td> <td>3-5 Business Days</td> <td>$0</td> <td>Canada</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th style="width: 250px;">USPS</th> <th></th> <th></th> <th></th>
+            </tr>
+            <tr>
+                <td>USPS Ground (Coddling Gifts)</td> <td>4-10 Business Days</td> <td>$0</td> <td>United States, Canada</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <th style="width: 250px;">FedEx (Going Away)</th> <th></th> <th></th> <th></th>
             </tr>
             <tr>
                 <td>FedEx 2-Day</td> <td>2-3 Business Days</td> <td>$0</td> <td>United States</td>
@@ -3404,15 +3433,6 @@ const notes = [
             </tr>
             <tr>
                 <td>FedEx International Priority</td> <td>3-5 Business Days</td> <td>$0</td> <td>Canada</td>
-            </tr>
-            <tr>
-                <td>FedEx Smart Post</td> <td>7-10 Business Days</td> <td>$0</td> <td>United States</td>
-            </tr>
-            <tr>
-                <td>Same Day Delivery</td> <td>Same Day</td> <td>$35</td> <td>New York City</td>
-            </tr>
-            <tr>
-                <td>USPS Ground (Coddling Gifts)</td> <td>1-2 Weeks</td> <td>$0</td> <td>United States, Canada</td>
             </tr>
         </table>`,
         id="notShpDvry"
@@ -3747,29 +3767,27 @@ const notes = [
         id="notRtnNrvrResnCode"
     ),
     new note (
-        title="2024 Loyalty Gift Card",
-        subtitle="Pricing in USD",
+        title="2025 Loyalty Gift Card",
+        subtitle="United States & Canada",
         filter = "holiday",
         html = `
-        <p><b>Drop Dates:</b> Virtual: 10/13, Physical: 10/20 (In-House For Distribution Later)</p>
+        <p><b>Drop Dates:</b> Physical: Early October, Virtual: Mid-October</p>
         <p><b>Expiration Date:</b> &repl:policyLGCExpiration<p>
         <br>
         <table class="hoverTable">
             <tr>
-                <th style="width: 100px">Tier</th><th style="width: 100px">Value</th>
+                <th style="width: 100px">Tier</th><th style="width: 100px">US</th><th style="width: 100px">Canada</th>
             <tr>
             <tr>
-                <td>Tier 1</td><td>$750</td>
+                <td>Tier 1</td><td>$750</td><td>$1000</td>
             </tr>
             <tr>
-                <td>Tier 2</td><td>$500</td>
+                <td>Tier 2</td><td>$500</td><td>$700</td>
             </tr>
             <tr>
-                <td>Tier 3</td><td>$300</td>
+                <td>Tier 3</td><td>$400</td><td>$500</td>
             </tr>
             <tr>
-                <td>Tier 4</td><td>$200</td>
-            </tr>
         </table>`,
         id="notHolLGC"
     ),
@@ -3801,7 +3819,7 @@ const notes = [
         id="notRtnPlcyHldy"
     ),
     new note (
-        title="2024 Gift With Purchase",
+        title="2025 Gifts With Purchase",
         subtitle="",
         filter = "holiday",
         html = `<p><b>Gift(s):</b> TBD</p>
@@ -3831,13 +3849,13 @@ class tool {
 
 const tools = [
     new tool (
-        title = "Generate FedEx Tracking URL",
-        subtitle = "Generate your FedEx tracking URL below.",
+        title = "Generate Tracking URL",
+        subtitle = "Generate your FedEx or UPS tracking URL below.",
         warning = "",
         filter ="fedex",
         html = `<p>Tracking Number:</p>
         <input type="text" id="trackingNumber" placeholder="Tracking Number"><br><br>
-        <button class="textButton" onclick="generateTrackingUrl()" title="Generate FedEx URL"><i class="bi bi-gear"></i> Generate FedEx URL</button><br><br>
+        <button class="textButton" onclick="generateTrackingUrl()" title="Generate FedEx or UPS URL"><i class="bi bi-gear"></i> Generate FedEx URL</button><br><br>
         <p id="generatedTracking"></p>`,
         id="tolFdxTrkgUrl",
         functions = [],
@@ -7144,6 +7162,7 @@ const metals = [
     new metal (title="Multi 18k Gold", code="M8"),
     new metal (title="Black Titanium with 18k Yellow Gold", code="N8"),
     new metal (title="Black Titanium with Grey Titanium", code="NT"),
+    new metal (title="Black Titanium with Titanium", code="NU"),
     new metal (title="Copper with 22k Yellow Gold", code="O2"),
     new metal (title="Copper with 18k Yellow Gold", code="OH"),
     new metal (title="Copper with 18k Rose Gold", code="OR"),
@@ -7182,6 +7201,7 @@ const metals = [
     new metal (title="PVD Coated Stainless Steel", code="SX"),
     new metal (title="Recycled Sterling Silver", code="SY"),
     new metal (title="Grey Titanium with 18k Yellow Gold", code="T8"),
+    new metal (title="Titanium", code="TA"),
     new metal (title="Black Titanium with Darkened Sterling Silver", code="TB"),
     new metal (title="Golden Titanium", code="TG"),
     new metal (title="Grey Titanium with 18k Yellow Gold and Darkened Sterling Silver", code="TK"),
@@ -9593,10 +9613,15 @@ function generateTrackingUrl () {
     generatedTracking = document.getElementById("generatedTracking")
 
     if (trackingNumber) {
-        url = "https://www.fedex.com/apps/fedextrack/?tracknumbers=" + trackingNumber;
+        url = "https://www.fedex.com/apps/fedextrack/?tracknumbers=";
+        
+        if (trackingNumber.toUpperCase().includes("Z"))
+        {
+            url = "https://www.ups.com/track?track=yes&trackNums=";
+        }
         
         if (generatedTracking) {
-            generatedTracking.innerHTML = `<b>FedEx Tracking URL:</b> ` + url + `<br><br></button>`;
+            generatedTracking.innerHTML = `<b>Tracking URL:</b> ` + url + trackingNumber + `<br><br></button>`;
 
             const button = document.createElement("button");
             button.innerHTML = `<i class="bi bi-` + iconClipboardOff + `"></i>`;
