@@ -291,6 +291,44 @@ button.textButton {
     box-sizing: border-box;
 }
 
+button.toggleTextButton {
+    width: auto;
+    font-size: medium;
+    margin: 4px;
+    margin-left: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    border: 1px solid var(--color-accent-medium);
+    color: var(--color-accent-medium);
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+button.toggleTextButton.active {
+    width: auto;
+    font-size: medium;
+    margin: 4px;
+    margin-left: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    box-sizing: border-box;
+}
+
+button.toggleTextButton:hover {
+    color: var(--color-accent-dark);
+    border: 1px solid var(--color-secondary);
+}
+
+button.toggleTextButton.active:hover {
+    
+    color: var(--color-primary);
+}
+
 button.textButton:hover {
     color: var(--color-accent-light);
 }
