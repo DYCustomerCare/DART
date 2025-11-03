@@ -884,12 +884,12 @@ const tips = [
 
 //----------------------------------------------------------------------------------------------------
 //
-//  DATA: Tabs
+//  DATA: Templates
 //
 //----------------------------------------------------------------------------------------------------
 
 class template {
-    constructor (title="", type=0, text="", warning="", filter="", assign=0, assignType="", orderNumber="", department="", task="", contact="", tags="", id="") {
+    constructor (title="", type=0, text="", warning="", filter="", assign="", assignType=0, orderNumber="", department="", task="", contact="", tags="", id="") {
         this.title = title;
         this.type = type;
         this.text = text;
@@ -928,26 +928,11 @@ class template {
 
 const templates = [
     new template (
-        title = "Teams Help Chat",
+        title = "Teams Help Chat Inquiry",
         type = 3,
-        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Salesforce Case:<br>Order Number:<br>Style Name:<br>Style Number:<br>Assistance Required:",
+        text = "",
         warning = "",
-        filter = "quickTask general",
-        assign = "",
-        assignType = 0,
-        orderNumber = "",
-        department = "",
-        task = "",
-        contact = "@DY CC Help",
-        tags = "teams help chat",
-        id = "tmpTemGen"
-    ),
-    new template (
-        title = "Teams Product Inquiry",
-        type = 3,
-        text = "Salesforce Case:<br>Style Name:<br>Style Number:<br>Inquiry:",
-        warning = "",
-        filter = "product",
+        filter = "quickTask general product",
         assign = "",
         assignType = 0,
         orderNumber = "",
@@ -955,7 +940,7 @@ const templates = [
         task = "",
         contact = "@DY CC Help",
         tags = "teams help chat products jewelry",
-        id = "tmpTemPrd"
+        id = "tmpTemGen"
     ),
     new template (
         title = "General Escalation Template",
@@ -1376,9 +1361,106 @@ const templates = [
         contact = "Ray Li",
         tags = "Salesforce support help",
         id = "tmpSupSfcActMrg"
-    )
-    
+    )   
 ]
+
+class subtemplate {
+    constructor (title="", id="", subid="", text="", warning="", assign="", assignType="", orderNumber="", department="", task="", contact="") {
+        this.title = title;
+        this.id = id;
+        this.subid = subid;
+        this.text = text;
+        this.warning = warning;
+        this.assign = assign;
+        this.assignType = assignType;
+        this.orderNumber = orderNumber;
+        this.department = department;
+        this.task = task;
+        this.contact = contact;
+    }
+}
+
+const subtemplates = [
+    new subtemplate (
+        title = "General Inquiry",
+        id = "tmpTemGen",
+        subid = "genInq",
+        text = "Customer Name:<br>Salesforce Case:<br>Order Number:<br>Assistance Required:",
+        warning = "",
+        assign = "",
+        assignType = 0,
+        orderNumber = "",
+        department = "",
+        task = "",
+        contact = "@DY CC Help",
+    ),
+    new subtemplate (
+        title = "Escalation",
+        id = "tmpTemGen",
+        subid = "escInq",
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Salesforce Case:<br>Order Number:<br>Style Name:<br>Style Number:<br>Assistance Required:",
+        warning = "Please advise customer a manager will contact them upon further review if possible unless urgent.",
+        assign = "",
+        assignType = 0,
+        orderNumber = "",
+        department = "",
+        task = "",
+        contact = "@DY CC Help",
+    ),
+    new subtemplate (
+        title = "Order Cancellation",
+        id = "tmpTemGen",
+        subid = "cnlInq",
+        text = "Customer Name:<br>Customer Email:<br>Order Number:<br>Style Name(s):<br>Reason:",
+        warning = "Reason must always be provided for an order's cancellation.</b>",
+        assign = "",
+        assignType = 0,
+        orderNumber = "",
+        department = "",
+        task = "",
+        contact = "@DY CC Help",
+    ),
+    new subtemplate (
+        title = "Product Inquiry",
+        id = "tmpTemGen",
+        subid = "prdInq",
+        text = "Salesforce Case:<br>Style Name:<br>Style Number:<br>Inquiry:",
+        warning = "<b>Product Weight</b> inquiries apply only to <b>Gold</b> pieces without stones. <b>Carat Weight</b> inquiries apply only to <b>Diamonds</b>. If the carat weight doesn't appear on DavidYurman.com, it cannot be provided.<br><br>Details provided by <b>Phone Only</b>.",
+        assign = "",
+        assignType = 0,
+        orderNumber = "",
+        department = "",
+        task = "",
+        contact = "@DY CC Help",
+    ),
+    new subtemplate (
+        title = "General Escalation",
+        id = "tmpEscGen",
+        subid = "escGen",
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Issue(s):<br>Assistance Required:<br>Solution(s) Offered:",
+        warning = "",
+        assign = "Escalations",
+        assignType = 2,
+        orderNumber = "<i>If Applicable</i>",
+        department = "<i>Applicable Task</i>",
+        task = "<i>Applicable Task</i>",
+        contact = "Associated Customer Care Supervisor or Manager",
+    ),
+    new subtemplate (
+        title = "Care & Service Escalation",
+        id = "tmpEscGen",
+        subid = "escCsv",
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Request:<br>Current Repair Number(s):<br><br><b style='display: inline'>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
+        warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
+        assign = "Escalations",
+        assignType = 2,
+        orderNumber = "<i>If Applicable</i>",
+        department = "Escalations",
+        task = "Repair",
+        contact = "Jane Kuhne, Diana Medina, Laura Lawson",
+    )
+]
+
 
 //----------------------------------------------------------------------------------------------------
 //
@@ -3136,7 +3218,6 @@ const notes = [
             </tr>
             <tr><td style="width: 200px;">Standard</td><td style="width: 100px;"> 4-6 Weeks</td></tr>
             <tr><td>Engraving/Ring Resizing</td><td>2-3 Weeks</td></tr>
-            <br><br>
             <tr><td style="width: 200px;">Overseas Repairs</td><td style="width: 100px;">14-18 Weeks</td></tr>
         </table>
         `,
@@ -3855,7 +3936,7 @@ const tools = [
         filter ="fedex",
         html = `<p>Tracking Number:</p>
         <input type="text" id="trackingNumber" placeholder="Tracking Number"><br><br>
-        <button class="textButton" onclick="generateTrackingUrl()" title="Generate FedEx or UPS URL"><i class="bi bi-gear"></i> Generate FedEx URL</button><br><br>
+        <button class="textButton" onclick="generateTrackingUrl()" title="Generate FedEx or UPS URL"><i class="bi bi-gear"></i> Generate Tracking URL</button><br><br>
         <p id="generatedTracking"></p>`,
         id="tolFdxTrkgUrl",
         functions = [],
@@ -7493,6 +7574,14 @@ function appendChildren (element, children=[]) {
     for (const child of children) {element.appendChild(child);}
 }
 
+function removeActiveFromClassListByGroup (id) {
+    groupElements = document.getElementsByClassName(id);
+    
+    for (const element of groupElements) {
+        element.classList.remove("active");
+    }
+}
+
 //----------------------------------------------------------------------------------------------------
 //
 //  Functions: Data
@@ -8771,6 +8860,41 @@ function addTemplates (id, delay) {
                 {title: "Order Number", content: templates[t].orderNumber},
                 {title: "Task Type", content: templates[t].task},
             ], templates[t].warning, true, HTMLToRichText(templates[t].text), true, findFavorite(templates[t].id), templates[t].id, 0);
+        }
+    }
+}
+
+function replaceTemplate (id, subid)
+{
+    let test = document.getElementById(id);
+
+    for (let i = 0; i < subtemplates.length; i++) {
+        if (subtemplates[i].subid == subid) {
+            //Replace Normal Text xxx
+            test.childNodes[5].childNodes[0].innerHTML = subtemplates[i].text;
+            
+            //Replace Assignments
+            if (subtemplates[i].assign)
+            {
+                test.childNodes[3].childNodes[0].childNodes[1].innerHTML = subtemplates[i].assign;
+                test.childNodes[3].childNodes[1].childNodes[1].innerHTML = subtemplates[i].department;
+            }
+
+            if (subtemplates[i].orderNumber)
+            {
+                test.childNodes[3].childNodes[2].childNodes[1].innerHTML = subtemplates[i].orderNumber;
+                test.childNodes[3].childNodes[3].childNodes[1].innerHTML = subtemplates[i].task;
+            }
+
+            //Replace Warming Text
+            tmpWarning = subtemplates[i].warning;
+            tmpWarningText = "";
+
+            if (tmpWarning) {
+                tmpWarningText = setIcon("exclamation-circle-fill") + " " + tmpWarning + "<br><br>";
+            }
+            
+            test.childNodes[2].innerHTML = tmpWarningText;
         }
     }
 }
@@ -10545,11 +10669,15 @@ function appendBanner (element) {
 
 function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubtitle="", aSubtitleIcon="", aSubtitleDesc="", aBody="", aBoutique={}, aBoutiqueImage="", aTags=[], aContact="", aAssignments=[], aWarning="", canCopy=true, aCopyable="", canFavorite=true, isFavorite=false, aFavoriteId="", delay=0) {
     const body = document.getElementById(aAppendTo);
-    
     const article = createElement("article");
+    let isTemplate = false;
 
     if (aId) {
         article.id = aId;
+
+        if (aId.startsWith("tmp")) {
+            isTemplate = true;
+        }
     }
 
     // Build Header
@@ -10633,15 +10761,63 @@ function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubti
 
     article.appendChild(header);
 
-    // Build Warning
+    //Build Filter Area xxx
+    const filter = document.createElement("div");
+    const filterTitle = document.createElement("p");
+    const filterContainer = document.createElement("div");
 
-    if (aWarning) {
-        const warning = document.createElement("p");
-        warning.classList.add("warning");
-        warning.style.paddingBottom = "20px";
-        warning.innerHTML = setIcon("exclamation-circle-fill") + " " + aWarning;
-        article.appendChild(warning);
+    if (isTemplate) {
+        const filterGroupClassName = aId + "filterGroup";
+        let count = 0;
+        
+        for (let i = 0; i < subtemplates.length; i++) {
+            if (aId == subtemplates[i].id) {
+                count++;
+                const filterButton = document.createElement("button");
+                filterButton.innerHTML = subtemplates[i].title;
+                filterButton.href = "javascript:void(0);"
+                filterButton.classList.add(filterGroupClassName);
+                filterButton.classList.add("toggleTextButton");
+                
+                if (count == 1)
+                {
+                    filterButton.classList.add("active");
+
+                    //Replace Data
+                    aBody = subtemplates[i].text;
+                    aWarning = subtemplates[i].warning;
+                    //aAssignments = [
+                        //{title: "Assigned To", content: subtemplates[i].assign, icon: subtemplates[i].assignType},
+                        //{title: "Department", content: subtemplates[i].department},
+                        //{title: "Order Number", content: subtemplates[i].orderNumber},
+                        //{title: "Task Type", content: subtemplates[i].task},
+                    //]
+                }
+
+                filterButton.addEventListener ("click", function() {
+                    removeActiveFromClassListByGroup(filterGroupClassName);
+                    replaceTemplate(aId, subtemplates[i].subid);
+                    this.classList.add("active");
+                });
+
+                filterContainer.appendChild(filterButton);
+            }
+        }
+
+        filterContainer.style.paddingBottom = "20px";
     }
+
+    filter.appendChild(filterTitle);
+    filter.appendChild(filterContainer);
+    article.appendChild(filter);
+
+    // Build Warning
+    const warning = document.createElement("p");
+    warning.classList.add("warning");
+    if (aWarning) {
+        warning.innerHTML = setIcon("exclamation-circle-fill") + " " + aWarning + "<br><br>";
+    }
+    article.appendChild(warning);
 
     // Build Assignments
     if (aAssignments.length > 0) {
