@@ -3240,7 +3240,7 @@ const notes = [
         id="notRprIntlLctn"
     ),
     new note (
-        title="Repair & Service Cheat Sheet",
+        title="Care & Service Cheat Sheet",
         subtitle="",
         filter = "repairs",
         html = `<b>Resizing - Materials</b><br>
@@ -11812,5 +11812,6 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
