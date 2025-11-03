@@ -76,7 +76,7 @@ const searchRemoval = [
     "should", "shouldn't",
     "get", "send",
     "make", "generate", "check", "review",
-    "in", "out", "at",
+    "in", "at",
     "many",
     "with", "without",
     "find", "locate", "contact", "call", "email", "mail", "connect", "reach", "determine", "know", "figure",
@@ -928,7 +928,7 @@ class template {
 
 const templates = [
     new template (
-        title = "Teams Help Chat Inquiry",
+        title = "Teams Help Chat Inquiries",
         type = 3,
         text = "",
         warning = "",
@@ -943,40 +943,25 @@ const templates = [
         id = "tmpTemGen"
     ),
     new template (
-        title = "General Escalation Template",
+        title = "Escalation & Approval Templates",
         type = 0,
         text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Issue(s):<br>Assistance Required:<br>Solution(s) Offered:",
         warning = "",
-        filter = "escalations",
+        filter = "escalations returns repairs",
         assign = "Escalations",
         assignType = 2,
         orderNumber = "<i>If Applicable</i>",
         department = "Escalations",
         task = "<i>Applicable Task</i>",
         contact = "Associated Customer Care Supervisor or Manager",
-        tags = "escalation manager help",
+        tags = "escalation manager help returns repairs care service",
         id = "tmpEscGen"
-    ),
-    new template (
-        title = "Care & Service Escalation Template",
-        type = 0,
-        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Request:<br>Current Repair Number(s):<br><br><b>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
-        warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
-        filter = "escalations repairs",
-        assign = "Escalations",
-        assignType = 2,
-        orderNumber = "<i>If Applicable</i>",
-        department = "Escalations",
-        task = "Repair",
-        contact = "Jane Kuhne, Diana Medina, Laura Lawson",
-        tags = "escalations repairs help manager care service",
-        id = "tmpEscRpr"
     ),
     new template (
         title = "Order Replacement",
         type = 0,
         text = "Style Number:<br>Reason For Replacement:<br>Tracking Number:<br>Original Shipping Address:<br>New/Alternate Address:",
-        warning = "If this is a replacement for a lost/missing package (excluding USPS & FedEx Smart Post),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup at either a <b>FedEx Ship Center</b> or <b>FedEx Office, Print, and Ship Center</b>.",
+        warning = "If this is a replacement for a lost/missing package (excluding USPS & FedEx Smart Post),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup.<br><br>FedEx Shipments but be held at a <b>FedEx Ship Center</b> or <b>FedEx Office, Print, and Ship Center</b>.",
         filter = "escalations orders",
         assign = "Cc Ops",
         assignType = 2,
@@ -990,8 +975,8 @@ const templates = [
     new template (
         title = "BOSS or BOPIS Order Inquiry",
         type = 0,
-        text = "KWI Order Number:<br>Request:",
-        warning = "The KWI Order Number can be found in the Details tab while viewing an order.",
+        text = "TWC Order Number:<br>Request:",
+        warning = "",
         filter = "boutique orders",
         assign = "<i>Required Boutique</i>",
         assignType = 2,
@@ -1458,6 +1443,19 @@ const subtemplates = [
         department = "Escalations",
         task = "Repair",
         contact = "Jane Kuhne, Diana Medina, Laura Lawson",
+    ),
+    new subtemplate (
+        title = "Out Of Policy Return Approval",
+        id = "tmpEscGen",
+        subid = "escOpr",
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Subtotal:<br>Return Reason:<br>Time Out Of Policy:",
+        warning = "Requests for out of policy returns may not be approved unless circumstances are extenuating, especially for refunds. Requests exceeding <b>$500</b> will require additional time for review by a manager.<br><br>Please limit out of policy requests to the following time frames:<br>Refunds: 7 days<br>Exchanges: 60 days",
+        assign = "Escalations",
+        assignType = 2,
+        orderNumber = "<b>Required</b>",
+        department = "Escalations",
+        task = "Out Of Policy Return",
+        contact = "<b>If Urgent:</b> Any Customer Care Supervisor",
     )
 ]
 
@@ -1492,7 +1490,7 @@ const tagGroups = [
     new tagGroup (
         title = "Returns",
         filter = "returns",
-        keywords = ["return", "returns", "returned", "returning", "returnable"]
+        keywords = ["return", "returns", "returned", "returning", "returnable", "out", "policy"]
     ),
     new tagGroup (
         title = "Refunds",
@@ -3480,7 +3478,7 @@ const notes = [
         title="Shipping Methods & Delivery Times",
         subtitle="",
         filter = "shipping",
-        html = `<p>Please see the shipping times, costs, and their estimated delivery times below.<br>Note: Some delivery methods are limited to select areas.<br>
+        html = `<p>Please see the shipping times, costs, and their estimated delivery times below.<br>Note: Some delivery methods are limited to select areas.<br><br>
         <table class="hoverTable">
             <tr>
                 <th style="width: 250px;">UPS</th> <th style="width: 200px;">Time Frame</th> <th style="width: 100px;">Cost</th> <th style="width: 200px;">Availability</th>
@@ -8872,6 +8870,9 @@ function replaceTemplate (id, subid)
         if (subtemplates[i].subid == subid) {
             //Replace Normal Text xxx
             test.childNodes[5].childNodes[0].innerHTML = subtemplates[i].text;
+
+            //Replace Contacts
+            test.childNodes[4].innerHTML = "<b>Suggested Follow-Up Contact(s): </b>" + subtemplates[i].contact; 
             
             //Replace Assignments
             if (subtemplates[i].assign)
