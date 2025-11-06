@@ -968,7 +968,7 @@ const templates = [
         orderNumber = "<b><i>Required</i></b>",
         department = "CC Ops",
         task = "FedEx...",
-        contact = "Keyana Askew, Asmaa Yasin, Michael Clancy, Leteefah Barbee, Jasmine Bouier-McGhee",
+        contact = "Keyana Askew, Asmaa Yasin, Michael Clancy, Lateefah Barbee, Jasmine Bouier-McGhee",
         tags = "orders replacement missing damaged jewelry",
         id = "tmpEscRep"
     ),
@@ -1033,7 +1033,7 @@ const templates = [
         id = "tmpRtlSal"
     ),
     new template (
-        title = "Wedding Inquiry",
+        title = "Wedding & Engagement Inquiry",
         type = 0,
         text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Style Number(s):<br>Preferred Cut:<br>Preferred Clatify:<br>Preferred Color:<br>Preferred Carat Weight:<br>Budget:<br>Request:<br>",
         warning = "",
@@ -1410,7 +1410,7 @@ const subtemplates = [
         id = "tmpTemGen",
         subid = "prdInq",
         text = "Salesforce Case:<br>Style Name:<br>Style Number:<br>Inquiry:",
-        warning = "<b>Product Weight</b> inquiries apply only to <b>Gold</b> pieces without stones. <b>Carat Weight</b> inquiries apply only to <b>Diamonds</b>. If the carat weight doesn't appear on DavidYurman.com, it cannot be provided.<br><br>Details provided by <b>Phone Only</b>.",
+        warning = "<b>Product Weight</b> inquiries apply only to <b>Gold</b> jewelry, excluding weight of stones. <b>Carat Weight</b> inquiries apply only to <b>Diamonds</b>. If the carat weight doesn't appear on DavidYurman.com, it cannot be provided.<br><br>Details provided by <b>Phone Only</b>.",
         assign = "",
         assignType = 0,
         orderNumber = "",
@@ -11812,6 +11812,5 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
-
 
 
