@@ -1,3 +1,29 @@
+//----------------------------------------------------------------------------------------------------
+//
+//  DATABASE
+//
+//----------------------------------------------------------------------------------------------------
+
+const { createClient } = supabase;
+const supabaseUrl = 'https://knhqstmbxtkaefazcbcv.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuaHFzdG1ieHRrYWVmYXpjYmN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxMDAyNTAsImV4cCI6MjA4MDY3NjI1MH0.AlEmt-70H_NAxHMKPdA-52EOmNqKedSDJb8kV1wHx1A'
+const client = createClient(supabaseUrl, supabaseKey)
+
+async function testSupabase() {
+    const { data, error } = await client
+      .from("Test")
+      .select("*")
+      .limit(5);
+
+    if (error) {
+      console.error("Supabase error:", error);
+    } else {
+      console.log("Supabase data:", data);
+    }
+}
+
+// Run when page loads
+document.addEventListener("DOMContentLoaded", testSupabase);
 
 //----------------------------------------------------------------------------------------------------
 //
@@ -11812,5 +11838,6 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
