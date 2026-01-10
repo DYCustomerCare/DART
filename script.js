@@ -1946,7 +1946,7 @@ const links = [
         html=`<ul>
         <li><a target="_blank" href="https://www.theupsstore.com/tools/find-a-store">UPS Store Locator</a></li>
         <ul>`,
-        id="lnkSupRsrs"
+        id="lnkFdxUPSStrLtr"
     )
 ]
 
@@ -11859,6 +11859,7 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
 
