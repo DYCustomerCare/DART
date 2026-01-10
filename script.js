@@ -987,13 +987,13 @@ const templates = [
         title = "Order Replacement",
         type = 0,
         text = "Style Number:<br>Reason For Replacement:<br>Tracking Number:<br>Original Shipping Address:<br>New/Alternate Address:",
-        warning = "If this is a replacement for a lost/missing package (excluding USPS & FedEx Smart Post),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup.<br><br>FedEx Shipments but be held at a <b>FedEx Ship Center</b> or <b>FedEx Office, Print, and Ship Center</b>.",
+        warning = "If this is a replacement for a lost/missing package (excluding USPS),<br>please file a claim with YDI Logistics.\n\nPlease request an alternative address from the customer or suggest having the package held for pickup.<br><br>UPS Shipments should be held at a <b>UPS Store</b>.",
         filter = "escalations orders",
         assign = "Cc Ops",
         assignType = 2,
         orderNumber = "<b><i>Required</i></b>",
         department = "CC Ops",
-        task = "FedEx...",
+        task = "UPS...",
         contact = "Keyana Askew, Asmaa Yasin, Michael Clancy, Lateefah Barbee, Jasmine Bouier-McGhee",
         tags = "orders replacement missing damaged jewelry",
         id = "tmpEscRep"
@@ -1121,7 +1121,7 @@ const templates = [
     new template (
         title = "General Shipping Request",
         type = 0,
-        text = "Inquiry/Request:<br>Tracking Number:<br>Current Address:<br>New/FedEx Address:",
+        text = "Inquiry/Request:<br>Tracking Number:<br>Current Address:<br>New or UPS Address:",
         warning = "",
         filter = "quickTask shipping",
         assign = "Shipping",
@@ -1134,18 +1134,18 @@ const templates = [
         id = "tmpShpGen"
     ),
     new template (
-        title = "General FedEx Request",
+        title = "General UPS Request",
         type = 0,
-        text = "Request:<br>Affirm:<br>Tracking Number:<br>Subtotal:<br>Shipping Recipient:<br>Phone Number:<br>Shipping Address:<br>New/FedEx Address:<br>Residential or Business?:<br>",
-        warning = "For holds or reroutes, orders <b>$2,000</b> and over require finance approval.<br>Orders using Affirm require at least 24 hours for approval and are advised against.\n\nOnly <b>FedEx Ship Centers</b> or <b>FedEx Office, Print, and Ship Centers</b> authorized for holds.",
+        text = "Request:<br>Affirm:<br>Tracking Number:<br>Subtotal:<br>Shipping Recipient:<br>Phone Number:<br>Shipping Address:<br>New or UPS Address:<br>Residential or Business?:<br>",
+        warning = "For holds or reroutes, orders <b>$2,000</b> and over require finance approval.<br>Orders using Affirm require at least 24 hours for approval and are advised against.\n\Using <b>UPS Store</b> addresses are highly encouraged.",
         filter = "quickTask fedex",
         assign = "DYCC",
         assignType = 2,
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
-        task = "Fedex...",
+        task = "UPS...",
         contact = "Karla Medina, Michael Clancy",
-        tags = "FedEx update status",
+        tags = "UPS update status",
         id = "tmpFdxGen"
     ),
     new template (
@@ -1158,9 +1158,9 @@ const templates = [
         assignType = 2,
         orderNumber = "<i>If Applicabble</i>",
         department = "Shipping",
-        task = "Fedex - Lost Order - File Claim",
+        task = "UPS - Lost Order - File Claim",
         contact = "Andrew Lifton, Furukh Khan, Sean O'Shea",
-        tags = "YDI logistics FedEx missing orders",
+        tags = "YDI logistics UPS missing orders",
         id = "tmpFdxLfc"
     ),
     new template (
@@ -1293,7 +1293,7 @@ const templates = [
         assignType = 2,
         orderNumber = "<b><i>Required</i></b>",
         department = "Shipping",
-        task = "FedEx - Missing/Wrong Item In Order",
+        task = "UPS - Missing/Wrong Item In Order",
         contact = "Michael Lamanowicz, Julio Bryam",
         tags = "security orders",
         id = "tmpSecGen"
@@ -1776,6 +1776,16 @@ const tagGroups = [
                     "hub", "office", "print", "ship", "center", "center"]
     ),
     new tagGroup (
+        title = "UPS",
+        filter = "UPS",
+        keywords = ["reroute", "route", "routes", "address", "addresses",
+                    "signature", "sign", "indirect", "direct",
+                    "waive", "waiver", "release",
+                    "hold", "pickup", "pick",
+                    "rts", "return", "returning", "returned", "sender", "recall", "recalled",
+                    "hub", "office", "print", "ship", "center", "center"]
+    ),
+    new tagGroup (
         title = "Logistics",
         filter = "logistics",
         keywords = ["logistics", "ydi", "international", "border", "customs", "commercial", "invoice", "file", "claim"]
@@ -1916,7 +1926,7 @@ const links = [
         id="lnkSupRsrs"
     ),
     new link (
-        title="FedEx & UPS Support Hubs",
+        title="UPS & FedEx Support Hubs",
         subtitle = "Support links to make UPS & FedEx changes.",
         subtitleIcon = "",
         subtitleDesc = "",
@@ -1924,6 +1934,17 @@ const links = [
         html=`<ul>
         <li><a target="_blank" href="https://www.campusship.ups.com">UPS Campus Ship</a></li>
         <li><a target="_blank" href="https://fedex-ced.my.site.com/fedexsupporthub/">FedEx Support Hub</a></li>
+        <ul>`,
+        id="lnkSupRsrs"
+    ),
+    new link (
+        title="UPS Store Locator",
+        subtitle = "Find a UPS store for UPS Hold Requests.",
+        subtitleIcon = "",
+        subtitleDesc = "",
+        filter="fedex",
+        html=`<ul>
+        <li><a target="_blank" href="https://www.theupsstore.com/tools/find-a-store">UPS Store Locator</a></li>
         <ul>`,
         id="lnkSupRsrs"
     )
@@ -2928,8 +2949,8 @@ const blurbs = [
     new blurb (
         title="Cannot Cancel Order - Please RTS or Return",
         filter="orders",
-        text="We are sorry to hear about the trouble you are having with your order. Although we are unable to cancel your order at this time, we are happy to submit a request for your order to be returned back to us via FedEx while in transit. Please note that due to express shipping times, this request cannot be guaranteed. However, upon delivery, you may return your order back to us if you are still not satisfied with your purchase.",
-        tags="cancellations RTS FedEx return sender orders purchases",
+        text="We are sorry to hear about the trouble you are having with your order. Although we are unable to cancel your order at this time, we are happy to submit a request for your order to be returned back to us via UPS while in transit. Please note that due to express shipping times, this request cannot be guaranteed. However, upon delivery, you may return your order back to us if you are still not satisfied with your purchase.",
+        tags="cancellations RTS UPS return sender orders purchases",
         id="blbOrdCantCancRTS"
     ),
     new blurb (
@@ -2949,14 +2970,14 @@ const blurbs = [
     new blurb (
         title="Shipping Status - Shipped (No Signature Required)",
         filter="shipping",
-        text="Your order has shipped! If you would like to monitor the status of your FedEx shipment, you may do so here: FedEx. Please note your order does not require a signature.",
+        text="Your order has shipped! If you would like to monitor the status of your UPS shipment, you may do so here: UPS. Please note your order does not require a signature.",
         tags="shipping status shipped transit",
         id="blbShpSttsShpdNSig"
     ),
     new blurb (
         title="Shipping Status - Shipped (Signature Required)",
         filter="shipping",
-        text="Your order has shipped! If you would like to monitor the status of your FedEx shipment, you may do so here: FedEx. Please note your order requires a signature.",
+        text="Your order has shipped! If you would like to monitor the status of your UPS shipment, you may do so here: UPS. Please note your order requires a signature.",
         tags="shipping status shipped transit signature required",
         id="blbShpSttsShpdRSig"
     ),
@@ -2968,10 +2989,10 @@ const blurbs = [
         id="blbShpSttsDlvd"
     ),
     new blurb (
-        title="FedEx Claim - Denied",
+        title="UPS Claim - Denied",
         filter="escalations fedex",
-        text="We are reaching out to you with an update regarding your recent shipment. Your FedEx claim has been reported as denied and we sincerely apologize for any inconvenience. If the package has not been found or received, we highly recommend reaching out to your local police station to file a police report or reporting the missing package to your home insurance agency. Please contact us should you have any further questions.",
-        tags="FedEx claims lost missing claim denied",
+        text="We are reaching out to you with an update regarding your recent shipment. Your UPS claim has been reported as denied and we sincerely apologize for any inconvenience. If the package has not been found or received, we highly recommend reaching out to your local police station to file a police report or reporting the missing package to your home insurance agency. Please contact us should you have any further questions.",
+        tags="UPS claims lost missing claim denied",
         id="blbFdxLfcd"
     ),
     new blurb (
@@ -2991,8 +3012,8 @@ const blurbs = [
     new blurb (
         title="Return Status - Lost In Transit",
         filter="returns",
-        text="We are sorry to hear about the trouble you are having with your return. Although your return has not arrived back to us, we will escalate the shipping issue to management so they may review the issue and make a decision moving forward.<br><br>If necessary, we may contact FedEx and file a claim. Although FedEx claims may take up to 6 weeks to be resolved, we will review alternative options and solutions for you in the mean time.<br><br>We thank you for your patience.",
-        tags="return status lost transit missing FedEx claims",
+        text="We are sorry to hear about the trouble you are having with your return. Although your return has not arrived back to us, we will escalate the shipping issue to management so they may review the issue and make a decision moving forward.<br><br>If necessary, we may contact UPS and file a claim. Although UPS claims may take up to 6 weeks to be resolved, we will review alternative options and solutions for you in the mean time.<br><br>We thank you for your patience.",
+        tags="return status lost transit missing UPS claims",
         id="blbRtnSttsLost"
     ),
     new blurb (
@@ -3194,7 +3215,7 @@ const blurbs = [
     new blurb (
         title = "Ornaments",
         filter = "orders gifts holiday",
-        text = "We are currently offering a complimentary ornament with all DavidYurman.com orders, while supplies last. Please note that charitable donation items, such as our Cable Pink, Orange, and Blue Rubber Bracelets, and items shipped using FedEx SmartPost are excluded.",
+        text = "We are currently offering a complimentary ornament with all DavidYurman.com orders, while supplies last. Please note that charitable donation items, such as our Cable Pink, Orange, and Blue Rubber Bracelets, and items shipped using USPS are excluded.",
         tags = "ornament free gift purchase necklace",
         id="blbGftOrn"
     ),
@@ -3528,7 +3549,7 @@ const notes = [
                 <td>&nbsp;</td><td></td><td></td><td></td>
             </tr>
             <tr>
-                <th style="width: 250px;">FedEx (Going Away)</th> <th></th> <th></th> <th></th>
+                <th style="width: 250px;">FedEx (Older Shipments)</th> <th></th> <th></th> <th></th>
             </tr>
             <tr>
                 <td>FedEx 2-Day</td> <td>2-3 Business Days</td> <td>$0</td> <td>United States</td>
@@ -3955,7 +3976,7 @@ class tool {
 const tools = [
     new tool (
         title = "Generate Tracking URL",
-        subtitle = "Generate your FedEx or UPS tracking URL below.",
+        subtitle = "Generate your UPS or FedEx tracking URL below.",
         warning = "",
         filter ="fedex",
         html = `<p>Tracking Number:</p>
@@ -9764,11 +9785,11 @@ function generateTrackingUrl () {
     generatedTracking = document.getElementById("generatedTracking")
 
     if (trackingNumber) {
-        url = "https://www.fedex.com/apps/fedextrack/?tracknumbers=";
+        url = "https://www.ups.com/track?track=yes&trackNums=";
         
-        if (trackingNumber.toUpperCase().includes("Z"))
+        if (!trackingNumber.toUpperCase().includes("Z"))
         {
-            url = "https://www.ups.com/track?track=yes&trackNums=";
+            url = "https://www.fedex.com/apps/fedextrack/?tracknumbers=";
         }
         
         if (generatedTracking) {
@@ -9790,7 +9811,7 @@ function generateTrackingUrl () {
             generatedTracking.appendChild(button);
         }
     } else {
-        generatedTracking.innerHTML = `<b>Error:</b> Please enter a FedEx tracking number.`;
+        generatedTracking.innerHTML = `<b>Error:</b> Please enter a UPS or FedEx tracking number.`;
     }
 }
 
@@ -10294,12 +10315,12 @@ function addInternalDocument () {
 
     contents1.value = "1 Jewelry Care Kit";
 
-    shippingMethod.innerHTML = `<option>FedEx Ground</option>
-        <option>FedEx Two Day</option>
-        <option>FedEx Overnight</option>
-        <option>FedEx Saturday</option>
-        <option>FedEx Smart Post</option>
-        <option>USPS Ground</option>
+    shippingMethod.innerHTML = `
+		<option>Ground</option>
+        <option>Two Day</option>
+        <option>Three Day</option>
+		<option>Overnight</option>
+        <option>Saturday</option>
         <option>Other</option>`;
 
     contentsContainer.style = commonContainerStyle;
@@ -11838,6 +11859,7 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
 
