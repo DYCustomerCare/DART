@@ -7904,7 +7904,7 @@ function addFavorites() {
             } else if (favorite.startsWith("lnk")) {
                 for (const lnk of links) {
                     if (favorite == lnk.id) {
-                        appendArticle(lnk.id, "links", "Links:", lnk.title, lnk.subtitle, lnk.subtitleIcon, lnk.subtitleDesc, lnk.html, {}, "", [], "", [], "", false, "", true, findFavorite(lnk.id), lnk.id, 0);
+                        appendArticle(lnk.id, "links", "Links", lnk.title, lnk.subtitle, lnk.subtitleIcon, lnk.subtitleDesc, lnk.html, {}, "", [], "", [], "", false, "", true, findFavorite(lnk.id), lnk.id, 0);
                     }
                 }
             }
@@ -11859,6 +11859,7 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
 
