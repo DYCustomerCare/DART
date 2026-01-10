@@ -1935,7 +1935,7 @@ const links = [
         <li><a target="_blank" href="https://www.campusship.ups.com">UPS Campus Ship</a></li>
         <li><a target="_blank" href="https://fedex-ced.my.site.com/fedexsupporthub/">FedEx Support Hub</a></li>
         <ul>`,
-        id="lnkSupRsrs"
+        id="lnkFdxUPSSupHub"
     ),
     new link (
         title="UPS Store Locator",
@@ -11859,6 +11859,7 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
 
