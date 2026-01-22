@@ -3569,28 +3569,23 @@ const notes = [
         filter = "returns",
         html = `<p><b>Normal:</b> &repl:policyUsReturnRefundDays Days from date of receipt through date of return<br>
         <b>Holiday:</b> Purchases made after &repl:policyUsReturnHolidayStart can be returned through &repl:policyUsReturnHolidayEnd<br><br>
-        <h3>Estimated Return Processing Times</h3>
-        <p>Extended holiday return processing times begin the first business day after Christmas<p><br>
+        <h3>Estimated Return Processing Times</h3><br>
         <table class="hoverTable">
             <tr>
                 <th style="width: 150px;">Reason</th>
-                <th style="width: 150px;">Normal Returns</th>
-                <th style="width: 150px;">Holiday Returns</th>
+                <th style="width: 150px;">Duration</th>
             </tr>
             <tr>
                 <td>Refund</td>
-                <td>7-10 Business Days</td>
-                <td>2-3 Weeks</td>
+                <td>7-9 Business Days</td>
             </tr>
             <tr>
                 <td>Exchange</td>
-                <td>1-2 Weeks</td>
-                <td>2-3 Weeks</td>
+                <td>7-14 Days</td>
             </tr>
             <tr>
                 <td>Merchandise Credit</td>
-                <td>1-2 Weeks</td>
-                <td>2-3 Weeks</td>
+                <td>7-9 Business Days</td>
             </tr>
         </table>`,
         id="notRtnPlcy"
@@ -11859,6 +11854,7 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
 
 
 
