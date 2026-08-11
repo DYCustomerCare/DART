@@ -3970,6 +3970,17 @@ class tool {
 
 const tools = [
     new tool (
+        title = "Google Without AI",
+        subtitle = "Use Google without the AI summary.",
+        warning = "",
+        filter ="general",
+        html = `<p>Inquiry:</p>
+        <input type="text" id="GoogleSearchWithoutAI" placeholder="Enter Your Inquiry Here"><br><br>
+        <button class="textButton" onclick="GoogleSearchWithoutAI()" title="Use Google without the AI summary."><i class="bi bi-google"></i> Search Google Now</button><br><br>`,
+        id="tolGenGoogNoAI",
+        functions = [],
+    ),
+	new tool (
         title = "Generate Tracking URL",
         subtitle = "Generate your UPS or FedEx tracking URL below.",
         warning = "",
@@ -11851,6 +11862,30 @@ function FedExHoldLocationFinder ()
 		
 	var link = document.createElement("a");
 	link.href = "https://local.fedex.com/en/search?q=" + zippostal + "&qp=" + zippostal + "&r=50&per=50&holdPackage=on&staffed=on&pickup=true&fdxType=5644121&fdxType=5644112&fdxType=5644117&fdxType=5644122&fdxType=5644123&fdxType=5644127&services=5637373&l=en";
+	link.target = "_blank";
+	link.click();
+}
+
+//----------------------------------------------------------------------------------------------------
+//
+//  FUNCTIONS: TOOL: Google Search Without AI
+//
+//----------------------------------------------------------------------------------------------------
+
+function GoogleSearchWithoutAI ()
+{
+	googleInquiry = "";
+
+	input = document.getElementById("GoogleSearchWithoutAI");
+
+	if (input == null) { return; }
+	
+	googleInquiry = input.value;
+
+	if (googleInquiry == "") { return; }
+		
+	var link = document.createElement("a");
+	link.href = "https://www.google.com/search?q=" + googleInquiry + "&udm=14&safe=active&ssui=on";
 	link.target = "_blank";
 	link.click();
 }
