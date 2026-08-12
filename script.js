@@ -3201,7 +3201,7 @@ const blurbs = [
     new blurb (
         title = "Live Chat Engraving Inquiry",
         filter = "chat",
-        text = "Most of our rings can be engraved. Engraving time is usually about 3 weeks. The cost of the engraving will vary, but estimates are as follows:<br><br>Initials: $50<br>Name: $60<br>2 lines: $100<br><br>If you'd like to have your ring engraved, please view our repairs webpage here for complete instructions:<br>https://www.davidyurman.com/assistance/customer-care/product-care-repairs.html<br><br>If you'd like to know if your ring can be engraved, please provide me with the style number.",
+        text = "Most of our rings can be engraved. Engraving time is usually about 3 weeks.<br><br>If you'd like to have your ring engraved, please view our repairs webpage here for complete instructions:<br>https://www.davidyurman.com/assistance/customer-care/product-care-repairs.html<br><br>If you'd like to know if your ring can be engraved, please provide me with the style number.",
         tags = "live chat repairs engraving rings bracelets",
         id="blbChtRprEng"
     ),
