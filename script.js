@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------
 //
-//  DATABASE
+//  EXTERNAL DATABASE
 //
 //----------------------------------------------------------------------------------------------------
 
@@ -685,147 +685,207 @@ const holidays = [
 //
 //----------------------------------------------------------------------------------------------------
 
+class tabGroup {
+    constructor (title, icon, id) {
+        this.title = title;
+        this.icon = icon;
+        this.id = id;
+    }
+}
+
+const tabGroups = [
+    new tabGroup (
+        title = "General",
+        icon = "folder",
+        id = "general",
+    ),
+    new tabGroup (
+        title = "Customer Care",
+        icon = "person-raised-hand",
+        id = "ccare",
+    ),
+    new tabGroup (
+        title = "Product Knowledge",
+        icon = "archive",
+        id = "product",
+    ),
+    new tabGroup (
+        title = "Orders & Returns",
+        icon = "bag",
+        id = "orders",
+    ),
+    new tabGroup (
+        title = "Support",
+        icon = "grid-1x2",
+        id = "support",
+    )
+
+]
+
 class tab {
-    constructor (title, icon, id, lite=true) {
+    constructor (title, icon, id, lite=true, group) {
         this.title = title;
         this.icon = icon;
         this.id = id;
         this.lite = lite;
+        this.group = group;
     }
 }
 
 const tabs = [
     new tab (
-        title = "QuickTask",
+        title = "Quick Access",
         icon = "clock-history",
         id = "quickTask",
-        lite = true
+        lite = true,
+        group = "general"
     ),
     new tab (
         title = "General",
         icon = "question-lg",
         id = "general",
-        lite = true
+        lite = true,
+        group = "general"
     ),
     new tab (
         title = "Escalations",
         icon = "emoji-angry",
         id = "escalations",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
         title = "Product Inquiry",
         icon = "gem",
         id = "product",
-        lite = true
+        lite = true,
+        group = "product"
     ),
     new tab (
         title = "Styling & Sizing",
         icon = "person-circle",
         id = "styling",
-        lite = true
+        lite = true,
+        group = "product"
     ),
     new tab (
         title = "Wedding",
         icon = "heart",
         id = "wedding",
-        lite = true
+        lite = true,
+        group = "product"
     ),
     new tab (
         title = "Boutique",
         icon = "shop",
         id = "boutique",
-        lite = true
+        lite = true,
+        group = "general"
     ),
     new tab (
         title = "Orders",
         icon = "bag",
         id = "orders",
-        lite = true
+        lite = true,
+        group = "orders"
     ),
     new tab (
         title = "Merchant Services",
         icon = "currency-dollar",
         id = "finance",
-        lite = true
+        lite = true,
+        group = "support"
     ),
     new tab (
         title = "Shipping",
         icon = "box-seam",
         id = "shipping",
-        lite = true
+        lite = true,
+        group = "orders"
     ),
     new tab (
         title = "Deliveries & Claims",
         icon = "truck",
         id = "fedex",
-        lite = true
+        lite = true,
+        group = "orders"
     ),
     new tab (
         title = "Returns",
         icon = "reply",
         id = "returns",
-        lite = true
+        lite = true,
+        group = "orders"
     ),
     new tab (
         title = "Security",
         icon = "shield-exclamation",
         id = "security",
-        lite = true
+        lite = true,
+        group = "support"
     ),
     new tab (
         title = "Care & Service",
         icon = "wrench",
         id = "repairs",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
         title = "Chat",
         icon = "chat-dots",
         id = "chat",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
         title = "Social & Marketing",
         icon = "instagram",
         id = "social",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
         title = "Operations",
         icon = "box",
         id = "ops",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
         title = "Wholesale",
         icon = "diagram-3",
         id = "wholesale",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
         title = "Coddling Gifts",
         icon = "gift",
         id = "gifts",
-        lite = true
+        lite = true,
+        group = "ccare"
     ),
     new tab (
-        title = "Salesforce & Support",
+        title = "Tech Support",
         icon = "pc-display",
         id = "support",
-        lite = true
+        lite = true,
+        group = "support"
     ),
     new tab (
         title = "Customer Care",
         icon = "person-heart",
         id = "customercare",
-        lite = true
+        lite = true,
+        group = "general"
     ),
     new tab (
         title = "Holiday",
         icon = "snow",
         id = "holiday",
-        lite = true
+        lite = true,
+        group = "general"
     )
 ]
 
@@ -994,7 +1054,7 @@ const templates = [
         orderNumber = "<b><i>Required</i></b>",
         department = "CC Ops",
         task = "UPS...",
-        contact = "Keyana Askew, Asmaa Yasin, Michael Clancy, Lateefah Barbee, Jasmine Bouier-McGhee",
+        contact = "Asmaa Yasin, Michael Clancy, Gabriel Martinez, Jazmine Djomambo<br><b>If Urgent:</b> Keyana Askew, Lateefah Barbee, Jasmine Bouier-McGhee",
         tags = "orders replacement missing damaged jewelry",
         id = "tmpEscRep"
     ),
@@ -1054,7 +1114,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Retail Sales",
         task = "Potential Sale",
-        contact = "Required Boutique Ops Manager or Assigned Retail Brand Ambassador",
+        contact = "Associated Boutique or Brand Ambassador<br><b>If Urgent:</b> Associated Boutique Management",
         tags = "boutiques omnichannel retail orders availability jewelry",
         id = "tmpRtlSal"
     ),
@@ -1144,7 +1204,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "UPS...",
-        contact = "Karla Medina, Michael Clancy",
+        contact = "Michael Clancy",
         tags = "UPS update status",
         id = "tmpFdxGen"
     ),
@@ -1204,7 +1264,7 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Care & Service",
         task = "<i>Applicable Task</i>",
-        contact = "Nicole Silletti, Jessica Walker, Samantha DeForge, Brenda Santiago, Diana Medina, Laura Lawson, Jane Kuhne",
+        contact = "Brenda Santiago, Samantha DeForge, Alan Ameerullah, Nadiuska Rodriguez, Christina Copple, Kevin Obregon <br><b>If Urgent:</b> Jane Kuhne, Nicole Silletti, Diana Medina, Laura Lawson",
         tags = "care service repairs care service",
         id = "tmpRprGen"
     ),
@@ -1309,7 +1369,7 @@ const templates = [
         orderNumber = "<b><i>Required</i></b>",
         department = "Shipping",
         task = "BOSS - Missing Item In Order",
-        contact = "Required Boutique Ops Manager",
+        contact = "Associated Boutique Ops Manager",
         tags = "boutiques orders BOSS",
         id = "tmpRtlBSSWrgItm"
     ),
@@ -1324,24 +1384,9 @@ const templates = [
         orderNumber = "<i>If Applicable</i>",
         department = "Shipping",
         task = "Coddling...",
-        contact = "Karla Medina",
+        contact = "Monique Sessoms<br><b>If Urgent:</b> Michael Clancy",
         tags = "gifts escalations",
         id = "tmpGftGen"
-    ),
-    new template (
-        title = "Marketing Collaboration Email",
-        type = 2,
-        text = "Contact Name:<br>Contact Email:<br>Contact Phone Number:<br>Social Media Links:<br>Request:",
-        warning = "",
-        filter = "social",
-        assign = "",
-        assignType = 0,
-        orderNumber = "",
-        department = "",
-        task = "",
-        contact = "Marketing Department",
-        tags = "marketing social",
-        id = "tmpMktGen"
     ),
     new template (
         title = "Failed QC",
@@ -1354,7 +1399,7 @@ const templates = [
         orderNumber = "",
         department = "",
         task = "",
-        contact = "Jasmine Bouier-McGhee",
+        contact = "Jasmine Bouier-McGhee, Lateefah Barbee",
         tags = "ops",
         id = "tmpOpsFldQtyAsr"
     ),
@@ -1372,7 +1417,7 @@ const templates = [
         contact = "Ray Li",
         tags = "Salesforce support help",
         id = "tmpSupSfcActMrg"
-    )   
+    ),
 ]
 
 class subtemplate {
@@ -1453,7 +1498,7 @@ const subtemplates = [
         assign = "Escalations",
         assignType = 2,
         orderNumber = "<i>If Applicable</i>",
-        department = "<i>Applicable Task</i>",
+        department = "Escalations",
         task = "<i>Applicable Task</i>",
         contact = "Associated Customer Care Supervisor or Manager",
     ),
@@ -1461,7 +1506,7 @@ const subtemplates = [
         title = "Care & Service Escalation",
         id = "tmpEscGen",
         subid = "escCsv",
-        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Request:<br>Current Repair Number(s):<br><br><b style='display: inline'>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
+        text = "Customer Name:<br>Customer Phone:<br>Customer Email:<br>Order Number(s):<br>Customer Request:<br>Current Repair Number(s):<br><br><b>For Each Style:</b><br>Style:<br>Repair Issue(s):<br>Known Style Issue?:<br>Previous Repair(s):<br>Repair Cost:<br>Date Of Purchase:<br>Location Of Purchase:",
         warning = "Please submit your task with any available receipts of purchase and any previous repair forms or associated documentation.",
         assign = "Escalations",
         assignType = 2,
@@ -1947,775 +1992,17 @@ const links = [
         <li><a target="_blank" href="https://www.theupsstore.com/tools/find-a-store">UPS Store Locator</a></li>
         <ul>`,
         id="lnkFdxUPSStrLtr"
-    )
-]
-
-//----------------------------------------------------------------------------------------------------
-//
-//  DATA: Steps
-//
-//----------------------------------------------------------------------------------------------------
-
-class step {
-    constructor (title="", question="", checklist="", key="start", options={}) {
-        this.title = title;
-        this.checklist = checklist;
-        this.question = question;
-        this.key = key;
-        this.options = options;
-    }
-}
-
-const steps = [
-    new step (
-        title="",
-        question="",
-        checklist="",
-        key="",
-        options = {}
     ),
-    new step (
-        title="",
-        question="What kind of assistance do you need today?",
-        checklist="",
-        key="start",
-        options = {
-            //"Orders & Sales": "orders_start",
-            //"Refunds & Exchanges": "returns_start",
-            //"Repairs & Services": "services_start",
-            "Tech Support": "support_start",
-        }
-    ),
-    //------------------------------
-    //  Orders
-    //------------------------------
-    new step (
-        title="Orders & Sales",
-        question="Are you checking availability, trying to place a new order, or do you need help with an existing order?",
-        checklist="",
-        key="orders_start",
-        options = {
-            "Product Availability": "orders_availability_start",
-            //"Placing An Order": "orders_new_start",
-            "Existing Order": "orders_existing_start",
-        }
-    ),
-    //------------------------------
-    //  Orders - Product Availability
-    //------------------------------
-    new step (
-        title="",
-        question="What country is this order shipping to?",
-        checklist="",
-        key="orders_availability_start",
-        options = {
-            "United States": "orders_availability_us"
-        }
-    ),
-    new step (
-        title="",
-        question="",
-        checklist="orders_availability_us",
-        key="orders_availability_us",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    
-    //------------------------------
-    //  Orders - New
-    //------------------------------
-    new step (
-        title="",
-        question="What kind of order do you need assistance with?",
-        checklist="",
-        key="orders_new_start",
-        options = {
-            "DavidYurman.com": "orders_new_online_country",
-            "Personal Shop": "orders_new_personalShop",
-            "Charge Send": "orders_new_chargeSend",
-            "International": "orders_new_international"
-        }
-    ),
-    //------------------------------
-    //  Orders - New - Online
-    //------------------------------
-    new step (
-        title="Online Orders",
-        question="What country is this online order shipping to?",
-        checklist="",
-        key="orders_new_online_country",
-        options = {
-            "United States": "orders_new_online_us",
-            "Canada": "orders_new_online_ca",
-            "France": "orders_new_online_fr",
-            "United Kingdom": "orders_new_online_uk"
-        }
-    ),
-    new step (
-        title="Online Orders - United States",
-        question="",
-        checklist="",
-        key="orders_new_online_us",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Online Orders - Canada",
-        question="",
-        checklist="",
-        key="orders_new_online_ca",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Online Orders - France",
-        question="",
-        checklist="",
-        key="orders_new_online_fr",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Online Orders - Canada",
-        question="",
-        checklist="",
-        key="orders_new_online_uk",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    //------------------------------
-    //  Orders - New - Personal Shop
-    //------------------------------
-    new step (
-        title="Personal Shop",
-        question="",
-        checklist="",
-        key="orders_new_personalShop",
-        options = {
-            
-        }
-    ),
-    //------------------------------
-    //  Orders - New - Charge Send
-    //------------------------------
-    new step (
-        title="Charge Send",
-        question="",
-        checklist="",
-        key="orders_new_chargeSend",
-        options = {
-            
-        }
-    ),
-    //------------------------------
-    //  Orders - New - International
-    //------------------------------
-    new step (
-        title="International Orders",
-        question="What country is this order shipping to?",
-        checklist="",
-        key="orders_new_international",
-        options = {
-            "Canada": "orders_new_online_ca",
-            "France": "orders_new_online_fr",
-            "United Kingdom": "orders_new_online_uk",
-            "Other": "orders_new_international_other",
-        }
-    ),
-    new step (
-        title="International Orders",
-        question="",
-        checklist="",
-        key="orders_new_international_other",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    //------------------------------
-    //  Orders - Existing
-    //------------------------------
-    new step (
-        title="",
-        question="What assistance do you require for this existing order?",
-        checklist="",
-        key="orders_existing_start",
-        options = {
-            //"Cancellation": "orders_existing_cancellation_start",
-            //"Delivered Damaged": "orders_existing_damaged",
-            //"Package Lost/Missing": "orders_existing_lost",
-            //"Missing Item(s) In Order": "orders_existing_missing",
-            "Return or Exchange": "returns_start",
-            //"Repairs & Services": "services_start"
-        }
-    ),
-    //------------------------------
-    //  Orders - Existing - Cancellation
-    //------------------------------
-    new step (
-        title="Order Cancellation",
-        question="What kind of order is this?",
-        checklist="",
-        key="orders_existing_cancellation_start",
-        options = {
-            "DavidYurman.com": "",
-            "David Yurman Boutique": "",
-            "David Yurman Outlet": "",
-            "Authorized Retailer": "",
-        }
-    ),
-    //------------------------------
-    //  Returns
-    //------------------------------
-    new step (
-        title="Refunds & Exchanges",
-        question = "Where was the purchase made?",
-        checklist="",
-        key = "returns_start",
-        options = {
-            "DavidYurman.com": "returns_online_policy",
-            //"David Yurman Boutique": "returns_retail_policy",
-            //"David Yurman Outlet": "returns_outlet_policy",
-            //"Authorized Retailer": "returns_authorizedRetailer_policy",
-            //"Unknown": "returns_authorizedRetailer_policy",
-            //"Other": "returns_other"
-        }
-    ),
-    //------------------------------
-    //  Returns - Online
-    //------------------------------
-    new step (
-        title="Online Refunds & Exchanges",
-        question = "Is this return within policy?",
-        checklist="",
-        key = "returns_online_policy",
-        options = {
-            "Within Policy": "returns_online_policyIn_country",
-            "Out Of Policy": "returns_online_policyOut_approval"
-        }
-    ),
-    //------------------------------
-    //  Returns - Online - In Policy
-    //------------------------------
-    new step (
-        title="",
-        question = "What country was the online order sent to?",
-        checklist="",
-        key = "returns_online_policyIn_country",
-        options = {
-            "United States": "returns_online_policyIn_us",
-            "Puerto Rico": "returns_online_policyIn_pr",
-            "Canada": "returns_online_policyIn_ca",
-            //"France": "returns_online_policyIn_fr",
-            //"United Kingdom": "returns_online_policyIn_uk",
-        }
-    ),
-    new step (
-        title="Online Returns & Exchanges - United States",
-        question="",
-        checklist="returns_online_us",
-        key="returns_online_policyIn_us",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Online Returns & Exchanges - Puerto Rico",
-        question="",
-        checklist="returns_online_pr",
-        key="returns_online_policyIn_pr",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Online Returns & Exchanges - Canada",
-        question="",
-        checklist="returns_online_ca",
-        key="returns_online_policyIn_ca",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    //------------------------------
-    //  Returns - Online - Out Of Policy
-    //------------------------------
-    new step (
-        title="",
-        question = "Did a Customer Care manager approve of this out of policy return?",
-        checklist="",
-        key = "returns_online_policyOut_approval",
-        options = {
-            "Approved": "returns_online_policyout_approved_country",
-            "Denied": "returns_online_policyOut_denied"
-        }
-    ),
-    new step (
-        title="Out Of Policy Online Returns & Exchanges",
-        question = "What country was the online order sent to?",
-        checklist="",
-        key = "returns_online_policyout_approved_country",
-        options = {
-            "United States": "returns_online_policyOut_us",
-            "Puerto Rico": "returns_online_policyOut_pr",
-            "Canada": "returns_online_policyOut_ca",
-            //"France": "returns_online_policyOut_fr",
-            //"United Kingdom": "returns_online_policyOut_uk",
-        }
-    ),
-    new step (
-        title="Out Of Policy Online Returns & Exchanges - United States",
-        question="",
-        checklist="returns_online_policyOut_us",
-        key="returns_online_policyOut_us",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Out Of Policy Online Returns & Exchanges - Puerto Rico",
-        question="",
-        checklist="returns_online_policyOut_pr",
-        key="returns_online_policyOut_pr",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="Out Of Policy Online Returns & Exchanges - Canada",
-        question="",
-        checklist="returns_online_policyOut_ca",
-        key="returns_online_policyOut_ca",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    new step (
-        title="",
-        question = "Regretfully, this order cannot be refunded or exchanged. Please gently advise the customer we are unable to complete the return.",
-        checklist="",
-        key = "returns_online_policyOut_denied",
-        options = {
-            "Start Again": "start"
-        }
-    ),
-    //------------------------------
-    //  Services
-    //------------------------------
-    new step (
-        title="Repairs & Services",
-        question = "What kind of service do you need?",
-        checklist="",
-        key = "services_start",
-        options = {
-            "Repairs": "services_repair_start",
-            "Resizing": "services_resizing_start",
-            "Components": "services_components_start",
-            "Coddling Gifts": "services_gifts_start"
-        }
-    ),
-    new step (
-        title="IT Support Portal",
-        question = "",
-        checklist="it_support_portal",
-        key = "support_start",
-        options = {
-            "Start Again": "start",
-        }
-    )
-]
-
-//----------------------------------------------------------------------------------------------------
-//
-//  DATA: Checklists
-//
-//----------------------------------------------------------------------------------------------------
-
-class stepCheck {
-    constructor (title="", text=``, extraTitle=``, extra=``, filter="") {
-        this.title = title;
-        this.text = text;
-        this.extraTitle = extraTitle;
-        this.extra = extra;
-        this.filter = filter;
-    }
-}
-
-const stepChecks = [
-    new stepCheck (
-        title=``,
-        text=`Start by checking availability online at <a href="davidyurman.com" target="_blank">DavidYurman.com</a>. If available online, you may make your purchase directly from our webstore.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`If not in stock online, you may check availability from David Yurman boutiques with OmniChannel, SICX, or by calling the boutique. If available in store, you may assist the customer with a Personal Shop.`,
-        extraTitle = ``,
-        extra=``,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`If the customer wishes to make their purchase with the boutique, it's best to have to the boutique call the customer back directly. Alternatively, you may provide the customer with the boutique's phone number if they request it.`,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`If not immediately available, it would be safe to suggest a similar, alternative style around the same price (e.g. Rose instead of Yellow Gold, Amethyst instead of Blue Topaz, 7mm instead of 5mm).<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`If not in stock online or in store, if eligible for a preorder online, you may offer a preorder and place it directly from our webstore.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`If not in stock online or in store, you may suggest special ordering the jewelry in order to ensure the customer will get their piece at a later date.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Suggestion`,
-        extra=`If the customer does not wish to commit to a purchase immediately, you may suggest Notify Me.`,
-        filter="orders_availability_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your ticket at the <a href="https://helpdesk.davidyurman.com/support/home" target="_blank">IT Service Desk</a>.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Click <i>Report An Issue</i> on the navigation screen.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Enter your work email as the <i>Requester</i> if blank.`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`Note if your request affects multiple people.`,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Enter the title or subject of your request (For Example: Laptop screen flickering).<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Advise of your work location (Lyndhurst Distribution Center or Remote Location) and what's wrong in the Category drop down menu.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Enter the description of your issue. A template for details our IT department will find useful can be found in the IT section of DART if needed.`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`If needed, please attach any images or documents in the <i>Attachments</i> section.`,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Press the <i>Submit</i> button to submit your request. An IT Support Specialist will address your issue at their earliest convenience.`,
-        extraTitle = ``,
-        extra=``,
-        filter="it_support_portal",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Note`,
-        extra=`If a customer is near a <a href="https://www.davidyurman.com/stores?showMap=true&horizontalView=true&isForm=true&boutiques=true&retailers=true" target="_blank">David Yurman Store</a> and their return is within policy, a customer may complete their exchange or return of an online purchase at a full priced David Yurman store. Returns may not be made at authorized retailers.<br><br>Purchases made using Affirm are inelligible for a refund in store.`,
-        filter="returns_online_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your return at <a href="https://returns.narvar.com/davidyurman/returns" target="_blank">Narvar - United States</a>.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Input the Order Number and the Billing Address' Zip Code. Alternatively, you may input the Order Number and Shipping Address' Zip Code by selecting <i>Start A Gift Return</i> below.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Select the desired item. Select the reason for the return (Change Mind, Wrong Color, etc.), and whether the customer would like an exchange, merchandise credit, or a refund.<br><br>Do this for each item being returned.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Review your request and proceed with confirmations to generate your return label.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`Return labels are automatically sent to the email address associated with the order. If needed, you may send a return label to another address, or save the label as a PDF to email manually.`,
-        filter="returns_online_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Note`,
-        extra=`If a customer is near a <a href="https://www.davidyurman.com/stores?showMap=true&horizontalView=true&isForm=true&boutiques=true&retailers=true" target="_blank">David Yurman Store</a> and their return is within policy, a customer may complete their return for an online purchase at a full priced David Yurman store. Returns may not be made at authorized retailers.`,
-        filter="returns_online_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your return by downloading and filling out the associated commercial invoice for Puerto Rico. When filling out the commercial invoice, please note the customer will be considered the shipper.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Once completed, email your request to YDI Logistics with the commercial invoice attached, so they may review and provide you with the approved commercial invoice and a shipping label.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Warning`,
-        extra=`Please review to ensure your invoice is free of errors before submitting. If errors are included in your invoice, please review, make the appropriate corrections, then repeat <b>Step 2</b>.`,
-        filter="returns_online_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Email the customer the appropriate documents from Salesforce and make note of the tracking number.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Suggestion`,
-        extra=`If the customer is unsure of how to properly ship their return, a commercial invoice must be included inside the package as well as out.`,
-        filter="returns_online_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Note`,
-        extra=`If a customer is near a <a href="https://www.davidyurman.com/stores?showMap=true&horizontalView=true&isForm=true&boutiques=true&retailers=true" target="_blank">David Yurman Store</a> and their return is within policy, a customer may exchange their purchase for equal or greater value at a full priced David Yurman store. Returns may not be made at authorized retailers.`,
-        filter="returns_online_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your return at <a href="https://returns.narvar.com/davidyurman/returns?locale=en_CA" target="_blank">Narvar - Canada</a>.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Input the Order Number and the Billing Address' Postal Code. Alternatively, you may input the Order Number and Shipping Address's Postal Code by selecting <i>Start A Gift Return</i> below.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Select the desired item. Select the reason for the return (Change Mind, Wrong Color, etc.), and whether the customer would like merchandise credit, or a refund.<br><br>Do this for each item being returned.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Review your request and proceed with confirmations to generate your return label.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`Return labels are automatically sent to the email address associated with the order. If needed, you may send a return label to another address, or save the label as a PDF to email manually.`,
-        filter="returns_online_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Note`,
-        extra=`If a customer is near a <a href="https://www.davidyurman.com/stores?showMap=true&horizontalView=true&isForm=true&boutiques=true&retailers=true" target="_blank">David Yurman Store</a>, we are unable to guarantee that the store will accept their return. If a customer would like to make a return in store, we should contact the store first to see if they able to process the out of policy return. Returns may not be made at authorized retailers.<br><br>Out of policy returns are inelligible for a refund.`,
-        filter="returns_online_policyOut_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your return at <a href="https://returns.narvar.com/davidyurman/returns?userType=20100420DY&locale=en_us" target="_blank">Narvar - United States</a> to process an out of policy return.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Input the Order Number and the Billing Address' Zip Code. Alternatively, you may input the Order Number and Shipping Address' Zip Code by selecting <i>Start A Gift Return</i> below.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Select the desired item. Select the reason for the return (Change Mind, Wrong Color, etc.), and whether the customer would like an exchange or merchandise credit.<br><br>Do this for each item being returned.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Review your request and proceed with confirmations to generate your return label.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`Return labels are automatically sent to the email address associated with the order. If needed, you may send a return label to another address, or save the label as a PDF to email manually.`,
-        filter="returns_online_policyOut_us",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Note`,
-        extra=`If a customer is near a <a href="https://www.davidyurman.com/stores?showMap=true&horizontalView=true&isForm=true&boutiques=true&retailers=true" target="_blank">David Yurman Store</a>, we are unable to guarantee that the store will accept their return. If a customer would like to make a return in store, we should contact the store first to see if they able to process the out of policy return. Returns from Puerto Rico may not be made at local authorized retailers.<br><br>Out of policy returns are inelligible for a refund.`,
-        filter="returns_online_policyOut_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your return by downloading and filling out the associated commercial invoice for Puerto Rico.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Once completed, email your request to YDI Logistics with the commercial invoice attached, so they may review and provide you with the approved commercial invoice and a shipping label.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Warning`,
-        extra=`Please review to ensure your invoice is free of errors before submitting. If errors are included in your invoice, please review, make the appropriate corrections, then repeat <b>Step 2</b>.`,
-        filter="returns_online_policyOut_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Email the customer the appropriate documents from Salesforce and make note of the tracking number.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Suggestion`,
-        extra=`If the customer is unsure of how to properly ship their return, a commercial invoice must be included inside the package as well as out.`,
-        filter="returns_online_policyOut_pr",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Note`,
-        extra=`If a customer is near a <a href="https://www.davidyurman.com/stores?showMap=true&horizontalView=true&isForm=true&boutiques=true&retailers=true" target="_blank">David Yurman Store</a>, we are unable to guarantee that the store will accept their return. If a customer would like to make a return in store, we should contact the store first to see if they able to process the out of policy return. Returns may not be made at authorized retailers.<br><br>A customer may exchange their purchase for equal or greater value.<br><br>Out of policy returns are inelligible for a refund.`,
-        filter="returns_online_policyOut_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Start your return at <a href="https://returns.narvar.com/davidyurman/returns?userType=20100420DY&locale=en_ca" target="_blank">Narvar - Canada</a> to process an out of policy return.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Input the Order Number and the Billing Address' Postal Code. Alternatively, you may input the Order Number and Shipping Address' Postal Code by selecting <i>Start A Gift Return</i> below.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Select the desired item. Select the reason for the return (Change Mind, Wrong Color, etc.), and select merchandise credit.<br><br>Do this for each item being returned.<br><br>`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=`Review your request and proceed with confirmations to generate your return label.`,
-        extraTitle = ``,
-        extra=``,
-        filter="returns_online_policyOut_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = `Optional`,
-        extra=`Return labels are automatically sent to the email address associated with the order. If needed, you may send a return label to another address, or save the label as a PDF to email manually.`,
-        filter="returns_online_policyOut_ca",
-    ),
-    new stepCheck (
-        title=``,
-        text=``,
-        extraTitle = ``,
-        extra=``,
-        filter="",
+    new link (
+        title="Recommended Pen Refills",
+        subtitle = "Recommended pen refills from Amazon.",
+        subtitleIcon = "",
+        subtitleDesc = "",
+        filter="gifts",
+        html=`<ul>
+        <li><a target="_blank" href="https://www.amazon.com/Schmidt-Ballpoint-Refill-Medium-SC58149/dp/B0102RFPG4/ref=sr_1_1?dchild=1&keywords=Pen+Refills+Schmidt+Technology+635+M&qid=1587055505&sr=8-1">Schmidt Technology 635 M</a></li>
+        <ul>`,
+        id="lnkGftPenInkAmzn"
     ),
 ]
 
@@ -3940,12 +3227,79 @@ const notes = [
         id="notRtnPlcyHldy"
     ),
     new note (
-        title="2025 Gifts With Purchase",
+        title="Diamond & Gemstone Cuts",
         subtitle="",
-        filter = "holiday",
-        html = `<p><b>Gift(s):</b> TBD</p>
-        <p><b>Ornament:</b> TBD</p>`,
-        id="notHldyGWP"
+        filter = "product",
+        html = ``,
+        id="notPrdGemsDmdsCuts"
+    ),
+    new note (
+        title="Style Number Guide",
+        subtitle="",
+        filter = "product",
+        html = ``,
+        id="notPrdStylNmbr"
+    ),
+    new note (
+        title="Earring Post & Back Metal Cheat Sheet",
+        subtitle="",
+        filter = "product",
+        html = `<p>Use the chart to determine which earring backs and earring posts match each base earring metal.<p><br>
+        <table class="hoverTable" style="width: 100%">
+            <tr>
+                <th style="width: 150px;">Earring Base Metal</th>
+                <th style="width: 150px;">Earring Post Metal</th>
+		<th style="width: 150px;">Earring Back Metal</th>
+            </tr>
+            <tr>
+                <td>Black Titanium</td>
+                <td>14k Yellow Gold</td>
+                <td>18k Yellow Gold</td>
+            </tr>
+            <tr>
+                <td>Sterling Silver</td>
+                <td>14k Yellow Gold</td>
+                <td>Sterling Silver</td>
+            </tr>
+            <tr>
+                <td>Sterling Silver with 18k Yellow Gold</td>
+                <td>14k Yellow Gold</td>
+                <td>Sterling Silver</td>
+            </tr>
+            <tr>
+                <td>Sterling Silver with 18k Rose Gold</td>
+                <td>18k Rose Gold</td>
+                <td>Sterling Silver</td>
+            </tr>
+            <tr>
+                <td>18k Yellow Gold</td>
+                <td>18k Yellow Gold</td>
+                <td>18k Yellow Gold</td>
+            </tr>
+            <tr>
+                <td>18k Rose Gold</td>
+                <td>18k Rose Gold</td>
+                <td>18k Rose Gold</td>
+            </tr>
+            <tr>
+                <td>18k White Gold</td>
+                <td>18k White Gold</td>
+                <td>18k White Gold</td>
+            </tr>
+            <tr>
+                <td>Platinum</td>
+                <td>Platinum</td>
+                <td>Platinum</td>
+            </tr>
+        </table>`,
+        id="notPrdRingRszg"
+    ),
+    new note (
+        title="Ring Resizing Guide",
+        subtitle="",
+        filter = "repairs",
+        html = ``,
+        id="notRprRingRszg"
     )
 ]
 
@@ -4276,13 +3630,109 @@ const tools = [
         functions = [],
     ),
     new tool (
+        title = "UPS Hold Location Finder",
+        subtitle = "Locate UPS locations via the UPS website.",
+        warning = "Please only use <b>UPS Stores</b> or <b>Access Points</b> in close proximity to the delivery address.<br><br>If a location is too far or no locations are unavailable, please check in with a supervisor for further assistance.",
+        filter ="fedex",
+        html = `
+	<p>Country:</p>
+        <select class="element" id="UPSHoldLocationFinderCountry">
+		<option value="us">United States</option>
+		<option value="ca">Canada</option>
+	</select><br><br>
+	<p>States & Providences:</p>
+	<select class="element" id="UPSHoldLocationFinderState">
+		<optgroup label="US States">
+		<option value="AL">Alabama</option>
+		<option value="AK">Alaska</option>
+		<option value="AZ">Arizona</option>
+		<option value="AR">Arkansas</option>
+		<option value="CA">California</option>
+		<option value="CO">Colorado</option>
+		<option value="CT">Connecticut</option>
+		<option value="DE">Delaware</option>
+		<option value="DC">District Of Columbia</option>
+		<option value="FL">Florida</option>
+		<option value="GA">Georgia</option>
+		<option value="HI">Hawaii</option>
+		<option value="ID">Idaho</option>
+		<option value="IL">Illinois</option>
+		<option value="IN">Indiana</option>
+		<option value="IA">Iowa</option>
+		<option value="KS">Kansas</option>
+		<option value="KY">Kentucky</option>
+		<option value="LA">Louisiana</option>
+		<option value="ME">Maine</option>
+		<option value="MD">Maryland</option>
+		<option value="MA">Massachusetts</option>
+		<option value="MI">Michigan</option>
+		<option value="MN">Minnesota</option>
+		<option value="MS">Mississippi</option>
+		<option value="MO">Missouri</option>
+		<option value="MT">Montana</option>
+		<option value="NE">Nebraska</option>
+		<option value="NV">Nevada</option>
+		<option value="NH">New Hampshire</option>
+		<option value="NJ">New Jersey</option>
+		<option value="NM">New Mexico</option>
+		<option value="NY">New York</option>
+		<option value="NC">North Carolina</option>
+		<option value="ND">North Dakota</option>
+		<option value="OH">Ohio</option>
+		<option value="OK">Oklahoma</option>
+		<option value="OR">Oregon</option>
+		<option value="PA">Pennsylvania</option>
+		<option value="RI">Rhode Island</option>
+		<option value="SC">South Carolina</option>
+		<option value="SD">South Dakota</option>
+		<option value="TN">Tennessee</option>
+		<option value="TX">Texas</option>
+		<option value="UT">Utah</option>
+		<option value="VT">Vermont</option>
+		<option value="VA">Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="WV">West Virginia</option>
+		<option value="WI">Wisconsin</option>
+		<option value="WY">Wyoming</option>
+		</optgroup>
+		<optgroup label="US Territories">
+		<option value="AS">American Samoa</option>
+		<option value="GU">Guam</option>
+		<option value="MP">Northern Mariana Islands</option>
+		<option value="PR">Puerto Rico</option>
+		<option value="UM">United States Minor Outlying Islands</option>
+		<option value="VI">Virgin Islands</option>
+		</optgroup>
+		<optgroup label="Canadian Provinces">
+		<option value="AB">Alberta</option>
+		<option value="BC">British Columbia</option>
+		<option value="MB">Manitoba</option>
+		<option value="NB">New Brunswick</option>
+		<option value="NF">Newfoundland</option>
+		<option value="NT">Northwest Territories</option>
+		<option value="NS">Nova Scotia</option>
+		<option value="NU">Nunavut</option>
+		<option value="ON">Ontario</option>
+		<option value="PE">Prince Edward Island</option>
+		<option value="QC">Quebec</option>
+		<option value="SK">Saskatchewan</option>
+		<option value="YT">Yukon Territory</option>
+		</optgroup>
+	</select><br><br>
+	<p>City:</p>
+        <input type="text" id="UPSHoldLocationFinderCity" placeholder="City"><br><br>
+        <button class="textButton" onclick="UPSHoldLocationFinder()" title="Locate approved Hold For Pickup locations via the UPS website."><i class="bi bi-gear"></i> Find A UPS Location</button><br><br>`,
+        id="tolUPSLctnFndr",
+        functions = [],
+    ),	
+    new tool (
         title = "FedEx Hold Location Finder",
         subtitle = "Locate approved Hold For Pickup locations via the FedEx website.",
         warning = "If a location is too far or unavailable, please check in with a supervisor for further assistance.",
         filter ="fedex",
         html = `<p>Enter Zip or Postal Code:</p>
         <input type="text" id="FedExHoldLocationFinderZipPostalCode" placeholder="Zip or Postal Code"><br><br>
-        <button class="textButton" onclick="FedExHoldLocationFinder()" title="Locate approved Hold For Pickup locations via the FedEx website."><i class="bi bi-gear"></i> Find A Location</button><br><br>`,
+        <button class="textButton" onclick="FedExHoldLocationFinder()" title="Locate approved Hold For Pickup locations via the FedEx website."><i class="bi bi-gear"></i> Find A FedEx Location</button><br><br>`,
         id="tolFdxLctnFndr",
         functions = [],
     ),
@@ -7398,13 +6848,25 @@ const collections = [
         title = "Albion",
         subtitle = "Classic",
         root = "Albion",
-        image = "",
+        image = "albion.jpg",
         description = "Albion",
         history="The Albion® Collection’s unique cushion-cut center stone was David Yurman’s innovative solution to use an oversize gemstone in a refined modern setting with classical proportions.",
+        metalsUsed = ["Sterling Silver", "Darkened Sterling Silver", "18k Yellow Gold"], 
+        stonesUsed = [],
+        cutsUsed = ["Cushion", "Round", "Oval"],
+        details = ["Split Shank", "Pave Bezel", "Cabling"],
+    ),
+    new DYCollection (
+        title = "Chatelaine",
+        subtitle = "Classic",
+        root = "Chatelaine",
+        image = "chatelaine.jpg",
+        description = "Chatelaine",
+        history="...",
         metalsUsed = ["Sterling Silver", "18k Yellow Gold"],
         stonesUsed = ["Black Onyx"],
         cutsUsed = ["Cushion"],
-        details = [""],
+        details = ["Prongs"],
     ),
 ]
 
@@ -7882,35 +7344,35 @@ function addFavorites() {
                             {title: "Department", content: tmp.department},
                             {title: "Order Number", content: tmp.orderNumber},
                             {title: "Task Type", content: tmp.task},
-                        ], tmp.warning, true, tmp.text, true, findFavorite(tmp.id), tmp.id, 0);
+                        ], tmp.warning, true, tmp.text, true, findFavorite(tmp.id), tmp.id, []);
                     }
                 }
             } else if (favorite.startsWith("blb")) {
                 for (const blb of blurbs) {
                     if (favorite == blb.id) {
-                        appendArticle(blb.id, "blurbs", "Blurb", blb.title, "", "", "", blb.text, {}, "", blb.tags.split(" "), "", [], "", true, blb.text, true, findFavorite(blb.id), blb.id, 0);
+                        appendArticle(blb.id, "blurbs", "Blurb", blb.title, "", "", "", blb.text, {}, "", blb.tags.split(" "), "", [], "", true, blb.text, true, findFavorite(blb.id), blb.id, []);
                     }
                 }
             } else if (favorite.startsWith("not")) {
                 for (const not of notes) {
                     if (favorite == not.id) {
-                        appendArticle(not.id, "notes", "Notes", not.title, not.subtitle, "", "", not.html, {}, "", [], "", [], "", false, "", true, findFavorite(not.id), not.id, 0);
+                        appendArticle(not.id, "notes", "Notes", not.title, not.subtitle, "", "", not.html, {}, "", [], "", [], "", false, "", true, findFavorite(not.id), not.id, []);
                     }
                 }
             } else if (favorite.startsWith("tol")) {
                 for (const tol of tools) {
                     if (favorite == tol.id) {
                         if (tol.hidden == true){
-                            appendArticle(tol.id, "tools", "Tool", tol.title, tol.subtitle, "", "", "<i>This tool has depreciated. Please remove from your favorites.</i>", {}, "", [], "", [], "", false, "", true, findFavorite(tol.id), tol.id, 0);
+                            appendArticle(tol.id, "tools", "Tool", tol.title, tol.subtitle, "", "", "<i>This tool has depreciated. Please remove from your favorites.</i>", {}, "", [], "", [], "", false, "", true, findFavorite(tol.id), tol.id, []);
                         } else {
-                            appendArticle(tol.id, "tools", "Tool", tol.title, tol.subtitle, "", "", tol.html, {}, "", [], "", [], tol.warning, false, "", true, findFavorite(tol.id), tol.id, 0);
+                            appendArticle(tol.id, "tools", "Tool", tol.title, tol.subtitle, "", "", tol.html, {}, "", [], "", [], tol.warning, false, "", true, findFavorite(tol.id), tol.id, []);
                         }
                     }
                 }
             } else if (favorite.startsWith("lnk")) {
                 for (const lnk of links) {
                     if (favorite == lnk.id) {
-                        appendArticle(lnk.id, "links", "Links", lnk.title, lnk.subtitle, lnk.subtitleIcon, lnk.subtitleDesc, lnk.html, {}, "", [], "", [], "", false, "", true, findFavorite(lnk.id), lnk.id, 0);
+                        appendArticle(lnk.id, "links", "Links", lnk.title, lnk.subtitle, lnk.subtitleIcon, lnk.subtitleDesc, lnk.html, {}, "", [], "", [], "", false, "", true, findFavorite(lnk.id), lnk.id, []);
                     }
                 }
             }
@@ -8008,18 +7470,18 @@ function drawDashboard() {
         appendArticle("dashboardGreeting", "dashboard", "", "Featured Content", greetings[Math.floor(Math.random() * greetings.length)] + ", " + firstName + ". Welcome Back!", "emoji-smile", "", "Working on something time sensitive? Feeling overwhelmed? Want to keep things simple?<br>Try out some of DART's featured content.<br><br><div id='banners'></div>", {}, "", [], "", [], "", false, "", false, false, false, 0);
     }
 
-    appendArticle("dashboardTimeSheet", "dashboard", "", "Review Your Time Sheet", "Productivity", "clock", "", "Give yourself the pay you deserve this pay period by reviewing your time sheet now and reporting any inaccuracies.<br><br><a href='https://www.myworkday.com/davidyurman/login.htmld' target='_blank'>Review Your Time Sheet</a>", {}, "https://media.istockphoto.com/id/961742336/photo/businesswoman-checking-the-time-on-watch.jpg?s=612x612&w=0&k=20&c=ALcjYVpDVKroYdVv2WWBC7C8pzgIaDOZ5AhWZn9KDq4=", [], "", [], "", false, "", false, false, false, 0);
+    appendArticle("dashboardTimeSheet", "dashboard", "", "Review Your Time Sheet", "Productivity", "clock", "", "Give yourself the pay you deserve this pay period by reviewing your time sheet now and reporting any inaccuracies.<br><br><a href='https://www.myworkday.com/davidyurman/login.htmld' target='_blank'>Review Your Time Sheet</a>", {}, "https://media.istockphoto.com/id/961742336/photo/businesswoman-checking-the-time-on-watch.jpg?s=612x612&w=0&k=20&c=ALcjYVpDVKroYdVv2WWBC7C8pzgIaDOZ5AhWZn9KDq4=", [], "", [], "", false, "", false, false, false, []);
 
-    appendArticle("dashboardFavorites", "dashboard", "", "You've Saved " + favoriteCount() + " Favorite(s)", "Favorites", "star", "", "Saving content for later makes your work day much easier. Click <i>View Favorites</i> to view or manage your favorites.<br><br><a onclick='addFavorites()' href='javascript:void(0);'>View Favorites</a>", {}, "https://www.corporatevision-news.com/wp-content/uploads/2022/03/Work-Tools.jpg", [], "", [], "", false, "", false, false, false, 0);
+    appendArticle("dashboardFavorites", "dashboard", "", "You've Saved " + favoriteCount() + " Favorite(s)", "Favorites", "star", "", "Saving content for later makes your work day much easier. Click <i>View Favorites</i> to view or manage your favorites.<br><br><a onclick='addFavorites()' href='javascript:void(0);'>View Favorites</a>", {}, "https://www.corporatevision-news.com/wp-content/uploads/2022/03/Work-Tools.jpg", [], "", [], "", false, "", false, false, false, []);
 
-    appendArticle("dashboardNotifications", "dashboard", "", "Notifications", "Productivity", "clock", "", "What have you been up to? Take a look by clicking <i>View Notifications</i>, and view your last " + noticesMax +" actions.<br><br><a onclick='addNotices()' href='javascript:void(0);'>View Notifications</a>", {}, "https://media.istockphoto.com/id/1388642146/photo/call-center-workers.jpg?b=1&s=170667a&w=0&k=20&c=vhEceInRNbuimQBoohUPXBBzHtZbusPKD7y6fd1u9OU=", [], "", [], "", false, "", false, false, false, 0);
+    appendArticle("dashboardNotifications", "dashboard", "", "Notifications", "Productivity", "clock", "", "What have you been up to? Take a look by clicking <i>View Notifications</i>, and view your last " + noticesMax +" actions.<br><br><a onclick='addNotices()' href='javascript:void(0);'>View Notifications</a>", {}, "https://media.istockphoto.com/id/1388642146/photo/call-center-workers.jpg?b=1&s=170667a&w=0&k=20&c=vhEceInRNbuimQBoohUPXBBzHtZbusPKD7y6fd1u9OU=", [], "", [], "", false, "", false, false, false, []);
 
     for (const hol of holidayToday) {
-        appendArticle("dashboardHoliday" + hol, "dashboard", "", holidays[hol].title + " Is " + holidays[hol].ending + "!", "Holiday", "calendar", "", "Celebrating? Honoring? Memorializing? Click<br><i>View Holiday Ideas</i> for inspiration.<br><br><a href='https://www.google.com/search?q=" + holidays[hol].title + "+Ideas' target='_blank'>View Holiday Ideas</a><br><a href='javascript:void(0);' onclick='setColorScheme(" + holidays[hol].colorScheme + ")'>Use Holiday Color Scheme</a>", {}, holidays[hol].image, [], "", [], "", false, "", false, false, false, 0);
+        appendArticle("dashboardHoliday" + hol, "dashboard", "", holidays[hol].title + " Is " + holidays[hol].ending + "!", "Holiday", "calendar", "", "Celebrating? Honoring? Memorializing? Click<br><i>View Holiday Ideas</i> for inspiration.<br><br><a href='https://www.google.com/search?q=" + holidays[hol].title + "+Ideas' target='_blank'>View Holiday Ideas</a><br><a href='javascript:void(0);' onclick='setColorScheme(" + holidays[hol].colorScheme + ")'>Use Holiday Color Scheme</a>", {}, holidays[hol].image, [], "", [], "", false, "", false, false, false, []);
     }
 
     for (const uhol of holidayUpcoming) {
-        appendArticle("dashboardHoliday" + uhol, "dashboard", "", holidays[uhol].title + " Is Coming!", "Holiday", "calendar", "", "Celebrating? Honoring? Memorializing? Click<br><i>View Holiday Ideas</i> for inspiration.<br><br><a href='https://www.google.com/search?q=" + holidays[uhol].title + "+Ideas' target='_blank'>View Holiday Ideas</a><br><a href='javascript:void(0);' onclick='setColorScheme(" + holidays[uhol].colorScheme + ")'>Use Holiday Color Scheme</a>", {}, holidays[uhol].image, [], "", [], "", false, "", false, false, false, 0);
+        appendArticle("dashboardHoliday" + uhol, "dashboard", "", holidays[uhol].title + " Is Coming!", "Holiday", "calendar", "", "Celebrating? Honoring? Memorializing? Click<br><i>View Holiday Ideas</i> for inspiration.<br><br><a href='https://www.google.com/search?q=" + holidays[uhol].title + "+Ideas' target='_blank'>View Holiday Ideas</a><br><a href='javascript:void(0);' onclick='setColorScheme(" + holidays[uhol].colorScheme + ")'>Use Holiday Color Scheme</a>", {}, holidays[uhol].image, [], "", [], "", false, "", false, false, false, []);
     }
 }
 
@@ -8704,55 +8166,64 @@ function toggleLite () {
 
 //----------------------------------------------------------------------------------------------------
 //
-//  FUNCTIONS: Tabs
+//  FUNCTIONS: Tabs xxx
 //
 //----------------------------------------------------------------------------------------------------
 
-function addTabs () {
-    const container = document.getElementById("tabs");
+function addTabGroups () {
+    const tabGroupContainer = document.getElementById("tabs");
+    tabGroupContainer.innerHTML = ``;
+    let first = true;
 
-    container.innerHTML = ``;
+    for (let t = 0; t < tabGroups.length; t++) {
+        const container = document.createElement("details");
+        const title = document.createElement("summary");
+        const body = document.createElement("div")
 
-    if (!lite_mode) {
-        document.getElementById("lite_title").style.display = "none";
-    } else {
-        document.getElementById("lite_title").style.display = "block";
+        if (first) {
+            container.open = true;
+            first = false;
+        }
+
+        //title.innerHTML = `<span>` + setIcon(tabGroups[t].icon) + `&emsp;` + tabGroups[t].title + `</span>`;
+        title.innerHTML = tabGroups[t].title;
+
+        body.id = tabGroups[t].id + `TabGroup`;
+
+        container.appendChild(title);
+        container.appendChild(body);
+
+        tabGroupContainer.appendChild(container);
     }
+}
 
+function addTabs () {
+    addTabGroups ();
+    
     for (let t = 0; t < tabs.length; t++) {
         if (!lite_mode || lite_mode == true && tabs[t].lite == true)
         {
-            const tabContainer = document.createElement("div");
-            const button = document.createElement("button");
-            const icon = document.createElement("i");
-            const p = document.createElement("p");
+            const container = document.getElementById(tabs[t].group + `TabGroup`);
 
-            tabContainer.className = "tab";
+            const button = document.createElement("a");
 
-            button.title = tabs[t].title;
-            button.id = tabs[t].id + "Tab";
-            button.classList.add("tab");
+            button.innerHTML = `<span>` + setIcon(tabs[t].icon) + `&emsp;` + tabs[t].title + `</span>`;
+            button.id = tabs[t].id + `Tab`;
+            button.href = `javascript:void`;
+            button.style.display = `block`;
 
             button.addEventListener("click", function() {
-                showTab(tabs[t].id, tabs[t].changelog);
+                showTab(tabs[t].id);
             });
 
-            icon.className = "bi bi-" + tabs[t].icon;
-
-            p.innerHTML = tabs[t].title;
-            p.wordWrap = "break-word";
-
-            button.appendChild(icon);
-
-            tabContainer.appendChild(button);
-            tabContainer.appendChild(p);
-
-            container.appendChild(tabContainer);
+            if (container) {
+                container.appendChild(button);
+            }
         }
     }
 }
 
-function showTab (id="") {
+function showTab (id) {
     jumpToTop();
     clear();
     
@@ -8816,11 +8287,7 @@ function showTab (id="") {
 //----------------------------------------------------------------------------------------------------
 
 function addTip () {
-    const tipContainer = document.getElementById("tip");
-
-    if (tipContainer) {
-        tipContainer.innerHTML = updateText(tips[Math.floor(Math.random() * tips.length)].text);
-    }
+    setNotice ("Tip Of The Day!", updateText(tips[Math.floor(Math.random() * tips.length)].text));
 }
 
 //----------------------------------------------------------------------------------------------------
@@ -8858,7 +8325,7 @@ function searchTemplates (query) {
                             {title: "Department", content: templates[t].department},
                             {title: "Order Number", content: templates[t].orderNumber},
                             {title: "Task Type", content: templates[t].task},
-                        ], templates[t].warning, true, templates[t].text, true, findFavorite(templates[t].id), templates[t].id, 0);
+                        ], templates[t].warning, true, templates[t].text, true, findFavorite(templates[t].id), templates[t].id, []);
                         results++;
                         break;
                     }
@@ -8910,7 +8377,7 @@ function addTemplates (id, delay) {
                 {title: "Department", content: templates[t].department},
                 {title: "Order Number", content: templates[t].orderNumber},
                 {title: "Task Type", content: templates[t].task},
-            ], templates[t].warning, true, HTMLToRichText(templates[t].text), true, findFavorite(templates[t].id), templates[t].id, 0);
+            ], templates[t].warning, true, HTMLToRichText(templates[t].text), true, findFavorite(templates[t].id), templates[t].id, []);
         }
     }
 }
@@ -8921,7 +8388,7 @@ function replaceTemplate (id, subid)
 
     for (let i = 0; i < subtemplates.length; i++) {
         if (subtemplates[i].subid == subid) {
-            //Replace Normal Text xxx
+            //Replace Normal Text
             test.childNodes[5].childNodes[0].innerHTML = subtemplates[i].text;
 
             //Replace Contacts
@@ -8930,7 +8397,7 @@ function replaceTemplate (id, subid)
             //Replace Assignments
             if (subtemplates[i].assign)
             {
-                test.childNodes[3].childNodes[0].childNodes[1].innerHTML = subtemplates[i].assign;
+                test.childNodes[3].childNodes[0].childNodes[1].innerHTML = setIcon(iconAssignments[subtemplates[i].assignType]) + ` ` + subtemplates[i].assign;
                 test.childNodes[3].childNodes[1].childNodes[1].innerHTML = subtemplates[i].department;
             }
 
@@ -8964,7 +8431,7 @@ function addNotes (id) {
 
     for (let n = 0; n < notes.length; n++) {
         if (notes[n].filter == id) {
-            appendArticle(notes[n].id, "notes", "Note", notes[n].title, notes[n].subtitle, "", "", notes[n].html, {}, "", [], "", [], "", false, "", true, findFavorite(notes[n].id), notes[n].id, 0);
+            appendArticle(notes[n].id, "notes", "Note", notes[n].title, notes[n].subtitle, "", "", notes[n].html, {}, "", [], "", [], "", false, "", true, findFavorite(notes[n].id), notes[n].id, []);
         }
     }
 }
@@ -8994,7 +8461,7 @@ function searchNotes (query) {
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
                         //appendNote(notes[n]);
-                        appendArticle(notes[n].id, "notes", "Note", notes[n].title, notes[n].subtitle, "", "", notes[n].html, {}, "", [], "", [], "", false, "", true, findFavorite(notes[n].id), notes[n].id, 0);
+                        appendArticle(notes[n].id, "notes", "Note", notes[n].title, notes[n].subtitle, "", "", notes[n].html, {}, "", [], "", [], "", false, "", true, findFavorite(notes[n].id), notes[n].id, []);
                         results++;
                         break;
                     }
@@ -9050,7 +8517,7 @@ function addLinks (id) {
 
     for (let l = 0; l < links.length; l++) {
         if (links[l].filter == id) {
-            appendArticle(links[l].id, "links", "Links", links[l].title, links[l].subtitle, links[l].subtitleIcon, links[l].subtitleDesc, links[l].html, {}, "", [], "", [], "", false, "", true, findFavorite(links[l].id), links[l].id, 0);
+            appendArticle(links[l].id, "links", "Links", links[l].title, links[l].subtitle, links[l].subtitleIcon, links[l].subtitleDesc, links[l].html, {}, "", [], "", [], "", false, "", true, findFavorite(links[l].id), links[l].id, []);
         }
     }
 }
@@ -9091,7 +8558,7 @@ function searchLinks (query) {
                     matchCount += 1;
                     
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle(links[l].id, "links", "Links", links[l].title, links[l].subtitle, links[l].subtitleIcon, links[l].subtitleDesc, links[l].html, {}, "", [], "", [], "", false, "", true, findFavorite(links[l].id), links[l].id, 0);
+                        appendArticle(links[l].id, "links", "Links", links[l].title, links[l].subtitle, links[l].subtitleIcon, links[l].subtitleDesc, links[l].html, {}, "", [], "", [], "", false, "", true, findFavorite(links[l].id), links[l].id, []);
                         results++;
                         break;
                     }                   
@@ -9133,7 +8600,7 @@ function searchBlurbs (query) {
                     matchCount += 1;
                     
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle(blurbs[b].id, "blurbs", "Blurb", blurbs[b].title, "", "", "", blurbs[b].text, {}, "", blurbs[b].tags.split(" "), "", [], "", true, blurbs[b].text, true, findFavorite[blurbs[b].id], blurbs[b].id, 0);
+                        appendArticle(blurbs[b].id, "blurbs", "Blurb", blurbs[b].title, "", "", "", blurbs[b].text, {}, "", blurbs[b].tags.split(" "), "", [], "", true, blurbs[b].text, true, findFavorite[blurbs[b].id], blurbs[b].id, []);
                         results++;
                         break;
                     }                   
@@ -9148,7 +8615,7 @@ function searchBlurbs (query) {
 function addBlurbs (id) {
     for (let b = 0; b < blurbs.length; b++) {
         if (blurbs[b].filter.toLowerCase().includes(id)) {
-            appendArticle(blurbs[b].id, "blurbs", "Blurb", blurbs[b].title, "", "", "", blurbs[b].text, {}, "", blurbs[b].tags.split(" "), "", [], "", true, blurbs[b].text, true, findFavorite(blurbs[b].id), blurbs[b].id, 0);
+            appendArticle(blurbs[b].id, "blurbs", "Blurb", blurbs[b].title, "", "", "", blurbs[b].text, {}, "", blurbs[b].tags.split(" "), "", [], "", true, blurbs[b].text, true, findFavorite(blurbs[b].id), blurbs[b].id, []);
         }
     }
 }
@@ -9405,12 +8872,12 @@ function addTools (id) {
     for (let t = 0; t < tools.length; t++) {
         if (tools[t].filter == id) {
             if (tools[t].id == "tolBtqLctnList") {
-                appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", tools[t].html, {}, "", [], "", [], tools[t].warning, true, "", true, findFavorite(tools[t].id), tools[t].id, 0);
+                appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", tools[t].html, {}, "", [], "", [], tools[t].warning, true, "", true, findFavorite(tools[t].id), tools[t].id, []);
             } else {
                 if (tools[t].hidden == true) {
-                    appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", "<i>This tool has depreciated. Please remove from your favorites.</i>", {}, "", [], "", [], tools[t].warning, false, "", true, findFavorite(tools[t].id), tools[t].id, 0);
+                    appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", "<i>This tool has depreciated. Please remove from your favorites.</i>", {}, "", [], "", [], tools[t].warning, false, "", true, findFavorite(tools[t].id), tools[t].id, []);
                 } else {
-                    appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", tools[t].html, {}, "", [], "", [], tools[t].warning, false, "", true, findFavorite(tools[t].id), tools[t].id, 0);
+                    appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", tools[t].html, {}, "", [], "", [], tools[t].warning, false, "", true, findFavorite(tools[t].id), tools[t].id, []);
                 }
             }
         }
@@ -9460,7 +8927,7 @@ function searchTools (query) {
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
                         if (!tools[t].hidden) {
-                            appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", tools[t].html, {}, "", [], "", [], tools[t].warning, false, "", true, findFavorite(tools[t].id), tools[t].id, 0);
+                            appendArticle(tools[t].id, "tools", "Tool", tools[t].title, tools[t].subtitle, "", "", tools[t].html, {}, "", [], "", [], tools[t].warning, false, "", true, findFavorite(tools[t].id), tools[t].id, []);
                             results++;
                             break;    
                         }
@@ -9676,7 +9143,7 @@ function searchBoutiques (query) {
                             email: boutiques[b].email,
                             status: Number(boutiques[b].closed),
                         },
-                        boutiques[b].image, [], "", [], "", true, boutiques[b].copyable(), false, false, "", 0);
+                        boutiques[b].image, [], "", [], "", true, boutiques[b].copyable(), false, false, "", []);
                         results++;
                         break;
                     }
@@ -9799,10 +9266,13 @@ function generateTrackingUrl () {
         }
         
         if (generatedTracking) {
-            generatedTracking.innerHTML = `<b>Tracking URL:</b> ` + url + trackingNumber + `<br><br></button>`;
+
+	    url += trackingNumber;
+
+            generatedTracking.innerHTML = `<b>Tracking URL:</b> ` + url + `<br><br></button>`;
 
             const button = document.createElement("button");
-            button.innerHTML = `<i class="bi bi-` + iconClipboardOff + `"></i>`;
+            button.innerHTML = setIcon(iconClipboardOff);
             button.title = "Copy To Clipboard";
             button.href = "javascript:void(0)";
             button.classList.add("clipboard");
@@ -10042,90 +9512,6 @@ function addSteps (id) {
     body.animate(animationStep, timingStep);
 
     body.appendChild(container);
-}
-
-function showStep (key) {
-    for (const step of steps) {
-        if (step.key == key) {
-            const container = document.getElementById("step");
-
-            const title = document.createElement("h3");
-            const anchorContainer = document.createElement("div");
-            anchorContainer.display = "flex";
-            anchorContainer.flexWrap = "wrap";
-
-            title.innerHTML = step.title;
-
-            container.appendChild(document.createElement("hr"));
-            
-            if (step.title) {
-                container.appendChild(title);
-            }
-            
-            container.append(step.question);
-
-            if (step.checklist) {
-                var counter = 0;
-
-                for (const check of stepChecks) {
-                    if (check.filter == step.checklist) {
-                        
-                        const htmlContainer = document.createElement("div");
-
-                        if (check.extra) {
-                            container.appendChild(document.createElement("hr"));
-
-                            if (check.extraTitle) {
-                                container.innerHTML += `<b>` + check.extraTitle  + `: </b>`;
-                            }
-
-                            container.innerHTML += check.extra;
-
-                        container.appendChild(document.createElement("hr"));
-
-                        } else {
-                            counter += 1;
-
-                            htmlContainer.innerHTML += `<input style="height: 16px; width: 16px;" type="checkbox"> <b>` + counter  + `. </b>`;
-                            
-                            if (check.title) {
-                                htmlContainer.innerHTML += `<b>` + check.title  + `: </b>` + check.text;
-                            }
-                            
-                            htmlContainer.innerHTML += check.text;
-                        }
-
-                        container.append(htmlContainer);
-                    }
-                }
-            }
-
-            container.appendChild(document.createElement("br"));
-            container.appendChild(document.createElement("br"));
-
-            for (const [key, value] of Object.entries(step.options)) {
-                const button = document.createElement("button");
-                
-                button.display = "inline-block";
-                button.display.margin = "4px";
-                button.marginLeft = "0px";
-                button.innerHTML = key;
-                button.href = "javascript:void(0)";
-                button.className = "textButton";
-
-                button.addEventListener("click", function() {
-                    showStep (value);
-                });
-
-                anchorContainer.appendChild(button);
-            }
-
-            container.appendChild(anchorContainer);
-
-            window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-            return null;
-        }
-    }
 }
 
 //----------------------------------------------------------------------------------------------------
@@ -10453,7 +9839,7 @@ function searchStones (query) {
                     matchCount += 1;
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle("", "materials", "Stone", stones[b].title + " (" + stones[b].code + ")", "Gemstone", "gem", "", `<img src="images/stones/` + stones[b].code + `.jpg" class="elementSwatch">`, {}, "", [], "", [], "", true, stones[b].title + " (" + stones[b].code + ")", false, false, "", 0);
+                        appendArticle("", "materials", "Stone", stones[b].title + " (" + stones[b].code + ")", "Gemstone", "gem", "", `<img src="images/stones/` + stones[b].code + `.jpg" class="elementSwatch">`, {}, "", [], "", [], "", true, stones[b].title + " (" + stones[b].code + ")", false, false, "", []);
                         results++;
                     }
                 }
@@ -10536,7 +9922,7 @@ function searchMetals (query) {
                     matchCount += 1;
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle("", "materials", "Metal", metals[b].title + " (" + metals[b].code + ")", "Metal", "diamond-half", "", `<img src="images/metals/` + metals[b].code + `.jpg" class="elementSwatch">`, {}, "", [], "", [], "", true, metals[b].title + " (" + metals[b].code + ")", false, false, "", 0);
+                        appendArticle("", "materials", "Metal", metals[b].title + " (" + metals[b].code + ")", "Metal", "diamond-half", "", `<img src="images/metals/` + metals[b].code + `.jpg" class="elementSwatch">`, {}, "", [], "", [], "", true, metals[b].title + " (" + metals[b].code + ")", false, false, "", []);
                         results++;
                     }
                 }
@@ -10603,7 +9989,7 @@ function searchChains (query) {
                     matchCount += 1;
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle("", "materials", "Chain", chains[c].title + " (" + chains[c].code + ")", "Chain", "circle", "", "", {}, "", [], "", [], "", true, chains[c].title + " (" + chains[c].code + ")", false, false, "", 0);
+                        appendArticle("", "materials", "Chain", chains[c].title + " (" + chains[c].code + ")", "Chain", "circle", "", "", {}, "", [], "", [], "", true, chains[c].title + " (" + chains[c].code + ")", false, false, "", []);
                         results++;
                     }
                 }
@@ -10682,7 +10068,12 @@ function searchCollections (query) {
                     matchCount += 1;
 
                     if (matchCount/queryCount >= parseInt(document.getElementById("searchBarSettingSensitivity").value) / 100) {
-                        appendArticle("", "dycollections", "Collection", collections[c].title, collections[c].root, "collection", "", "", {}, "", [], "", [], "", true, collections[c].title + " (" + collections[c].subtitle + ")", false, false, "", 0);
+                        appendArticle("", "dycollections", "Collection", collections[c].title, "Collection", "collection", "", `<img src="images/collections/` + collections[c].image + `" class="elementSwatch">`, {}, "", collections[c].details, "", [], "", true, collections[c].title, false, false, "", [
+                            {title: "Metals:", content: collections[c].metalsUsed},
+                            {title: "Stones Used:", content: collections[c].stonesUsed},
+                            {title: "Stone Cuts:", content: collections[c].cutsUsed},
+                            {title: "Signature Details:", content: collections[c].details},
+                        ]);
                         results++;
                     }
                 }
@@ -10721,7 +10112,7 @@ function appendBanner (element) {
 //
 //----------------------------------------------------------------------------------------------------
 
-function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubtitle="", aSubtitleIcon="", aSubtitleDesc="", aBody="", aBoutique={}, aBoutiqueImage="", aTags=[], aContact="", aAssignments=[], aWarning="", canCopy=true, aCopyable="", canFavorite=true, isFavorite=false, aFavoriteId="", delay=0) {
+function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubtitle="", aSubtitleIcon="", aSubtitleDesc="", aBody="", aBoutique={}, aBoutiqueImage="", aTags=[], aContact="", aAssignments=[], aWarning="", canCopy=true, aCopyable="", canFavorite=true, isFavorite=false, aFavoriteId="", aExtaTags=[]) {
     const body = document.getElementById(aAppendTo);
     const article = createElement("article");
     let isTemplate = false;
@@ -10778,6 +10169,7 @@ function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubti
             const buttonCopy = document.createElement("button");
 
             buttonCopy.innerHTML = setIcon(iconClipboardOff);
+            buttonCopy.id = aId + "Copy";
             buttonCopy.title = "Copy To Clipboard";
             buttonCopy.classList.add("clipboard");
             buttonCopy.addEventListener ("click", function() {
@@ -10815,7 +10207,7 @@ function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubti
 
     article.appendChild(header);
 
-    //Build Filter Area xxx
+    //Build Filter Area
     const filter = document.createElement("div");
     const filterTitle = document.createElement("p");
     const filterContainer = document.createElement("div");
@@ -10852,6 +10244,13 @@ function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubti
                     removeActiveFromClassListByGroup(filterGroupClassName);
                     replaceTemplate(aId, subtemplates[i].subid);
                     this.classList.add("active");
+		    if (canCopy) {
+                        const buttonCopy = document.getElementById(aId + "Copy");
+			buttonCopy.innerHTML = setIcon(iconClipboardOff);
+		        buttonCopy.addEventListener ("click", function() {
+                            copyToClipboard(HTMLToRichText(updateText(subtemplates[i].text)));
+                        });
+		    }
                 });
 
                 filterContainer.appendChild(filterButton);
@@ -11018,7 +10417,7 @@ function appendArticle (aId="", aAppendTo="", aArticleType="", aTitle="", aSubti
         footerTags.style.flexWrap = "wrap";
 
         aTags.sort()
-
+        
         for (const tag of aTags) {
             const element = document.createElement("button");
             element.innerHTML = tag;
@@ -11844,7 +11243,7 @@ function generateBingoBoard () {
 
 //----------------------------------------------------------------------------------------------------
 //
-//  FUNCTIONS: TOOL: FedEx Hold Location Finder
+//  FUNCTIONS: TOOL: FedEx & UPS Hold Location Finder
 //
 //----------------------------------------------------------------------------------------------------
 
@@ -11865,6 +11264,28 @@ function FedExHoldLocationFinder ()
 	link.target = "_blank";
 	link.click();
 }
+
+function UPSHoldLocationFinder ()
+{
+	country = "";
+	state = "";
+	//city = "";
+
+	inputCountry = document.getElementById("UPSHoldLocationFinderCountry");
+	inputState = document.getElementById("UPSHoldLocationFinderState");
+	inputCity = document.getElementById("UPSHoldLocationFinderCity");
+
+	country = inputCountry.value.toLowerCase();
+	state = inputState.value.toLowerCase();
+	city = inputCity.value.replaceAll(" ", "").toLowerCase();
+
+	var link = document.createElement("a");
+	link.href = "https://locations.ups.com/" + country + "/en/" + state + "/" + city + "/";
+	link.target = "_blank";
+	link.click();
+}
+
+
 
 //----------------------------------------------------------------------------------------------------
 //
@@ -11889,7 +11310,6 @@ function GoogleSearchWithoutAI ()
 	link.target = "_blank";
 	link.click();
 }
-
 
 
 
