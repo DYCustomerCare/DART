@@ -6746,7 +6746,7 @@ const metals = [
     new metal (title="Multi 18k Gold", code="M8"),
     new metal (title="Black Titanium with 18k Yellow Gold", code="N8"),
     new metal (title="Black Titanium with Grey Titanium", code="NT"),
-    new metal (title="Black Titanium with Titanium", code="NU"),
+    new metal (title="Black Titanium with Grey Titanium", code="NU"),
     new metal (title="Copper with 22k Yellow Gold", code="O2"),
     new metal (title="Copper with 18k Yellow Gold", code="OH"),
     new metal (title="Copper with 18k Rose Gold", code="OR"),
