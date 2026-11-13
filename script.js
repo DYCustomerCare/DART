@@ -5874,7 +5874,21 @@ class version {
 
 const versions = [
     // Unlike other classes, Versions should be added top to bottom as this is how they will appear in the list.
-    new version  (
+     new version  (
+        number = "1.9.0",
+        title = "Turquoise",
+        date = "11/13/2026",
+        additions = [
+            "The sidebar has been streamlined for ease of access.",
+            "Sub Templates, which condense templates into larger umbrella categories to minimize search times and reduce confusion.",
+            "UPS Hold Location Finder makes it easier to find UPS locations.",
+        ],
+        changes = [
+            "Resolved issue regarding inability to copy templates.",
+            "Additional changes, updates to , and bug fixes since 2023.",
+        ]
+    ),
+	new version  (
         number = "1.8.0",
         title = "Crystal",
         date = "10/19/2023",
