@@ -5885,7 +5885,7 @@ const versions = [
         ],
         changes = [
             "Resolved issue regarding inability to copy templates.",
-            "Additional changes, updates to , and bug fixes since 2023.",
+            "Additional changes, updates, and bug fixes since 2023.",
         ]
     ),
 	new version  (
