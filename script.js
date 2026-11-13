@@ -6785,7 +6785,7 @@ const metals = [
     new metal (title="PVD Coated Stainless Steel", code="SX"),
     new metal (title="Recycled Sterling Silver", code="SY"),
     new metal (title="Grey Titanium with 18k Yellow Gold", code="T8"),
-    new metal (title="Titanium", code="TA"),
+    new metal (title="Anthracite Titanium", code="TA"),
     new metal (title="Black Titanium with Darkened Sterling Silver", code="TB"),
     new metal (title="Golden Titanium", code="TG"),
     new metal (title="Grey Titanium with 18k Yellow Gold and Darkened Sterling Silver", code="TK"),
