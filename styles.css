@@ -108,8 +108,8 @@ h3 {
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -148,6 +148,7 @@ h3 {
 #tabs {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }
@@ -155,6 +156,54 @@ h3 {
 #banners {
     display: flex;
     justify-content: space-between;
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; /* Chrome/Firefox */
+  cursor: pointer;
+  height: 32px;
+  padding: 0px 10px;
+  transition: var(--data-transition-speed);
+}
+
+details {
+    width: 100%;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+    background-color: var(--color-accent-light);
+}
+
+summary::after {
+  content: "\276F";
+  font-weight: bold;
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+details div {
+    margin: 8px 0px 16px 0px;
+}
+
+details div a {
+    display: block;
+    padding: 4px 32px;
+}
+
+details a:hover {
+    color: var(--color-secondary);
+    text-decoration: none;
 }
 
 #banners .banner {
@@ -166,7 +215,7 @@ h3 {
 }
 
 #banners .banner:hover {
-    border: 1px solid var(--color-accent-medium);
+    border: 1px solid var(--color-accent-light);
     cursor: pointer;
     scale: 105%;
     box-shadow: 0px 0px 8px #00000020;
@@ -236,27 +285,6 @@ th {
 
 .hoverTable tr td:nth-child(even) {
     width: 100px;
-}
-
-#tabs .tab {
-    height: calc(var(--button-tab-size) + var(--button-tab-text-area));
-    width: var(--button-tab-size);
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-#tabs .tab button {
-    width: var(--button-tab-size);
-    height: var(--button-tab-size);
-    font-size: var(--button-tab-icon-size);
-}
-
-#tabs .tab p {
-    height: var(--button-tab-text-area);
-    width: var(--button-tab-size);
-    text-align: center;
-    font-size:x-small;
-    word-wrap: break-word;
 }
 
 button:hover {
